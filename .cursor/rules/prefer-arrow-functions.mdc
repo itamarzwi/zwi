@@ -1,0 +1,20 @@
+---
+name: prefer-arrow-functions
+description: Prefer arrow functions unless named functions are required or preferred by a library
+alwaysApply: true
+
+---
+
+# Overview
+
+Always prefer arrow functions unless named functions are required or preferred by a library.
+
+## Example scenarios of named functions being required
+
+1. Function overloading with TypeScript.
+2. Functions that require an external `this` binding.
+
+## Example scenarios of named functions being preferred
+
+1. Functional components in React. These are functions that return JSX in .tsx files. They shuold always be named, NOT arrow.
+2. Cache libraries using function names for keys

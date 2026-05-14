@@ -1,0 +1,10 @@
+---
+name: no-try-catch-in-route-handlers
+description: Do not use try-catch in route handlers
+alwaysApply: true
+
+---
+
+# Overview
+
+Never use try-catch in route handlers. Just let the error get thrown.

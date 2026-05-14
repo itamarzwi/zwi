@@ -1,0 +1,32 @@
+---
+name: use-batch-promises
+description: Use batchPromises over naive for-of loop for batch async operations
+alwaysApply: true
+---
+
+# Overview
+
+Use the `batchPromises` helper instead of naive `for...of` loops or `Promise.all` when performing large-scale async operations. This prevents memory spikes and rate-limit errors by processing items in controlled concurrency windows.
+
+## When to Apply
+
+- Iterating over an array and calling an async function per item (API calls, DB writes, file I/O, etc.)
+- Any `Promise.all(items.map(...))` that could run unbounded in parallel
+- `for...of` loops with `await` inside that process more than a handful of items
+
+## Usage
+```ts
+import { batchPromises } from '../utils/batch.js';
+
+// ✅ Preferred
+const results = await batchPromises(items, (item) => processItem(item));
+
+// ❌ Avoid — unbounded parallelism
+const results = await Promise.all(items.map((item) => processItem(item)));
+
+// ❌ Avoid — fully serial, slow
+const results = [];
+for (const item of items) {
+  results.push(await processItem(item));
+}
+```

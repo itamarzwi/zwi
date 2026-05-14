@@ -1,8 +1,19 @@
+import { Check, Monitor, Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+
+import { Button } from "#/components/ui/button.tsx";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "#/components/ui/dropdown-menu.tsx";
+import { cn } from "#/lib/utils.ts";
 
 type ThemeMode = "light" | "dark" | "auto";
 
-function getInitialMode(): ThemeMode {
+const getInitialMode = (): ThemeMode => {
   if (typeof window === "undefined") {
     return "auto";
   }
@@ -13,9 +24,9 @@ function getInitialMode(): ThemeMode {
   }
 
   return "auto";
-}
+};
 
-function applyThemeMode(mode: ThemeMode) {
+const applyThemeMode = (mode: ThemeMode) => {
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const resolved = mode === "auto" ? (prefersDark ? "dark" : "light") : mode;
 
@@ -29,6 +40,29 @@ function applyThemeMode(mode: ThemeMode) {
   }
 
   document.documentElement.style.colorScheme = resolved;
+};
+
+const MODE_OPTIONS: {
+  value: ThemeMode;
+  label: string;
+  description: string;
+  Icon: typeof Sun;
+}[] = [
+  { value: "light", label: "Light", description: "Always use light appearance", Icon: Sun },
+  { value: "dark", label: "Dark", description: "Always use dark appearance", Icon: Moon },
+  { value: "auto", label: "System", description: "Match device appearance", Icon: Monitor },
+];
+
+function modeTriggerLabel(mode: ThemeMode): string {
+  if (mode === "auto") {
+    return "Theme: system. Open menu to choose appearance.";
+  }
+  return `Theme: ${mode}. Open menu to choose appearance.`;
+}
+
+function ThemeIcon({ mode, className }: { mode: ThemeMode; className?: string }) {
+  const Icon = MODE_OPTIONS.find((o) => o.value === mode)?.Icon ?? Monitor;
+  return <Icon className={cn("size-4", className)} aria-hidden />;
 }
 
 export default function ThemeToggle() {
@@ -54,27 +88,58 @@ export default function ThemeToggle() {
     };
   }, [mode]);
 
-  function toggleMode() {
-    const nextMode: ThemeMode = mode === "light" ? "dark" : mode === "dark" ? "auto" : "light";
-    setMode(nextMode);
-    applyThemeMode(nextMode);
-    window.localStorage.setItem("theme", nextMode);
-  }
-
-  const label =
-    mode === "auto"
-      ? "Theme mode: auto (system). Click to switch to light mode."
-      : `Theme mode: ${mode}. Click to switch mode.`;
+  const selectMode = (next: ThemeMode) => {
+    setMode(next);
+    applyThemeMode(next);
+    window.localStorage.setItem("theme", next);
+  };
 
   return (
-    <button
-      type="button"
-      onClick={toggleMode}
-      aria-label={label}
-      title={label}
-      className="rounded-full border border-[var(--chip-line)] bg-[var(--chip-bg)] px-3 py-1.5 text-sm font-semibold text-[var(--sea-ink)] shadow-[0_8px_22px_rgba(30,90,72,0.08)] transition hover:-translate-y-0.5"
-    >
-      {mode === "auto" ? "Auto" : mode === "dark" ? "Dark" : "Light"}
-    </button>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          type="button"
+          variant="outline"
+          size="icon-sm"
+          className="rounded-full"
+          aria-label={modeTriggerLabel(mode)}
+        >
+          <ThemeIcon mode={mode} />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent
+        align="end"
+        sideOffset={8}
+        className="min-w-44 w-auto data-[side=bottom]:slide-in-from-top-1 data-[side=top]:slide-in-from-bottom-1"
+      >
+        <DropdownMenuLabel className="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">
+          Appearance
+        </DropdownMenuLabel>
+        {MODE_OPTIONS.map(({ value, label, description, Icon }) => (
+          <DropdownMenuItem
+            key={value}
+            className="relative cursor-pointer gap-0 py-2.5 pr-9 pl-3"
+            title={description}
+            onSelect={(e) => {
+              e.preventDefault();
+              selectMode(value);
+            }}
+          >
+            <span className="flex min-w-0 flex-1 items-center gap-2.5">
+              <Icon className="size-4 shrink-0 text-muted-foreground" aria-hidden />
+              <span className="flex min-w-0 flex-col gap-0.5">
+                <span className="font-medium">{label}</span>
+                <span className="wrap-break-word text-xs leading-snug font-normal text-muted-foreground">
+                  {description}
+                </span>
+              </span>
+            </span>
+            <span className="pointer-events-none absolute top-1/2 right-2 flex size-4 -translate-y-1/2 items-center justify-center">
+              {mode === value ? <Check className="size-4" aria-hidden /> : null}
+            </span>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

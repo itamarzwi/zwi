@@ -1,0 +1,10 @@
+---
+name: never-lint
+description: Never try to lint and never try to fix lint errors after a prompt
+alwaysApply: true
+
+---
+
+# Overview
+
+Never try to lint the project or specific files within the project, and never try to fix lint errors, no matter what you do, ever.
