@@ -1,0 +1,12 @@
+{
+  "name": "@zwi/scripts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "hello": "tsx hello.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.5"
+  }
+}
