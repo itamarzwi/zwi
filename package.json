@@ -11,6 +11,11 @@
   "scripts": {
     "demo": "pnpm --filter @zwi/demo start",
     "hello": "pnpm --filter @zwi/scripts hello",
-    "test": "pnpm --filter @zwi/shared test"
+    "test": "pnpm --filter @zwi/shared test",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:"
   }
 }
