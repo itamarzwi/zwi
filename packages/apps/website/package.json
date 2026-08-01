@@ -26,6 +26,7 @@
     "@types/react-dom": "^18.2.19",
     "@types/shuffle-array": "^1.0.5",
     "@vitejs/plugin-react": "^4.2.1",
+    "sass-embedded": "catalog:",
     "typescript": "^5.2.2",
     "vite": "^5.1.4"
   }

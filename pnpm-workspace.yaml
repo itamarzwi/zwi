@@ -1,6 +1,7 @@
 packages:
   - "packages/**"
 allowBuilds:
+  '@parcel/watcher': true
   esbuild: true
   vue-demi: true
   workerd: true
@@ -9,6 +10,7 @@ catalog:
   '@biomejs/biome': 2.4.5
   '@fontsource-variable/figtree': ^5.2.10
   radix-ui: ^1.4.3
+  sass-embedded: ^1.100.0
   shadcn: ^4.7.0
   usehooks-ts: ^3.1.1
 
