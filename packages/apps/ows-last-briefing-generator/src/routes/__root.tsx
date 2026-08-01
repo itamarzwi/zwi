@@ -10,6 +10,19 @@ import appCss from '../styles.css?url'
 
 const THEME_INIT_SCRIPT = `(function(){try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'auto';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`
 
+function NotFound() {
+  return (
+    <main className="page-wrap px-4 py-16">
+      <h1 className="m-0 text-2xl font-bold text-[var(--sea-ink)]">
+        Page not found
+      </h1>
+      <p className="mt-2 text-[var(--sea-ink-soft)]">
+        That page doesn’t exist.
+      </p>
+    </main>
+  )
+}
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -21,7 +34,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'OWS Last Briefing Generator',
       },
     ],
     links: [
@@ -31,6 +44,7 @@ export const Route = createRootRoute({
       },
     ],
   }),
+  notFoundComponent: NotFound,
   shellComponent: RootDocument,
 })
 
@@ -41,7 +55,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
-      <body className="font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(79,184,178,0.24)]">
+      <body className="font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(147,197,253,0.45)]">
         <ClerkProvider>
           <Header />
           {children}

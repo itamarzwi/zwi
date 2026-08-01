@@ -1,6 +1,6 @@
-import { Link } from "@tanstack/react-router";
-import BetterAuthHeader from "../integrations/better-auth/header-user.tsx";
-import ThemeToggle from "./ThemeToggle";
+import { Link } from '@tanstack/react-router'
+import { ThemeToggle } from '@zwi/ui'
+import BetterAuthHeader from '../integrations/better-auth/header-user.tsx'
 
 export default function Header() {
   return (
@@ -17,7 +17,11 @@ export default function Header() {
         </h2>
 
         <div className="order-3 flex w-full flex-wrap items-center gap-x-4 gap-y-1 pb-1 text-sm font-semibold sm:order-none sm:w-auto sm:flex-nowrap sm:pb-0">
-          <Link to="/" className="nav-link" activeProps={{ className: "nav-link is-active" }}>
+          <Link
+            to="/"
+            className="nav-link"
+            activeProps={{ className: 'nav-link is-active' }}
+          >
             Home
           </Link>
         </div>
@@ -28,5 +32,5 @@ export default function Header() {
         </div>
       </nav>
     </header>
-  );
+  )
 }

@@ -9,6 +9,8 @@
 
 @import "@fontsource-variable/figtree";
 
+@source '../../../libs/ui/src';
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
