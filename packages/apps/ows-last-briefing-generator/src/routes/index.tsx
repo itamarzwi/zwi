@@ -11,11 +11,11 @@ export const Route = createFileRoute('/')({ component: HomePage })
 
 function HomePage() {
   const [values, setValues] = useState<BriefingValues>(defaultBriefingValues)
-  const text = generateBriefing(values)
+  const sections = generateBriefing(values)
 
   return (
-    <main className="page-wrap px-4 pb-8 pt-8">
-      <div className="no-print mb-6" data-print-hide>
+    <main className="page-wrap px-1.5 pb-4 pt-4 sm:px-4 sm:pb-8 sm:pt-8">
+      <div className="no-print mb-4 sm:mb-6" data-print-hide>
         <p className="island-kicker mb-2">Open water swimming</p>
         <h1 className="display-title m-0 text-3xl font-bold tracking-tight text-[var(--sea-ink)] sm:text-4xl">
           Last Briefing Generator
@@ -25,15 +25,15 @@ function HomePage() {
         </p>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
-        <section className="island-shell no-print rounded-2xl p-5 sm:p-6">
+      <div className="grid gap-4 sm:gap-8 lg:grid-cols-2 lg:items-start">
+        <section className="island-shell no-print rounded-xl p-3 sm:rounded-2xl sm:p-5 md:p-6">
           <BriefingForm
             defaultValues={defaultBriefingValues}
             onValuesChange={setValues}
           />
         </section>
-        <section className="island-shell print-only-shell rounded-2xl p-5 sm:p-6 lg:sticky lg:top-24">
-          <BriefingPreview text={text} />
+        <section className="island-shell print-only-shell rounded-xl p-3 sm:rounded-2xl sm:p-5 md:p-6 lg:sticky lg:top-24">
+          <BriefingPreview sections={sections} />
         </section>
       </div>
     </main>

@@ -33,7 +33,6 @@ export const briefingSchema = z.object({
   wetsuits: wetsuitsSchema,
 
   courseShape: z.string(),
-  courseDistance: z.string(),
   laps: z.string(),
   turnBuoyColor: z.string(),
   guidanceBuoyNotes: z.string(),

@@ -1,16 +1,20 @@
 import { useState } from 'react'
 
 import { Button } from '#/components/ui/button'
+import {
+  briefingToPlainText,
+  type BriefingSection,
+} from '#/features/briefing/generate'
 
 type BriefingPreviewProps = {
-  text: string
+  sections: BriefingSection[]
 }
 
-export function BriefingPreview({ text }: BriefingPreviewProps) {
+export function BriefingPreview({ sections }: BriefingPreviewProps) {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(text)
+    await navigator.clipboard.writeText(briefingToPlainText(sections))
     setCopied(true)
     window.setTimeout(() => setCopied(false), 1500)
   }
@@ -37,12 +41,24 @@ export function BriefingPreview({ text }: BriefingPreviewProps) {
           </Button>
         </div>
       </div>
-      <pre
+      <article
         id="briefing-print-content"
-        className="briefing-preview m-0 whitespace-pre-wrap rounded-2xl border border-[var(--line)] bg-[var(--surface-strong)] p-5 font-mono text-sm leading-relaxed text-[var(--sea-ink)]"
+        className="briefing-preview space-y-5 rounded-2xl border border-[var(--line)] bg-[var(--surface-strong)] p-5 text-[var(--sea-ink)]"
       >
-        {text}
-      </pre>
+        <h1 className="print-only-title m-0 mb-6 text-2xl font-bold tracking-tight">
+          Chief Referee Last Briefing
+        </h1>
+        {sections.map((section) => (
+          <section key={section.title} className="briefing-section space-y-2">
+            <h2 className="m-0 text-base font-bold tracking-tight sm:text-lg">
+              {section.title}
+            </h2>
+            <p className="m-0 whitespace-pre-wrap text-sm leading-relaxed sm:text-[15px]">
+              {section.body}
+            </p>
+          </section>
+        ))}
+      </article>
     </div>
   )
 }

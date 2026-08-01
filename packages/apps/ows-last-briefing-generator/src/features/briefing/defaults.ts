@@ -23,12 +23,11 @@ export const defaultBriefingValues: BriefingValues = {
     'Light breeze expected, mostly sunny with a low chance of brief showers.',
   wetsuits: 'optional',
 
-  courseShape: 'Triangle loop',
-  courseDistance: '10 km',
-  laps: '4 laps',
-  turnBuoyColor: 'Yellow',
+  courseShape: 'rectangle',
+  laps: '4',
+  turnBuoyColor: 'yellow',
   guidanceBuoyNotes:
-    'Turn clockwise around yellow turn buoys. White guidance buoys mark the course line.',
+    'Turn clockwise around the turning buoys. White buoys are for guidance only',
 
   startType: 'platform',
 

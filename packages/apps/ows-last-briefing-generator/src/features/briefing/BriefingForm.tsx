@@ -86,7 +86,11 @@ export function BriefingForm({
             {(combined) => (
               <form.AppField name="raceGender">
                 {(field) => (
-                  <div className={combined ? undefined : 'invisible'}>
+                  <div
+                    className={
+                      combined ? undefined : 'hidden sm:block sm:invisible'
+                    }
+                  >
                     <field.Select
                       label="Race"
                       disabled={!combined}
@@ -100,11 +104,6 @@ export function BriefingForm({
               </form.AppField>
             )}
           </form.Subscribe>
-          <form.AppField name="distanceKm">
-            {(field) => (
-              <field.TextField label="Distance (km)" type="number" />
-            )}
-          </form.AppField>
           <form.AppField name="isRelay">
             {(field) => <field.Switch label="Relay event" />}
           </form.AppField>
@@ -262,20 +261,21 @@ export function BriefingForm({
         <div className="grid gap-4 sm:grid-cols-2">
           <form.AppField name="courseShape">
             {(field) => (
-              <field.TextField label="Shape" placeholder="e.g. triangle loop" />
+              <field.TextField label="Shape" placeholder="e.g. rectangle" />
             )}
           </form.AppField>
-          <form.AppField name="courseDistance">
+          <form.AppField name="distanceKm">
             {(field) => (
               <field.TextField
-                label="Distance description"
-                placeholder="e.g. 10 km"
+                label="Distance in km"
+                type="number"
+                placeholder="e.g. 10"
               />
             )}
           </form.AppField>
           <form.AppField name="laps">
             {(field) => (
-              <field.TextField label="Laps" placeholder="e.g. 4 laps" />
+              <field.TextField label="Laps" placeholder="e.g. 4" />
             )}
           </form.AppField>
           <form.AppField name="turnBuoyColor">
@@ -290,8 +290,8 @@ export function BriefingForm({
         <form.AppField name="guidanceBuoyNotes">
           {(field) => (
             <field.TextArea
-              label="Turn / guidance buoys"
-              placeholder="Guidance buoy colours and turn directions…"
+              label="Brief course description"
+              placeholder="Turn direction, guidance buoys, other course notes…"
               rows={2}
             />
           )}
