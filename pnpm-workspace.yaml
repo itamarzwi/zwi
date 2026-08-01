@@ -1,5 +1,9 @@
 packages:
   - "packages/**"
+allowBuilds:
+  esbuild: true
+  vue-demi: true
+  workerd: true
 catalog:
   '@base-ui/react': ^1.4.1
   '@biomejs/biome': 2.4.5

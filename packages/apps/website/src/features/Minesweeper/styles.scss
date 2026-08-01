@@ -1,0 +1,13 @@
+.back-button {
+  @apply w-10 h-10;
+
+  border-radius: 50%;
+
+  &:hover {
+    transform: scale(115%);
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  transition: ease-out 0.08s;
+}
