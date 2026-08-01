@@ -1,7 +1,13 @@
+# Paths are relative to the repo root (leave Netlify Base directory empty;
+# set Package directory to this folder in the Netlify UI).
 [build]
-  command = "vite build"
-  publish = "dist/client"
+  command = "pnpm --filter @zwi/ows-last-briefing-generator build"
+  publish = "packages/apps/ows-last-briefing-generator/dist/client"
+
+[build.environment]
+  NODE_VERSION = "22"
+
 [dev]
-  command = "npm run dev"
+  command = "pnpm --filter @zwi/ows-last-briefing-generator dev"
   targetPort = 3000
   port = 8888
