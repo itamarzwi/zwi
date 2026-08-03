@@ -4,6 +4,9 @@ import { otherGender } from './schema'
 const genderLabel = (gender: RaceGender) =>
   gender === 'men' ? "men's" : "women's"
 
+const joinSegments = (segments: Array<string | null | undefined>) =>
+  segments.filter(Boolean).join('\n')
+
 const chiefIntro = (values: BriefingValues) => {
   const chief = values.chiefRefereeName.trim() || '—'
   if (values.combinedBriefing) {
@@ -85,6 +88,9 @@ const buoyNoun = (count: number, kind: 'turning' | 'guidance') => {
   return count === 1 ? base : `${base}s`
 }
 
+const timeLimitMinutes = (distanceKm: number) =>
+  Math.ceil((distanceKm * 2) / 10) * 10
+
 const courseBlock = (values: BriefingValues) => {
   const turnColour = values.turnBuoyColor.trim() || '—'
   const guidanceColour = values.guidanceBuoyColor.trim() || '—'
@@ -93,6 +99,24 @@ const courseBlock = (values: BriefingValues) => {
   const side = values.turnSide
   const lapCount = values.lapCount > 0 ? values.lapCount : null
   const lapDistanceKm = values.lapDistanceKm > 0 ? values.lapDistanceKm : null
+
+  if (!values.verbose) {
+    const distanceParts = [
+      values.distanceKm > 0
+        ? `Race distance ${formatKm(values.distanceKm)} km`
+        : null,
+      lapCount != null ? `${formatLapCount(lapCount)} laps` : null,
+      lapDistanceKm != null
+        ? `${formatKm(lapDistanceKm)} km per lap`
+        : null,
+    ].filter(Boolean)
+
+    return joinSegments([
+      '- Course will be the same as the team leaders meeting.',
+      `- Turn buoy shoulder: ${side}.`,
+      distanceParts.length > 0 ? `- ${distanceParts.join(', ')}.` : null,
+    ])
+  }
 
   return [
     'The course of the race will be the same as what was shown at the Teams Meeting.',
@@ -115,50 +139,106 @@ const startSignal = () =>
   'For the start we will do several short whistles and hold up a green flag, then point the flag at the Starter.'
 
 const startBlock = (values: BriefingValues) => {
+  if (!values.verbose) {
+    const startType =
+      values.startType === 'in_water' ? 'In-water start' : 'Diving start'
+    return joinSegments([
+      `- ${startType}.`,
+      values.startType === 'platform'
+        ? '- Position is based on your number.'
+        : null,
+      '- Start signal: whistles, green flag, "Take your marks", air horn.',
+      '- Must take starting position on "Take your marks".',
+    ])
+  }
+
   if (values.startType === 'in_water') {
     return [
       'You will start the race from inside the water.',
       startSignal(),
-      "The starter will say \"Take your marks\", then start the race with an air horn and a flag signal.",
+      'The starter will say "Take your marks", then start the race with an air horn and a flag signal.',
     ].join(' ')
   }
 
   return [
     'We will have a diving start. Your position on the start platform is based on your number. Please stand where your number is marked.',
     startSignal(),
-    "The starter will say \"Take your marks\", and you must take your starting position, with one foot touching the front of the platform.",
+    'The starter will say "Take your marks", and you must take your starting position, with one foot touching the front of the platform.',
     "If you don't take your starting position, you may receive a yellow flag.",
     'Then the starter will start the race with an air horn and a flag signal.',
   ].join(' ')
 }
 
-const timeLimitMinutes = (distanceKm: number) =>
-  Math.ceil((distanceKm * 2) / 10) * 10
-
 const conductionBlock = (values: BriefingValues) => {
+  const limit = timeLimitMinutes(values.distanceKm)
+
+  if (!values.verbose) {
+    return joinSegments([
+      '- Yellow & red flags. Finish funnel infringement = red flag.',
+      '- Signal to leave the water, emergency abandonment.',
+      `- Time limit: ${limit} minutes after the first finisher.`,
+      values.hasIntermediateGate ? '- Intermediate gate.' : null,
+      '- Must have at least 1 transponder.',
+    ])
+  }
+
   const lines = [
     'During the race, a yellow flag is an official warning, and a red flag means you are disqualified, but any infringement in the finish funnel will lead to an immediate red flag.',
     'We will also use a signal if you must leave the water (demonstrate signal).',
     'If there is an emergency abandonment, we will signal it with long whistles and a red flag waved overhead. If you see or hear this signal, you must listen to the safety boats and leave the water.',
-    `The time limit for today's race is ${timeLimitMinutes(values.distanceKm)} minutes after the first finisher.`,
+    `The time limit for today's race is ${limit} minutes after the first finisher.`,
+    'You must have at least one transponder.',
   ]
 
   if (values.hasIntermediateGate) {
     lines.push(
-      'We have an intermediate gate, you must swim through it. If you don\'t, you will be disqualified.',
+      "We have an intermediate gate, you must swim through it. If you don't, you will be disqualified.",
     )
   }
 
   return lines.join(' ')
 }
 
-const endBlock = () =>
-  [
-    'The finish is marked by a finish funnel with orange buoys.',
+const endBlock = (values: BriefingValues) => {
+  const funnelColour = values.finishFunnelBuoyColor.trim()
+  const funnelMarked = funnelColour
+    ? `Finish funnel marked with ${funnelColour} buoys`
+    : 'Finish funnel'
+
+  if (!values.verbose) {
+    return joinSegments([
+      `- ${funnelMarked}.`,
+      '- Must go through the entrance. Do not go over or under.',
+      '- Must touch the finish gate.',
+    ])
+  }
+
+  return [
+    funnelColour
+      ? `The finish is marked by a finish funnel with ${funnelColour} buoys.`
+      : 'The finish is marked by a finish funnel.',
     'You must enter through the funnel entrance.',
     'If you go over or under the funnel, you will be disqualified.',
     'If you miss the entrance, you must turn back, enter the funnel, and then finish.',
+    'You must touch the finish gate.',
   ].join(' ')
+}
+
+const medicalBlock = (values: BriefingValues) => {
+  if (!values.verbose) {
+    return joinSegments([
+      '- Must bring accreditation when entering the water.',
+      '- MUST take accreditation back when leaving the water for any reason.',
+    ])
+  }
+
+  return [
+    'When you get on the start platform you must bring your accreditation.',
+    'When you leave the water for any reason you must take your accreditation back.',
+    'You cannot leave the water without taking your accreditation back.',
+    'If you feel bad, need help, or want to leave the water for any reason during the race, turn on your back and raise your arm in the air. A boat will come to you.',
+  ].join(' ')
+}
 
 const changeoverBlock = (values: BriefingValues) => {
   if (values.changeoverType === 'in_water') {
@@ -210,23 +290,17 @@ export const generateBriefing = (values: BriefingValues): BriefingSection[] => {
       title: 'Conduction of the race & infringements',
       body: conductionBlock(values),
     },
-    { title: 'End of the race', body: endBlock() },
-    {
-      title: 'Medical and safety',
-      body: [
-        'When you get on the start platform you must bring your accreditation.',
-        'When you leave the water for any reason you must take your accreditation back.',
-        'You cannot leave the water without taking your accreditation back.',
-        'If you feel bad, need help, or want to leave the water for any reason during the race, turn on your back and raise your arm in the air. A boat will come to you.',
-      ].join(' '),
-    },
+    { title: 'End of the race', body: endBlock(values) },
+    { title: 'Medical and safety', body: medicalBlock(values) },
     { title: 'Wildlife', body: '[Wildlife]' },
   ]
 
   if (values.distanceKm > 5) {
     sections.push({
       title: 'Feeding',
-      body: 'Grabbing the feeding pole is forbidden and may lead to disqualification.',
+      body: values.verbose
+        ? 'Remind athletes where the feeding is. Grabbing the feeding pole is forbidden and may lead to disqualification.'
+        : '[Feeding]',
     })
   }
 

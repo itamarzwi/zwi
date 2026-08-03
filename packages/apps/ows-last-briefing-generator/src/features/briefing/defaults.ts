@@ -1,6 +1,7 @@
 import type { BriefingValues } from './schema'
 
 export const defaultBriefingValues: BriefingValues = {
+  verbose: false,
   combinedBriefing: false,
   raceGender: 'men',
   distanceKm: 10,
@@ -30,6 +31,7 @@ export const defaultBriefingValues: BriefingValues = {
   turnSide: 'left',
 
   startType: 'platform',
+  finishFunnelBuoyColor: 'orange',
 
   changeoverType: 'pontoon',
 }

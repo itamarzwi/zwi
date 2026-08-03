@@ -77,6 +77,10 @@ export function BriefingForm({
         e.stopPropagation()
       }}
     >
+      <form.AppField name="verbose">
+        {(field) => <field.Switch label="Verbose" />}
+      </form.AppField>
+
       <section className="space-y-4">
         <h2 className="text-lg font-semibold text-[var(--sea-ink)]">
           Race setup
@@ -348,40 +352,48 @@ export function BriefingForm({
               </div>
             )}
           </form.Field>
-          <form.AppField name="turnBuoyCount">
-            {(field) => (
-              <field.TextField
-                label="Turning buoys"
-                type="number"
-                placeholder="e.g. 4"
-              />
-            )}
-          </form.AppField>
-          <form.AppField name="turnBuoyColor">
-            {(field) => (
-              <field.TextField
-                label="Turning buoy colour"
-                placeholder="e.g. yellow"
-              />
-            )}
-          </form.AppField>
-          <form.AppField name="guidanceBuoyCount">
-            {(field) => (
-              <field.TextField
-                label="Guidance buoys"
-                type="number"
-                placeholder="e.g. 4"
-              />
-            )}
-          </form.AppField>
-          <form.AppField name="guidanceBuoyColor">
-            {(field) => (
-              <field.TextField
-                label="Guidance buoy colour"
-                placeholder="e.g. white"
-              />
-            )}
-          </form.AppField>
+          <form.Subscribe selector={(s) => s.values.verbose}>
+            {(verbose) =>
+              verbose ? (
+                <>
+                  <form.AppField name="turnBuoyCount">
+                    {(field) => (
+                      <field.TextField
+                        label="Turning buoys"
+                        type="number"
+                        placeholder="e.g. 4"
+                      />
+                    )}
+                  </form.AppField>
+                  <form.AppField name="turnBuoyColor">
+                    {(field) => (
+                      <field.TextField
+                        label="Turning buoy colour"
+                        placeholder="e.g. yellow"
+                      />
+                    )}
+                  </form.AppField>
+                  <form.AppField name="guidanceBuoyCount">
+                    {(field) => (
+                      <field.TextField
+                        label="Guidance buoys"
+                        type="number"
+                        placeholder="e.g. 4"
+                      />
+                    )}
+                  </form.AppField>
+                  <form.AppField name="guidanceBuoyColor">
+                    {(field) => (
+                      <field.TextField
+                        label="Guidance buoy colour"
+                        placeholder="e.g. white"
+                      />
+                    )}
+                  </form.AppField>
+                </>
+              ) : null
+            }
+          </form.Subscribe>
         </div>
       </section>
 
@@ -397,6 +409,20 @@ export function BriefingForm({
                 { label: 'Platform / diving start', value: 'platform' },
                 { label: 'In-water start', value: 'in_water' },
               ]}
+            />
+          )}
+        </form.AppField>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-lg font-semibold text-[var(--sea-ink)]">
+          End of the race
+        </h2>
+        <form.AppField name="finishFunnelBuoyColor">
+          {(field) => (
+            <field.TextField
+              label="Finish funnel buoy colour"
+              placeholder="e.g. orange (leave blank if none)"
             />
           )}
         </form.AppField>

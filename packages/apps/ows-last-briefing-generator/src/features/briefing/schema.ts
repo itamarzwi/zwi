@@ -12,6 +12,7 @@ export const changeoverTypeSchema = z.enum(['pontoon', 'in_water'])
 export const turnSideSchema = z.enum(['left', 'right'])
 
 export const briefingSchema = z.object({
+  verbose: z.boolean(),
   combinedBriefing: z.boolean(),
   raceGender: raceGenderSchema,
   distanceKm: z.number().min(0),
@@ -40,6 +41,7 @@ export const briefingSchema = z.object({
   turnSide: turnSideSchema,
 
   startType: startTypeSchema,
+  finishFunnelBuoyColor: z.string(),
 
   changeoverType: changeoverTypeSchema,
 })
