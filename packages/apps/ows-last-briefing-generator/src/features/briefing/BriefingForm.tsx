@@ -8,8 +8,8 @@ import { otherGender } from './schema'
 const genderShort = (gender: RaceGender) =>
   gender === 'men' ? 'Men' : 'Women'
 
-const parseNumberInput = (value: string) =>
-  value === '' ? 0 : Number(value)
+const parseNumberInput = (value: string): number | null =>
+  value === '' ? null : Number(value)
 
 type BriefingFormProps = {
   defaultValues: BriefingValues
@@ -206,45 +206,57 @@ export function BriefingForm({
         </form.AppField>
       </section>
 
-      <section className="space-y-4">
-        <h2 className="text-lg font-semibold text-[var(--sea-ink)]">
-          Weather conditions
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <form.AppField name="waterTemp">
-            {(field) => (
-              <field.TextField label="Water temperature" placeholder="22" />
-            )}
-          </form.AppField>
-          <form.AppField name="airTemp">
-            {(field) => (
-              <field.TextField label="Air temperature" placeholder="26" />
-            )}
-          </form.AppField>
-        </div>
-        <form.AppField name="weatherNotes">
-          {(field) => (
-            <field.TextArea
-              label="Wind / rain / sun expectations"
-              placeholder="What we expect from conditions today…"
-              rows={3}
-            />
-          )}
-        </form.AppField>
-        <form.AppField name="wetsuits">
-          {(field) => (
-            <field.Select
-              label="Wetsuits"
-              values={[
-                { label: 'Do not mention', value: 'omit' },
-                { label: 'Compulsory', value: 'compulsory' },
-                { label: 'Optional', value: 'optional' },
-                { label: 'Not allowed', value: 'not_allowed' },
-              ]}
-            />
-          )}
-        </form.AppField>
-      </section>
+      <form.Subscribe selector={(s) => s.values.verbose}>
+        {(verbose) =>
+          verbose ? (
+            <section className="space-y-4">
+              <h2 className="text-lg font-semibold text-[var(--sea-ink)]">
+                Weather conditions
+              </h2>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <form.AppField name="waterTemp">
+                  {(field) => (
+                    <field.TextField
+                      label="Water temperature"
+                      placeholder="22"
+                    />
+                  )}
+                </form.AppField>
+                <form.AppField name="airTemp">
+                  {(field) => (
+                    <field.TextField
+                      label="Air temperature"
+                      placeholder="26"
+                    />
+                  )}
+                </form.AppField>
+              </div>
+              <form.AppField name="weatherNotes">
+                {(field) => (
+                  <field.TextArea
+                    label="Wind / rain / sun expectations"
+                    placeholder="What we expect from conditions today…"
+                    rows={3}
+                  />
+                )}
+              </form.AppField>
+              <form.AppField name="wetsuits">
+                {(field) => (
+                  <field.Select
+                    label="Wetsuits"
+                    values={[
+                      { label: 'Do not mention', value: 'omit' },
+                      { label: 'Compulsory', value: 'compulsory' },
+                      { label: 'Optional', value: 'optional' },
+                      { label: 'Not allowed', value: 'not_allowed' },
+                    ]}
+                  />
+                )}
+              </form.AppField>
+            </section>
+          ) : null
+        }
+      </form.Subscribe>
 
       <section className="space-y-4">
         <h2 className="text-lg font-semibold text-[var(--sea-ink)]">
@@ -270,7 +282,7 @@ export function BriefingForm({
                     const next = parseNumberInput(e.target.value)
                     field.handleChange(next)
                     const lapCount = form.state.values.lapCount
-                    if (lapCount > 0 && next > 0) {
+                    if (lapCount != null && lapCount > 0 && next != null && next > 0) {
                       form.setFieldValue(
                         'lapDistanceKm',
                         lapDistanceFromCount(next, lapCount),
@@ -311,7 +323,7 @@ export function BriefingForm({
                     const next = parseNumberInput(e.target.value)
                     field.handleChange(next)
                     const distanceKm = form.state.values.distanceKm
-                    if (next > 0 && distanceKm > 0) {
+                    if (next != null && next > 0 && distanceKm != null && distanceKm > 0) {
                       form.setFieldValue(
                         'lapDistanceKm',
                         lapDistanceFromCount(distanceKm, next),
@@ -341,7 +353,7 @@ export function BriefingForm({
                     const next = parseNumberInput(e.target.value)
                     field.handleChange(next)
                     const distanceKm = form.state.values.distanceKm
-                    if (next > 0 && distanceKm > 0) {
+                    if (next != null && next > 0 && distanceKm != null && distanceKm > 0) {
                       form.setFieldValue(
                         'lapCount',
                         lapCountFromDistance(distanceKm, next),

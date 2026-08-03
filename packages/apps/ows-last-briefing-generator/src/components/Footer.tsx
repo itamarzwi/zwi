@@ -7,7 +7,7 @@ export default function Footer() {
       data-print-hide
     >
       <div className="page-wrap text-center sm:text-left">
-        <p className="m-0 text-sm">&copy; {year} OWS Last Briefing Generator</p>
+        {/* <p className="m-0 text-sm">&copy; {year} OWS Last Briefing Generator</p> */}
       </div>
     </footer>
   )

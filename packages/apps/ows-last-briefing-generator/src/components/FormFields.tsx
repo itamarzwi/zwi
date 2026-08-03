@@ -50,7 +50,7 @@ export function TextField({
   placeholder?: string
   type?: React.HTMLInputTypeAttribute
 }) {
-  const field = useFieldContext<string | number>()
+  const field = useFieldContext<string | number | null>()
   const errors = useStore(field.store, (state) => state.meta.errors)
 
   return (
@@ -69,8 +69,9 @@ export function TextField({
         onBlur={field.handleBlur}
         onChange={(e) => {
           if (type === 'number') {
-            const next = e.target.value === '' ? 0 : Number(e.target.value)
-            field.handleChange(next)
+            field.handleChange(
+              e.target.value === '' ? null : Number(e.target.value),
+            )
             return
           }
           field.handleChange(e.target.value)

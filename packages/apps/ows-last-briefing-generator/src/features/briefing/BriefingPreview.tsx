@@ -2,8 +2,8 @@ import { useState } from 'react'
 
 import { Button } from '#/components/ui/button'
 import {
-  briefingToPlainText,
   type BriefingSection,
+  briefingToPlainText,
 } from '#/features/briefing/generate'
 
 type BriefingPreviewProps = {
@@ -30,7 +30,7 @@ export function BriefingPreview({ sections }: BriefingPreviewProps) {
         data-print-hide
       >
         <h2 className="m-0 text-lg font-semibold text-[var(--sea-ink)]">
-          Briefing preview
+          Briefing text
         </h2>
         <div className="flex flex-wrap gap-2">
           <Button type="button" variant="outline" onClick={handleCopy}>

@@ -83,6 +83,8 @@ export const lapCountFromDistance = (
     ? Math.round((distanceKm / lapDistanceKm) * 100) / 100
     : 0
 
+const asNumber = (value: number | null | undefined) => value ?? 0
+
 const buoyNoun = (count: number, kind: 'turning' | 'guidance') => {
   const base = kind === 'turning' ? 'turning buoy' : 'guidance buoy'
   return count === 1 ? base : `${base}s`
@@ -94,17 +96,20 @@ const timeLimitMinutes = (distanceKm: number) =>
 const courseBlock = (values: BriefingValues) => {
   const turnColour = values.turnBuoyColor.trim() || '—'
   const guidanceColour = values.guidanceBuoyColor.trim() || '—'
-  const turnCount = values.turnBuoyCount
-  const guidanceCount = values.guidanceBuoyCount
+  const turnCount = asNumber(values.turnBuoyCount)
+  const guidanceCount = asNumber(values.guidanceBuoyCount)
   const side = values.turnSide
-  const lapCount = values.lapCount > 0 ? values.lapCount : null
-  const lapDistanceKm = values.lapDistanceKm > 0 ? values.lapDistanceKm : null
+  const distanceKm = asNumber(values.distanceKm)
+  const lapCount =
+    values.lapCount != null && values.lapCount > 0 ? values.lapCount : null
+  const lapDistanceKm =
+    values.lapDistanceKm != null && values.lapDistanceKm > 0
+      ? values.lapDistanceKm
+      : null
 
   if (!values.verbose) {
     const distanceParts = [
-      values.distanceKm > 0
-        ? `Race distance ${formatKm(values.distanceKm)} km`
-        : null,
+      distanceKm > 0 ? `Race distance ${formatKm(distanceKm)} km` : null,
       lapCount != null ? `${formatLapCount(lapCount)} laps` : null,
       lapDistanceKm != null
         ? `${formatKm(lapDistanceKm)} km per lap`
@@ -124,9 +129,7 @@ const courseBlock = (values: BriefingValues) => {
     `You must pass the ${turnColour} turning buoys with your ${side} shoulder. That means the buoys are on your ${side} when you go around them.`,
     `You can pass the ${guidanceColour} guidance buoys on either side.`,
     lapCount != null ? `The number of laps is ${formatLapCount(lapCount)}.` : null,
-    values.distanceKm > 0
-      ? `The race distance is ${formatKm(values.distanceKm)} km.`
-      : null,
+    distanceKm > 0 ? `The race distance is ${formatKm(distanceKm)} km.` : null,
     lapDistanceKm != null
       ? `Each lap is ${formatKm(lapDistanceKm)} km.`
       : null,
@@ -170,7 +173,7 @@ const startBlock = (values: BriefingValues) => {
 }
 
 const conductionBlock = (values: BriefingValues) => {
-  const limit = timeLimitMinutes(values.distanceKm)
+  const limit = timeLimitMinutes(asNumber(values.distanceKm))
 
   if (!values.verbose) {
     return joinSegments([
@@ -275,15 +278,19 @@ export const generateBriefing = (values: BriefingValues): BriefingSection[] => {
     .filter(Boolean)
     .join('\n')
 
-  const weatherParts = [
-    `The water temperature is ${formatTemp(values.waterTemp)}, air temperature is ${formatTemp(values.airTemp)}.`,
-    values.weatherNotes.trim() || null,
-    wetsuitsParagraph(values),
-  ].filter(Boolean)
+  const weatherBody = values.verbose
+    ? [
+        `The water temperature is ${formatTemp(values.waterTemp)}, air temperature is ${formatTemp(values.airTemp)}.`,
+        values.weatherNotes.trim() || null,
+        wetsuitsParagraph(values),
+      ]
+        .filter(Boolean)
+        .join('\n')
+    : '[Weather]'
 
   const sections: BriefingSection[] = [
     { title: 'Intro', body: intro },
-    { title: 'Weather conditions', body: weatherParts.join('\n') },
+    { title: 'Weather conditions', body: weatherBody },
     { title: 'Course layout', body: courseBlock(values) },
     { title: 'Start of the race', body: startBlock(values) },
     {
@@ -295,7 +302,7 @@ export const generateBriefing = (values: BriefingValues): BriefingSection[] => {
     { title: 'Wildlife', body: '[Wildlife]' },
   ]
 
-  if (values.distanceKm > 5) {
+  if (asNumber(values.distanceKm) > 5) {
     sections.push({
       title: 'Feeding',
       body: values.verbose

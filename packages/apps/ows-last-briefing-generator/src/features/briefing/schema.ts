@@ -15,7 +15,7 @@ export const briefingSchema = z.object({
   verbose: z.boolean(),
   combinedBriefing: z.boolean(),
   raceGender: raceGenderSchema,
-  distanceKm: z.number().min(0),
+  distanceKm: z.number().min(0).nullable(),
   isRelay: z.boolean(),
   hasIntermediateGate: z.boolean(),
 
@@ -32,11 +32,11 @@ export const briefingSchema = z.object({
   weatherNotes: z.string(),
   wetsuits: wetsuitsSchema,
 
-  lapCount: z.number().min(0),
-  lapDistanceKm: z.number().min(0),
-  turnBuoyCount: z.number().min(0),
+  lapCount: z.number().min(0).nullable(),
+  lapDistanceKm: z.number().min(0).nullable(),
+  turnBuoyCount: z.number().min(0).nullable(),
   turnBuoyColor: z.string(),
-  guidanceBuoyCount: z.number().min(0),
+  guidanceBuoyCount: z.number().min(0).nullable(),
   guidanceBuoyColor: z.string(),
   turnSide: turnSideSchema,
 
