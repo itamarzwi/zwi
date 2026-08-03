@@ -24,9 +24,9 @@ export function BriefingPreview({ sections }: BriefingPreviewProps) {
   }
 
   return (
-    <div className="space-y-4">
+    <div>
       <div
-        className="no-print flex flex-wrap items-center justify-between gap-2"
+        className="no-print flex flex-wrap items-center justify-between gap-2 border-b border-[var(--line)] px-3 py-3 sm:px-5 sm:py-4 md:px-6"
         data-print-hide
       >
         <h2 className="m-0 text-lg font-semibold text-[var(--sea-ink)]">
@@ -43,7 +43,7 @@ export function BriefingPreview({ sections }: BriefingPreviewProps) {
       </div>
       <article
         id="briefing-print-content"
-        className="briefing-preview space-y-5 rounded-2xl border border-[var(--line)] bg-[var(--surface-strong)] p-5 text-[var(--sea-ink)]"
+        className="briefing-preview space-y-5 bg-[var(--foam)] px-3 py-4 text-[var(--sea-ink)] sm:px-5 sm:py-5 md:px-6"
       >
         <h1 className="print-only-title m-0 mb-6 text-2xl font-bold tracking-tight">
           Chief Referee Last Briefing

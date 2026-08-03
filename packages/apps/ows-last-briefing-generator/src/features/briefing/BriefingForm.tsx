@@ -1,10 +1,15 @@
 import { Input } from '#/components/ui/input'
+import { Label } from '#/components/ui/label'
 import { useAppForm } from '#/hooks/form'
+import { lapCountFromDistance, lapDistanceFromCount } from './generate'
 import type { BriefingValues, RaceGender } from './schema'
 import { otherGender } from './schema'
 
 const genderShort = (gender: RaceGender) =>
   gender === 'men' ? 'Men' : 'Women'
+
+const parseNumberInput = (value: string) =>
+  value === '' ? 0 : Number(value)
 
 type BriefingFormProps = {
   defaultValues: BriefingValues
@@ -110,24 +115,7 @@ export function BriefingForm({
           <form.AppField name="hasIntermediateGate">
             {(field) => <field.Switch label="Intermediate gate" />}
           </form.AppField>
-          <form.AppField name="hasTimeLimit">
-            {(field) => <field.Switch label="Time limit applies" />}
-          </form.AppField>
         </div>
-        <form.Subscribe selector={(s) => s.values.hasTimeLimit}>
-          {(hasTimeLimit) =>
-            hasTimeLimit ? (
-              <form.AppField name="timeLimitText">
-                {(field) => (
-                  <field.TextField
-                    label="Time limit details"
-                    placeholder="e.g. 30 minutes after the first finisher"
-                  />
-                )}
-              </form.AppField>
-            ) : null
-          }
-        </form.Subscribe>
       </section>
 
       <section className="space-y-4">
@@ -259,43 +247,142 @@ export function BriefingForm({
           Course layout
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <form.AppField name="courseShape">
+          <form.Field name="distanceKm">
             {(field) => (
-              <field.TextField label="Shape" placeholder="e.g. rectangle" />
+              <div>
+                <Label
+                  htmlFor="distanceKm"
+                  className="mb-2 text-sm font-semibold text-[var(--sea-ink)]"
+                >
+                  Distance in km
+                </Label>
+                <Input
+                  id="distanceKm"
+                  type="number"
+                  value={field.state.value ?? ''}
+                  placeholder="e.g. 10"
+                  onBlur={field.handleBlur}
+                  onChange={(e) => {
+                    const next = parseNumberInput(e.target.value)
+                    field.handleChange(next)
+                    const lapCount = form.state.values.lapCount
+                    if (lapCount > 0 && next > 0) {
+                      form.setFieldValue(
+                        'lapDistanceKm',
+                        lapDistanceFromCount(next, lapCount),
+                      )
+                    }
+                  }}
+                />
+              </div>
             )}
-          </form.AppField>
-          <form.AppField name="distanceKm">
+          </form.Field>
+          <form.AppField name="turnSide">
             {(field) => (
-              <field.TextField
-                label="Distance in km"
-                type="number"
-                placeholder="e.g. 10"
+              <field.Select
+                label="Turn buoy shoulder"
+                values={[
+                  { label: 'Left (clockwise)', value: 'left' },
+                  { label: 'Right (counter-clockwise)', value: 'right' },
+                ]}
               />
             )}
           </form.AppField>
-          <form.AppField name="laps">
+          <form.Field name="lapCount">
             {(field) => (
-              <field.TextField label="Laps" placeholder="e.g. 4" />
+              <div>
+                <Label
+                  htmlFor="lapCount"
+                  className="mb-2 text-sm font-semibold text-[var(--sea-ink)]"
+                >
+                  Number of laps
+                </Label>
+                <Input
+                  id="lapCount"
+                  type="number"
+                  value={field.state.value ?? ''}
+                  placeholder="e.g. 4"
+                  onBlur={field.handleBlur}
+                  onChange={(e) => {
+                    const next = parseNumberInput(e.target.value)
+                    field.handleChange(next)
+                    const distanceKm = form.state.values.distanceKm
+                    if (next > 0 && distanceKm > 0) {
+                      form.setFieldValue(
+                        'lapDistanceKm',
+                        lapDistanceFromCount(distanceKm, next),
+                      )
+                    }
+                  }}
+                />
+              </div>
+            )}
+          </form.Field>
+          <form.Field name="lapDistanceKm">
+            {(field) => (
+              <div>
+                <Label
+                  htmlFor="lapDistanceKm"
+                  className="mb-2 text-sm font-semibold text-[var(--sea-ink)]"
+                >
+                  Distance per lap (km)
+                </Label>
+                <Input
+                  id="lapDistanceKm"
+                  type="number"
+                  value={field.state.value ?? ''}
+                  placeholder="e.g. 2.5"
+                  onBlur={field.handleBlur}
+                  onChange={(e) => {
+                    const next = parseNumberInput(e.target.value)
+                    field.handleChange(next)
+                    const distanceKm = form.state.values.distanceKm
+                    if (next > 0 && distanceKm > 0) {
+                      form.setFieldValue(
+                        'lapCount',
+                        lapCountFromDistance(distanceKm, next),
+                      )
+                    }
+                  }}
+                />
+              </div>
+            )}
+          </form.Field>
+          <form.AppField name="turnBuoyCount">
+            {(field) => (
+              <field.TextField
+                label="Turning buoys"
+                type="number"
+                placeholder="e.g. 4"
+              />
             )}
           </form.AppField>
           <form.AppField name="turnBuoyColor">
             {(field) => (
               <field.TextField
-                label="Turn buoy colour"
+                label="Turning buoy colour"
                 placeholder="e.g. yellow"
               />
             )}
           </form.AppField>
+          <form.AppField name="guidanceBuoyCount">
+            {(field) => (
+              <field.TextField
+                label="Guidance buoys"
+                type="number"
+                placeholder="e.g. 4"
+              />
+            )}
+          </form.AppField>
+          <form.AppField name="guidanceBuoyColor">
+            {(field) => (
+              <field.TextField
+                label="Guidance buoy colour"
+                placeholder="e.g. white"
+              />
+            )}
+          </form.AppField>
         </div>
-        <form.AppField name="guidanceBuoyNotes">
-          {(field) => (
-            <field.TextArea
-              label="Brief course description"
-              placeholder="Turn direction, guidance buoys, other course notes…"
-              rows={2}
-            />
-          )}
-        </form.AppField>
       </section>
 
       <section className="space-y-4">
@@ -314,26 +401,6 @@ export function BriefingForm({
           )}
         </form.AppField>
       </section>
-
-      <form.Subscribe selector={(s) => s.values.distanceKm}>
-        {(distanceKm) =>
-          distanceKm > 5 ? (
-            <section className="space-y-4">
-              <h2 className="text-lg font-semibold text-[var(--sea-ink)]">
-                Feeding
-              </h2>
-              <form.AppField name="feedingPlatformLocation">
-                {(field) => (
-                  <field.TextField
-                    label="Feeding platform location"
-                    placeholder="e.g. on the right side after buoy 2"
-                  />
-                )}
-              </form.AppField>
-            </section>
-          ) : null
-        }
-      </form.Subscribe>
 
       <form.Subscribe selector={(s) => s.values.isRelay}>
         {(isRelay) =>

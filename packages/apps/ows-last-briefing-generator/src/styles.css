@@ -18,15 +18,12 @@
   --surface: rgba(255, 255, 255, 0.88);
   --surface-strong: #ffffff;
   --line: rgba(37, 99, 235, 0.14);
-  --inset-glint: rgba(255, 255, 255, 0.95);
   --kicker: #2563eb;
   --bg-base: #e8f2fc;
-  --header-bg: rgba(255, 255, 255, 0.9);
+  --header-bg: #ffffff;
   --chip-bg: #ffffff;
   --chip-line: rgba(37, 99, 235, 0.2);
   --link-bg-hover: rgba(219, 234, 254, 0.9);
-  --hero-a: rgba(191, 219, 254, 0.7);
-  --hero-b: rgba(59, 130, 246, 0.18);
 
   --background: #ffffff;
   --foreground: #0f2744;
@@ -74,15 +71,12 @@
   --surface: rgba(16, 28, 48, 0.88);
   --surface-strong: rgba(18, 32, 54, 0.96);
   --line: rgba(147, 197, 253, 0.2);
-  --inset-glint: rgba(191, 219, 254, 0.08);
   --kicker: #93c5fd;
   --bg-base: #0a1220;
-  --header-bg: rgba(10, 18, 32, 0.88);
+  --header-bg: #0a1220;
   --chip-bg: rgba(16, 28, 48, 0.95);
   --chip-line: rgba(147, 197, 253, 0.24);
   --link-bg-hover: rgba(30, 58, 110, 0.7);
-  --hero-a: rgba(59, 130, 246, 0.2);
-  --hero-b: rgba(37, 99, 235, 0.14);
 
   --background: #0b1424;
   --foreground: #e8f1ff;

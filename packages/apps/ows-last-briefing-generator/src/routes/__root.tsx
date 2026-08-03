@@ -15,7 +15,7 @@ function NotFound() {
         Page not found
       </h1>
       <p className="mt-2 text-[var(--sea-ink-soft)]">
-        That page doesn’t exist.
+        That page doesn't exist.
       </p>
     </main>
   )

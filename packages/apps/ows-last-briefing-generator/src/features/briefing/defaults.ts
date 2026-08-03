@@ -5,9 +5,7 @@ export const defaultBriefingValues: BriefingValues = {
   raceGender: 'men',
   distanceKm: 10,
   isRelay: false,
-  hasIntermediateGate: false,
-  hasTimeLimit: false,
-  timeLimitText: '30 minutes after the first finisher',
+  hasIntermediateGate: true,
 
   chiefRefereeName: 'YOUR_NAME',
   referee1Name: 'REF_1',
@@ -21,17 +19,17 @@ export const defaultBriefingValues: BriefingValues = {
   airTemp: '26',
   weatherNotes:
     'Light breeze expected, mostly sunny with a low chance of brief showers.',
-  wetsuits: 'optional',
+  wetsuits: 'omit',
 
-  courseShape: 'rectangle',
-  laps: '4',
+  lapCount: 6,
+  lapDistanceKm: 1.66,
+  turnBuoyCount: 4,
   turnBuoyColor: 'yellow',
-  guidanceBuoyNotes:
-    'Turn clockwise around the turning buoys. White buoys are for guidance only',
+  guidanceBuoyCount: 2,
+  guidanceBuoyColor: 'red',
+  turnSide: 'left',
 
   startType: 'platform',
-
-  feedingPlatformLocation: 'Right side after buoy 2',
 
   changeoverType: 'pontoon',
 }

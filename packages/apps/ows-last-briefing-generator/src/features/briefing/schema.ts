@@ -9,6 +9,7 @@ export const wetsuitsSchema = z.enum([
 ])
 export const startTypeSchema = z.enum(['platform', 'in_water'])
 export const changeoverTypeSchema = z.enum(['pontoon', 'in_water'])
+export const turnSideSchema = z.enum(['left', 'right'])
 
 export const briefingSchema = z.object({
   combinedBriefing: z.boolean(),
@@ -16,8 +17,6 @@ export const briefingSchema = z.object({
   distanceKm: z.number().min(0),
   isRelay: z.boolean(),
   hasIntermediateGate: z.boolean(),
-  hasTimeLimit: z.boolean(),
-  timeLimitText: z.string(),
 
   chiefRefereeName: z.string(),
   referee1Name: z.string(),
@@ -32,14 +31,15 @@ export const briefingSchema = z.object({
   weatherNotes: z.string(),
   wetsuits: wetsuitsSchema,
 
-  courseShape: z.string(),
-  laps: z.string(),
+  lapCount: z.number().min(0),
+  lapDistanceKm: z.number().min(0),
+  turnBuoyCount: z.number().min(0),
   turnBuoyColor: z.string(),
-  guidanceBuoyNotes: z.string(),
+  guidanceBuoyCount: z.number().min(0),
+  guidanceBuoyColor: z.string(),
+  turnSide: turnSideSchema,
 
   startType: startTypeSchema,
-
-  feedingPlatformLocation: z.string(),
 
   changeoverType: changeoverTypeSchema,
 })
@@ -48,6 +48,7 @@ export type RaceGender = z.infer<typeof raceGenderSchema>
 export type Wetsuits = z.infer<typeof wetsuitsSchema>
 export type StartType = z.infer<typeof startTypeSchema>
 export type ChangeoverType = z.infer<typeof changeoverTypeSchema>
+export type TurnSide = z.infer<typeof turnSideSchema>
 export type BriefingValues = z.infer<typeof briefingSchema>
 
 export const otherGender = (gender: RaceGender): RaceGender =>

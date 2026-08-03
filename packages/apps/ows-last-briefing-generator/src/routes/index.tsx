@@ -32,7 +32,7 @@ function HomePage() {
             onValuesChange={setValues}
           />
         </section>
-        <section className="island-shell print-only-shell rounded-xl p-3 sm:rounded-2xl sm:p-5 md:p-6 lg:sticky lg:top-24">
+        <section className="island-shell print-only-shell overflow-hidden rounded-xl p-0 sm:rounded-2xl lg:sticky lg:top-24">
           <BriefingPreview sections={sections} />
         </section>
       </div>

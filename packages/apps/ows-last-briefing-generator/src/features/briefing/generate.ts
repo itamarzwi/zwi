@@ -57,84 +57,95 @@ const wetsuitsParagraph = (values: BriefingValues) => {
   }
 }
 
-const parseLeadingNumber = (value: string) => {
-  const match = value.trim().match(/^(\d+(?:\.\d+)?)/)
-  return match ? Number(match[1]) : null
+const formatKm = (value: number) => {
+  const rounded = Math.round(value * 1000) / 1000
+  return Number.isInteger(rounded) ? String(rounded) : String(rounded)
+}
+
+const formatLapCount = (value: number) => {
+  const rounded = Math.round(value * 100) / 100
+  return Number.isInteger(rounded) ? String(rounded) : String(rounded)
+}
+
+export const lapDistanceFromCount = (distanceKm: number, lapCount: number) =>
+  lapCount > 0 && distanceKm > 0
+    ? Math.floor((distanceKm * 1000) / lapCount) / 1000
+    : 0
+
+export const lapCountFromDistance = (
+  distanceKm: number,
+  lapDistanceKm: number,
+) =>
+  lapDistanceKm > 0 && distanceKm > 0
+    ? Math.round((distanceKm / lapDistanceKm) * 100) / 100
+    : 0
+
+const buoyNoun = (count: number, kind: 'turning' | 'guidance') => {
+  const base = kind === 'turning' ? 'turning buoy' : 'guidance buoy'
+  return count === 1 ? base : `${base}s`
 }
 
 const courseBlock = (values: BriefingValues) => {
-  const shape = values.courseShape.trim() || '—'
   const turnColour = values.turnBuoyColor.trim() || '—'
-  const description = values.guidanceBuoyNotes.trim()
-  const lapsText = values.laps.trim() || '—'
-  const distanceKm = values.distanceKm
-
-  const descriptionSentence = description
-    ? ` ${description.replace(/\.*$/, '')}.`
-    : ''
-
-  const lapCount = parseLeadingNumber(lapsText)
-  const lapLengthSentence =
-    lapCount && lapCount > 0 && distanceKm > 0
-      ? `Each lap is ${Math.floor((distanceKm * 1000) / lapCount) / 1000} km.`
-      : null
+  const guidanceColour = values.guidanceBuoyColor.trim() || '—'
+  const turnCount = values.turnBuoyCount
+  const guidanceCount = values.guidanceBuoyCount
+  const side = values.turnSide
+  const lapCount = values.lapCount > 0 ? values.lapCount : null
+  const lapDistanceKm = values.lapDistanceKm > 0 ? values.lapDistanceKm : null
 
   return [
-    'The swimming course of the race is as provided to you at the Teams Meeting.',
-    `You are required to round the ${turnColour} turning buoys on a ${shape} course.${descriptionSentence}`,
-    'All other buoys are directional only.',
-    'You are required to swim the complete course.',
-    `The number of laps is ${lapsText}.`,
-    distanceKm > 0 ? `The race distance is ${distanceKm} km.` : null,
-    lapLengthSentence,
+    'The course of the race will be the same as what was shown at the Teams Meeting.',
+    `We have ${turnCount} ${turnColour} ${buoyNoun(turnCount, 'turning')} and ${guidanceCount} ${guidanceColour} ${buoyNoun(guidanceCount, 'guidance')}.`,
+    `You must pass the ${turnColour} turning buoys with your ${side} shoulder. That means the buoys are on your ${side} when you go around them.`,
+    `You can pass the ${guidanceColour} guidance buoys on either side.`,
+    lapCount != null ? `The number of laps is ${formatLapCount(lapCount)}.` : null,
+    values.distanceKm > 0
+      ? `The race distance is ${formatKm(values.distanceKm)} km.`
+      : null,
+    lapDistanceKm != null
+      ? `Each lap is ${formatKm(lapDistanceKm)} km.`
+      : null,
   ]
     .filter(Boolean)
     .join(' ')
 }
 
 const startSignal = () =>
-  'The Chief Referee will signal that the start is about to begin with several short whistle blasts and a green flag held up, then point the flag at the Starter.'
+  'For the start we will do several short whistles and hold up a green flag, then point the flag at the Starter.'
 
 const startBlock = (values: BriefingValues) => {
   if (values.startType === 'in_water') {
     return [
       'You will start the race from inside the water.',
       startSignal(),
-      'On the Starter’s command “Take your marks”, take your starting position on the start line at once.',
-      'The Starter will start the race with an air horn and a flag signal.',
+      "The starter will say \"Take your marks\", then start the race with an air horn and a flag signal.",
     ].join(' ')
   }
 
   return [
-    'We will have a diving start. Your position on the start platform is based on your number.',
+    'We will have a diving start. Your position on the start platform is based on your number. Please stand where your number is marked.',
     startSignal(),
-    'On the Starter’s command “Take your marks”, you must take your starting position at once, with at least one foot touching the front of the starting platform.',
-    'The Starter will start the race with an air horn and a flag signal.',
+    "The starter will say \"Take your marks\", and you must take your starting position, with one foot touching the front of the platform.",
+    "If you don't take your starting position, you may receive a yellow flag.",
+    'Then the starter will start the race with an air horn and a flag signal.',
   ].join(' ')
 }
 
+const timeLimitMinutes = (distanceKm: number) =>
+  Math.ceil((distanceKm * 2) / 10) * 10
+
 const conductionBlock = (values: BriefingValues) => {
   const lines = [
-    'During the race, officials may use whistle signals to get your attention.',
-    'A yellow flag is an official warning.',
-    'A red flag means you are disqualified.',
-    'Officials will also use a clear signal if you must leave the water.',
-    'Any infringement in the finish funnel leads to a red flag at once and you are disqualified.',
-    'If the race must be stopped for safety, officials will signal emergency abandonment with repeated long whistle blasts and a red flag waved overhead — I will demonstrate this signal now. When you see or hear that signal, stop racing and leave the water as directed by the safety boats.',
+    'During the race, a yellow flag is an official warning, and a red flag means you are disqualified, but any infringement in the finish funnel will lead to an immediate red flag.',
+    'We will also use a signal if you must leave the water (demonstrate signal).',
+    'If there is an emergency abandonment, we will signal it with long whistles and a red flag waved overhead. If you see or hear this signal, you must listen to the safety boats and leave the water.',
+    `The time limit for today's race is ${timeLimitMinutes(values.distanceKm)} minutes after the first finisher.`,
   ]
-
-  if (values.hasTimeLimit) {
-    const detail = values.timeLimitText.trim()
-    lines.push(
-      detail
-        ? `A time limit applies: ${detail}. Athletes outside the limit may be removed from the water.`
-        : 'A time limit applies. Athletes outside the limit may be removed from the water.',
-    )
-  }
 
   if (values.hasIntermediateGate) {
     lines.push(
-      'You must swim through the intermediate gate. If you miss it, you may only go back and correct your course if it is safe, you do not interfere with other athletes, you correct it before the next turn buoy, and you gain no unfair advantage.',
+      'We have an intermediate gate, you must swim through it. If you don\'t, you will be disqualified.',
     )
   }
 
@@ -144,9 +155,9 @@ const conductionBlock = (values: BriefingValues) => {
 const endBlock = () =>
   [
     'The finish is marked by a finish funnel with orange buoys.',
-    'To record a valid finish, you must enter and swim through the funnel.',
-    'If you swim outside the funnel — above or below the line of buoys — you will be disqualified.',
-    'If you miss the entrance to the funnel, you must turn back, enter the funnel correctly, and then finish.',
+    'You must enter through the funnel entrance.',
+    'If you go over or under the funnel, you will be disqualified.',
+    'If you miss the entrance, you must turn back, enter the funnel, and then finish.',
   ].join(' ')
 
 const changeoverBlock = (values: BriefingValues) => {
@@ -209,17 +220,13 @@ export const generateBriefing = (values: BriefingValues): BriefingSection[] => {
         'If you feel bad, need help, or want to leave the water for any reason during the race, turn on your back and raise your arm in the air. A boat will come to you.',
       ].join(' '),
     },
+    { title: 'Wildlife', body: '[Wildlife]' },
   ]
 
   if (values.distanceKm > 5) {
-    const location =
-      values.feedingPlatformLocation.trim() || 'as indicated on the course'
     sections.push({
       title: 'Feeding',
-      body: [
-        `The feeding platform is ${location}.`,
-        'Grabbing the feeding pole is forbidden and may lead to disqualification.',
-      ].join(' '),
+      body: 'Grabbing the feeding pole is forbidden and may lead to disqualification.',
     })
   }
 
@@ -232,4 +239,3 @@ export const generateBriefing = (values: BriefingValues): BriefingSection[] => {
 
 export const briefingToPlainText = (sections: BriefingSection[]) =>
   sections.map(({ title, body }) => `${title}\n${body}`).join('\n\n')
-
