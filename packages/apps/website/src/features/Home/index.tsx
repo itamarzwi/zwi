@@ -1,28 +1,20 @@
-import dayjs from 'dayjs';
-import { NavLink } from 'react-router-dom';
+import dayjs from "dayjs";
+import { NavLink } from "react-router-dom";
 
-import useSmoothMousePosition from '../../hooks/useSmoothMousePosition';
-import { type ExperienceItem, experiences } from './experiences';
+import useSmoothMousePosition from "../../hooks/useSmoothMousePosition";
+import { type ExperienceItem, experiences } from "./experiences";
 
 function Header() {
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 pt-12">
       <div>
-        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-          Itamar Zwi
-        </h1>
-        <h4 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-          Full Stack Developer
-        </h4>
+        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">Itamar Zwi</h1>
+        <h4 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">Full Stack Developer</h4>
         <h6 className="mt-4 leading-normal max-w-md mb-8">
-          I have a passion for puzzles and problem-solving, and I love sharing that passion with
-          others
+          I have a passion for puzzles and problem-solving, and I love sharing that passion with others
           <br />
           <br />
-          <NavLink
-            to="/minesweeper"
-            className="text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
-          >
+          <NavLink to="/minesweeper" className="text-slate-200 hover:text-teal-300 focus-visible:text-teal-300">
             Check out my minesweeper game, with an auto player!
           </NavLink>
         </h6>
@@ -112,7 +104,7 @@ function Header() {
 
 // Seburska Marta Dimitrievna
 
-function Link(props: React.ComponentPropsWithoutRef<'a'>) {
+function Link(props: React.ComponentPropsWithoutRef<"a">) {
   return (
     // eslint-disable-next-line jsx-a11y/anchor-has-content
     <a
@@ -128,32 +120,25 @@ function About() {
   return (
     <section id="about" className="mb-16 md:mb-24 lg:mb-36">
       <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-          About
-        </h2>
+        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">About</h2>
       </div>
-      I am a <Link href="https://www.linkedin.com/in/itamar-zwi/">Full Stack Developer</Link> with a
-      passion for programming and logical puzzles. I fell in love with the world of programming when
-      I was 14, and made a mod for the game{' '}
-      <Link href="https://gmod.facepunch.com/">Garry&#39;s Mod</Link>. Since then, I&#39;ve
-      continued to dive into the world of software development, eager to learn and improve as much
-      as I can.
+      I am a <Link href="https://www.linkedin.com/in/itamar-zwi/">Full Stack Developer</Link> with a passion for
+      programming and logical puzzles. I fell in love with the world of programming when I was 14, and made a mod for
+      the game <Link href="https://gmod.facepunch.com/">Garry&#39;s Mod</Link>. Since then, I&#39;ve continued to dive
+      into the world of software development, eager to learn and improve as much as I can.
     </section>
   );
 }
 
 function ExperienceCard(props: ExperienceItem) {
   const { company, description, tags, title } = props;
-  const start = dayjs(props.start).format('MM/YYYY');
-  const end = !props.end ? 'Present' : dayjs(props.end).format('MM/YYYY');
+  const start = dayjs(props.start).format("MM/YYYY");
+  const end = !props.end ? "Present" : dayjs(props.end).format("MM/YYYY");
 
   return (
     <li className="mb-12">
       <div className="grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg">
-        <header
-          className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
-          aria-label={`${start} to ${end}`}
-        >
+        <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
           {start} —<br className="hidden lg:block" /> {end}
         </header>
         <div className="z-10 sm:col-span-6">
@@ -196,9 +181,7 @@ function Experience() {
   return (
     <section id="experience" aria-label="Work experience">
       <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-          Experience
-        </h2>
+        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Experience</h2>
       </div>
       <div>
         <ol>
