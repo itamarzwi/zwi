@@ -57,7 +57,7 @@ export const experiences: ExperienceItem[] = [
   },
   {
     start: new Date(2024, 8, 15),
-    end: new Date(2025, 11, 1),
+    end: new Date(2025, 10, 1),
     title: 'Senior Full Stack Developer',
     company: 'Assembrix',
     description:
