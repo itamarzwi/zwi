@@ -27,7 +27,7 @@ export function Component() {
             className="back-button"
             type="button"
             aria-label="back"
-            // eslint-disable-next-line react/no-danger
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
             dangerouslySetInnerHTML={{ __html: BackIcon }}
           />
         </NavLink>

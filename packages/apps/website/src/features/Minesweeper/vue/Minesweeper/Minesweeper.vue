@@ -251,6 +251,8 @@ export default defineComponent({
 </script>
 
 <style>
+@reference 'tailwindcss';
+
 .ms-border-vertical {
   @apply self-stretch;
 }
