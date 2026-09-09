@@ -48,11 +48,20 @@ export interface ExperienceItem {
 
 export const experiences: ExperienceItem[] = [
   {
+    start: new Date(2026, 3, 1),
+    title: 'Senior Full Stack Developer',
+    company: 'MOIA GmbH',
+    description:
+      'Part of the backoffice platform that enables 24 teams to develop on a shared monorepo. Responsible for user management and multi-tenancy across the organization.',
+    tags: [TypeScript, Node, DynamoDB, Microservices, GraphQL, React],
+  },
+  {
     start: new Date(2024, 8, 15),
+    end: new Date(2025, 11, 1),
     title: 'Senior Full Stack Developer',
     company: 'Assembrix',
     description:
-      'Developing a secure platform for remote 3D printing. Leading architecture development for modern cloud solutions, optimizing code for efficiency and scalability, and driving end-to-end project execution.',
+      'Developed a secure platform for remote 3D printing. Led architecture for modern cloud solutions, optimized code for efficiency and scalability, and drove end-to-end project execution.',
     tags: [TypeScript, Node, Go, DynamoDB, AWS, WebRTC, CRDT, Vue, TailwindCSS],
   },
   {
