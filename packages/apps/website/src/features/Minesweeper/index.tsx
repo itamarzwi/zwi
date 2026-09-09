@@ -1,11 +1,11 @@
-import './styles.scss';
+import "./styles.scss";
 
-import { useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
-import { createApp } from 'vue';
+import { useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
+import { createApp } from "vue";
 
-import BackIcon from './back.svg?raw';
-import Minesweeper from './vue/Minesweeper/Minesweeper.vue'; // Import your Vue component
+import BackIcon from "./back.svg?raw";
+import Minesweeper from "./vue/Minesweeper/Minesweeper.vue"; // Import your Vue component
 
 export function Component() {
   const vueComponentRef = useRef(null);
@@ -20,8 +20,8 @@ export function Component() {
   }, []);
 
   return (
-    <div className="min-h-screen px-12 max-w-screen-xl mx-auto">
-      <div className="pt-8">
+    <div className="min-h-screen px-12 max-w-screen-xl mx-auto flex flex-col">
+      <div className="pt-6">
         <NavLink to="..">
           <button
             className="back-button"
@@ -32,9 +32,11 @@ export function Component() {
           />
         </NavLink>
       </div>
-      <div className="mt-40" ref={vueComponentRef} />
+      <div className="flex-1 flex flex-col justify-center">
+        <div ref={vueComponentRef} />
+      </div>
     </div>
   );
 }
 
-Component.displayName = 'Minesweeper';
+Component.displayName = "Minesweeper";
