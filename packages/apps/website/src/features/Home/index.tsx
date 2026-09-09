@@ -36,7 +36,7 @@ function Header() {
           <li>
             <a
               className="block hover:text-slate-200"
-              href="https://github.com/JasonMan34"
+              href="https://github.com/itamarzwi"
               target="_blank"
               rel="noreferrer noopener"
               aria-label="GitHub (opens in a new tab)"
