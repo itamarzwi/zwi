@@ -12,11 +12,11 @@ type Props = {
 };
 
 export function MultipleChoice({ question, options, answer, explanation }: Props) {
-  const report = useQuizQuestion();
+  const { report, checked } = useQuizQuestion();
   const [picked, setPicked] = useState<number | null>(null);
 
   const pick = (index: number) => {
-    if (picked !== null) return;
+    if (checked) return;
     setPicked(index);
     report(index === answer);
   };
@@ -32,17 +32,19 @@ export function MultipleChoice({ question, options, answer, explanation }: Props
             variant="outline"
             onClick={() => pick(index)}
             className={cn(
-              picked !== null &&
-                index === answer &&
-                "border-green-600 bg-green-600/10 text-green-700 dark:text-green-400",
-              picked === index && index !== answer && "border-destructive bg-destructive/10 text-destructive",
+              !checked && picked === index && "border-primary bg-primary/10",
+              checked && index === answer && "border-green-600 bg-green-600/10 text-green-700 dark:text-green-400",
+              checked &&
+                picked === index &&
+                index !== answer &&
+                "border-destructive bg-destructive/10 text-destructive",
             )}
           >
             {option}
           </Button>
         ))}
       </div>
-      {picked !== null && explanation && <p className="mt-3 text-sm text-muted-foreground">{explanation}</p>}
+      {checked && explanation && <p className="mt-3 text-sm text-muted-foreground">{explanation}</p>}
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button } from "#/components/ui/button.tsx";
 import { Input } from "#/components/ui/input.tsx";
 import { cn } from "#/lib/utils.ts";
 import { useQuizQuestion } from "./quiz-context.tsx";
@@ -15,18 +14,11 @@ type Props = {
 const normalize = (value: string) => value.trim().toLowerCase();
 
 export function FillBlank({ prompt, answer, hint }: Props) {
-  const report = useQuizQuestion();
+  const { report, checked } = useQuizQuestion();
   const [value, setValue] = useState("");
-  const [result, setResult] = useState<"correct" | "wrong" | null>(null);
   const accepted = (Array.isArray(answer) ? answer : [answer]).map(normalize);
   const [before, after] = prompt.split("___");
-
-  const check = () => {
-    if (!value.trim()) return;
-    const correct = accepted.includes(normalize(value));
-    setResult(correct ? "correct" : "wrong");
-    report(correct);
-  };
+  const isCorrect = accepted.includes(normalize(value));
 
   return (
     <div className="not-prose my-4 rounded-xl border bg-card p-4">
@@ -36,20 +28,21 @@ export function FillBlank({ prompt, answer, hint }: Props) {
           value={value}
           onChange={(e) => {
             setValue(e.target.value);
-            setResult(null);
+            report(e.target.value.trim() ? accepted.includes(normalize(e.target.value)) : undefined);
           }}
-          onKeyDown={(e) => e.key === "Enter" && check()}
-          className={cn("w-32", result === "correct" && "border-green-600", result === "wrong" && "border-destructive")}
+          disabled={checked}
+          className={cn("w-32", checked && (isCorrect ? "border-green-600" : "border-destructive"))}
           aria-label="Your answer"
         />
         <span>{after}</span>
-        <Button type="button" size="sm" onClick={check}>
-          Check
-        </Button>
       </div>
       {hint && <p className="mt-2 text-sm text-muted-foreground">Hint: {hint}</p>}
-      {result === "correct" && <p className="mt-2 text-sm text-green-700 dark:text-green-400">Richtig!</p>}
-      {result === "wrong" && <p className="mt-2 text-sm text-destructive">Not quite, try again.</p>}
+      {checked && isCorrect && <p className="mt-2 text-sm text-green-700 dark:text-green-400">Richtig!</p>}
+      {checked && !isCorrect && (
+        <p className="mt-2 text-sm text-destructive">
+          Not quite. Correct answer: {Array.isArray(answer) ? answer[0] : answer}
+        </p>
+      )}
     </div>
   );
 }

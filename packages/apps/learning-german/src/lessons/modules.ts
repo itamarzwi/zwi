@@ -5,12 +5,6 @@ export const modules: ModuleInfo[] = [
   {
     id: "01-basics",
     title: "The basics",
-    description: "Genders, capitalisation, first verbs, numbers and introductions.",
+    description: "Genders, first verbs, numbers, introductions, sentence structure and the first cases.",
   },
-  {
-    id: "02-sentences",
-    title: "Sentence structure",
-    description: "Subject, verb, object, and where time and place go.",
-  },
-  { id: "03-cases", title: "Cases", description: "Nominativ and Akkusativ." },
 ];

@@ -13,7 +13,7 @@ export const Route = createRootRoute({ component: RootLayout });
 
 function RootLayout() {
   return (
-    <div className="min-h-dvh pb-20 sm:pb-0">
+    <div className="flex min-h-dvh flex-col pb-20 sm:pb-0">
       <header className="border-b bg-card">
         <div className="mx-auto flex max-w-4xl items-center gap-1 px-4 py-2">
           <span className="mr-4 font-bold">Deutsch lernen</span>
@@ -53,7 +53,7 @@ function RootLayout() {
         ))}
       </nav>
 
-      <main className="mx-auto max-w-4xl px-4 py-6 sm:py-8">
+      <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 py-6 sm:py-8">
         <Outlet />
       </main>
     </div>
