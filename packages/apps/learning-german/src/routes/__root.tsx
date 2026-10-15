@@ -16,7 +16,9 @@ function RootLayout() {
     <div className="flex min-h-dvh flex-col pb-20 sm:pb-0">
       <header className="border-b bg-card">
         <div className="mx-auto flex max-w-4xl items-center gap-1 px-4 py-2">
-          <span className="mr-4 font-bold">Deutsch lernen</span>
+          <Link to="/" className="mr-4 font-bold">
+            Deutsch lernen
+          </Link>
           {/* Desktop / tablet: links in the header */}
           <nav className="hidden items-center gap-1 sm:flex">
             {links.map((link) => (
