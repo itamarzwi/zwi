@@ -6,24 +6,32 @@ import { useQuizQuestion } from "./quiz-context.tsx";
 type Props = {
   question: string;
   options: string[];
-  /** Index of the correct option. */
-  answer: number;
+  /** Index of the correct option, or an array of indexes when several options are correct (select all). */
+  answer: number | number[];
   explanation?: string;
 };
 
 export function MultipleChoice({ question, options, answer, explanation }: Props) {
   const { report, checked } = useQuizQuestion();
-  const [picked, setPicked] = useState<number | null>(null);
+  const correctIndexes = Array.isArray(answer) ? answer : [answer];
+  const multiple = Array.isArray(answer);
+  const [picked, setPicked] = useState<number[]>([]);
 
   const pick = (index: number) => {
     if (checked) return;
-    setPicked(index);
-    report(index === answer);
+    const next = multiple ? (picked.includes(index) ? picked.filter((i) => i !== index) : [...picked, index]) : [index];
+    setPicked(next);
+    report(
+      next.length === 0
+        ? undefined
+        : next.length === correctIndexes.length && next.every((i) => correctIndexes.includes(i)),
+    );
   };
 
   return (
     <div className="not-prose my-4 rounded-xl border bg-card p-4">
       <p className="mb-3 font-medium">{question}</p>
+      {multiple && <p className="-mt-2 mb-3 text-sm text-muted-foreground">Select all that apply.</p>}
       <div className="flex flex-wrap gap-2">
         {options.map((option, index) => (
           <Button
@@ -31,13 +39,20 @@ export function MultipleChoice({ question, options, answer, explanation }: Props
             type="button"
             variant="outline"
             onClick={() => pick(index)}
+            disabled={checked}
             className={cn(
-              !checked && picked === index && "border-primary bg-primary/10",
-              checked && index === answer && "border-green-600 bg-green-600/10 text-green-700 dark:text-green-400",
+              // Disabled once checked, but keep the green/red result colors at full strength.
+              "disabled:opacity-100",
+              !checked && picked.includes(index) && "border-primary bg-primary/10",
               checked &&
-                picked === index &&
-                index !== answer &&
+                correctIndexes.includes(index) &&
+                "border-green-600 bg-green-600/10 text-green-700 dark:text-green-400",
+              checked &&
+                picked.includes(index) &&
+                !correctIndexes.includes(index) &&
                 "border-destructive bg-destructive/10 text-destructive",
+              // Options that were neither picked nor correct fade out.
+              checked && !picked.includes(index) && !correctIndexes.includes(index) && "disabled:opacity-50",
             )}
           >
             {option}

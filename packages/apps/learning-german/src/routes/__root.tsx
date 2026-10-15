@@ -53,7 +53,7 @@ function RootLayout() {
         ))}
       </nav>
 
-      <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 py-6 sm:py-8">
+      <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 pt-6 sm:py-8">
         <Outlet />
       </main>
     </div>

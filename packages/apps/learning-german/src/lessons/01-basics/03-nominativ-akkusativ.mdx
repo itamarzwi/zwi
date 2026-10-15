@@ -3,31 +3,127 @@ export const meta = {
   summary: "The subject case and the direct-object case, and which articles change.",
 };
 
-## Two cases
+## What are cases?
 
-- **Nominativ**: the subject, the one *doing* the action.
-- **Akkusativ**: the direct object, the one the action happens *to*.
+Every noun in a sentence has a case. A case tells you what role the noun plays in the sentence: Is this noun acting? Is it being acted upon? Is it stationary, or moving? We haven't talked about cases until now, but you have already been using one all along: the Nominativ case.
 
-<Example de="Der Mann sieht den Hund." en="The man sees the dog." note="der Mann = Nominativ (subject), den Hund = Akkusativ (object)" />
+### Nominativ: the default
+
+Nominativ is the "default" case, the one we use when referring to nouns on their own. The subject of a sentence always takes the Nominativ case. The subject is the one doing the action, or the thing the sentence is about. To find it, ask "who or what?", for example:
+
+"Der Mann schläft" (the man is sleeping).  
+Who is sleeping? Der Mann.
+
+When a noun comes after sein, as in "Das ist ein Hund", the noun takes the Nominativ case as well.  
+The articles you've learned so far (der, die, das, ein, eine) are all in the Nominativ form.
+
+### The four cases
+
+German has four cases:
+
+1. Nominativ: the subject, the one doing the action.
+2. Akkusativ: the direct object, the one the action happens to.
+3. Dativ: the indirect object, the one who receives something, or "supporting".
+4. Genitiv: possession, whose something is.
+
+For now, we only care about the first two - Nominativ and Akkusativ. They are the most common ones, and you can already form many sentences with them. Dativ and Genitiv will come later.
+
+### Nominativ and Akkusativ in sentences
+
+In a simple sentence, the Nominativ is the one doing the action, and the Akkusativ is the one the action is being performed on. To find the Akkusativ, ask "whom or what?". It is almost always the Object of the sentence, which comes after the verb.  
+
+"Der Mann sieht den Hund".  
+whom does the man see? Den Hund.
+
+In these examples, green marks the Nominativ (subject) and blue marks the Akkusativ (direct object). Note the difference in the articles for the Maskulin noun!
+
+<ExampleList>
+  <Example de="green(Der Mann) sieht blue(den Hund)." en="green(The man) sees blue(the dog)." />
+  <Example de="green(Die Frau) hat blue(eine Katze)." en="green(The woman) has blue(a cat)." />
+  <Example de="green(Das Kind) liest blue(ein Buch)." en="green(The child) reads blue(a book)." />
+</ExampleList>
 
 ## What changes?
 
-Only the **masculine** changes between Nominativ and Akkusativ. Feminine, neuter and plural stay the same.
+Now that you know what cases are, let's see what actually changes between the Nominativ and the Akkusativ case.  
+The good news: only masculine nouns change. Feminine nouns, neuter nouns and plurals look exactly the same in both cases.
 
-| Gender    | Nominativ | Akkusativ |
-| --------- | --------- | --------- |
-| masculine | der / ein | **den** / **einen** |
-| feminine  | die / eine | die / eine |
-| neuter    | das / ein  | das / ein |
+The table shows the article and the adjective together. In each cell, the first line is the form after der, die, das, and the second line is the form after ein, eine, ein. There is no ein in the plural, so the second line is the adjective on its own.
 
-The same goes for possessives: mein → **meinen** (masculine only).
+<GridTable
+  columnColors={[
+    undefined,
+    { light: "#CCD6DD", dark: "#2B3D4D" },
+    { light: "#D6DDCC", dark: "#364529" },
+    { light: "#DDCCD6", dark: "#4A2D3E" },
+  ]}
+>
 
-<Example de="Ich habe einen Hund." en="I have a dog." />
-<Example de="Ich habe eine Katze." en="I have a cat." />
-<Example de="Ich habe ein Buch." en="I have a book." />
-<Example de="Ich sehe meinen Mann." en="I see my husband." />
+| Case | masculine | neuter | feminine | plural |
+| ---- | --------- | ------ | -------- | ------ |
+| Nom. | de**r** gut*e*<br />ein gut**er** | da**s** gut*e*<br />ein gut**es** | di**e** gut*e*<br />ein**e** gut*e* | di**e** gut*en*<br />ein**e** gut*e* |
+| Akk. | de**n** gut*en*<br />ein**en** gut*en* | da**s** gut*e*<br />ein gut**es** | di**e** gut*e*<br />ein**e** gut*e* | di**e** gut*en*<br />ein**e** gut*e* |
+
+</GridTable>
+
+### Articles
+
+In the masculine, der becomes de**n** and ein becomes ein**en** in the Akkusativ. Feminine and neuter keep die, eine, das and ein, and the plural keeps die.
+
+The same goes for possessives, because they work like ein: mein becomes mein**en**, dein becomes dein**en**, and so on. Again, this only applies to masculine nouns.
+
+### Adjectives
+
+The masculine adjective endings change too. In the Akkusativ it is always -en: den gut**en** Hund, einen gut**en** Hund. In the Nominativ it was -e after der and -er after ein. Feminine, neuter and plural adjectives keep the endings they have in the Nominativ.
+
+<Callout title="Easy to remember">
+Feminine, neuter and plural never change. Whenever a masculine noun is the object, look for the extra n.
+</Callout>
+
+### Examples
+
+Green is the Nominativ (subject) and blue is the Akkusativ (direct object). The same masculine noun changes depending on its role:
+
+<ExampleList>
+  <Example de="green(Der Hund) schläft." en="green(The dog) is sleeping." />
+  <Example de="Ich sehe blue(den Hund)." en="I see blue(the dog)." />
+  <Example de="green(Ein Mann) hat blue(einen Hund)." en="green(A man) has blue(a dog)." />
+</ExampleList>
+
+Feminine and neuter nouns stay the same, and possessives (mein, dein, etc.) follow the same pattern as ein:
+
+<ExampleList>
+  <Example de="Ich habe blue(eine Katze)." en="I have blue(a cat)." />
+  <Example de="Ich habe blue(ein Buch)." en="I have blue(a book)." />
+  <Example de="Ich sehe blue(meinen Mann)." en="I see blue(my husband)." />
+  <Example de="green(Die Hunde) schlafen." en="green(The dogs) are sleeping." />
+  <Example de="Ich sehe blue(die Hunde)." en="I see blue(the dogs)." />
+</ExampleList>
+
+With adjectives:
+
+<ExampleList>
+  <Example de="Ich sehe blue(den großen Hund)." en="I see blue(the big dog)." />
+  <Example de="Ich habe blue(einen kleinen Hund)." en="I have blue(a small dog)." />
+  <Example de="Ich habe blue(eine kleine Katze)." en="I have blue(a small cat)." />
+  <Example de="Ich sehe blue(die kleinen Hunde)." en="I see blue(the small dogs)." />
+</ExampleList>
 
 ## Practice
+
+<MultipleChoice
+  question='In "Die Frau sieht den Hund", which part is in the Nominativ?'
+  options={["Die Frau", "den Hund", "sieht"]}
+  answer={0}
+  explanation="Die Frau is the subject: she is the one seeing."
+/>
+
+<MultipleChoice
+  question='Choose the correct sentence: "The man sees the dog."'
+  options={["Der Mann sieht den Hund.", "Der Mann sieht der Hund.", "Den Mann sieht den Hund."]}
+  answer={0}
+  explanation="Der Mann is the subject (Nominativ). Hund is masculine and the object, so der becomes den."
+/>
 
 <MultipleChoice
   question="Ich sehe ___ Mann."
@@ -43,4 +139,37 @@ The same goes for possessives: mein → **meinen** (masculine only).
   explanation="Katze is feminine, which does not change in the Akkusativ."
 />
 
-<FillBlank prompt="Ich habe ___ Hund. (a)" answer="einen" />
+<FillBlank translation="I have a dog." prompt="Ich habe ___ Hund." answer="einen" />
+
+<FillBlank translation="The dog sees the cat." prompt="Der Hund sieht ___ Katze." answer="die" />
+
+<MultipleChoice
+  question="Choose the nouns whose article changes in the Akkusativ"
+  options={["der Hund", "die Katze", "das Buch", "der Mann"]}
+  answer={[0, 3]}
+  explanation="Only masculine nouns change: der Hund becomes den Hund and der Mann becomes den Mann."
+/>
+
+<FillBlank translation="I see my husband." prompt="Ich sehe ___ Mann." answer="meinen" />
+
+<FillBlank translation="The woman has a cat." prompt="Die Frau hat ___ Katze." answer="eine" />
+
+<FillBlank translation="The new book is good." prompt="Das ___ Buch ist gut. (neu)" answer="neue" />
+
+<FillBlank translation="I see the big dog." prompt="Ich sehe den ___ Hund. (groß)" answer="großen" />
+
+<FillBlank translation="I have a small dog." prompt="Ich habe einen ___ Hund. (klein)" answer="kleinen" />
+
+<MultipleChoice
+  question="Choose the correct sentences"
+  options={[
+    "Ich habe einen kleinen Hund.",
+    "Ich habe ein kleiner Hund.",
+    "Ich habe eine kleine Katze.",
+    "Ich habe einen kleine Katze.",
+  ]}
+  answer={[0, 2]}
+  explanation="Masculine in the Akkusativ gets einen kleinen. Feminine stays eine kleine."
+/>
+
+<FillBlank translation="I see the small dogs." prompt="Ich sehe die ___ Hunde. (klein)" answer="kleinen" />

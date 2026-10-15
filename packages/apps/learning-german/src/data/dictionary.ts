@@ -59,7 +59,7 @@ const entries = {
     english: ["good evening"],
     examples: [
       ex("Guten Abend, Frau Schmidt.", "Good evening, Mrs Schmidt."),
-      ex("Guten Abend! Ich komme aus Kanada.", "Good evening! I come from Canada."),
+      ex("Guten Abend! Ich komme aus Litauen..", "Good evening! I am from Canada."),
     ],
   },
   tschüss: {
@@ -97,7 +97,7 @@ const entries = {
     type: "other",
     english: ["no"],
     examples: [
-      ex("Nein, ich wohne nicht in Berlin.", "No, I do not live in Berlin."),
+      ex("Nein, ich wohne nicht in Marburg.", "No, I do not live in Marburg."),
       ex("Nein, danke.", "No, thank you."),
     ],
   },
@@ -118,8 +118,8 @@ const entries = {
     type: "noun",
     english: ["woman", "wife"],
     examples: [
-      ex("Die Frau wohnt in Berlin.", "The woman lives in Berlin."),
-      ex("Meine Frau kommt aus Kanada.", "My wife comes from Canada."),
+      ex("Die Frau wohnt in Marburg.", "The woman lives in Marburg."),
+      ex("Meine Frau kommt aus Litauen.", "My wife comes from Lithuania."),
     ],
   },
   mann: {
@@ -187,13 +187,13 @@ const entries = {
     german: "kommen",
     type: "verb",
     english: ["to come"],
-    examples: [ex("Ich komme aus Kanada.", "I come from Canada."), ex("Woher kommst du?", "Where do you come from?")],
+    examples: [ex("Ich komme aus Litauen.", "I am from Lithuania."), ex("Woher kommst du?", "Where are you from?")],
   },
   wohnen: {
     german: "wohnen",
     type: "verb",
     english: ["to live", "to reside"],
-    examples: [ex("Ich wohne in Berlin.", "I live in Berlin."), ex("Wo wohnst du?", "Where do you live?")],
+    examples: [ex("Ich wohne in Marburg.", "I live in Marburg."), ex("Wo wohnst du?", "Where do you live?")],
   },
   machen: {
     german: "machen",

@@ -9,13 +9,15 @@ const colorClasses = {
 } as const;
 
 /**
- * Renders light markup in a plain string: `**bold**` and `green(bold green)`, `blue(...)`, `red(...)`.
+ * Renders light markup in a plain string: `**bold**`, `*italic*` (or `_italic_`) and `green(bold green)`, `blue(...)`, `red(...)`.
  * Nesting is not supported.
  */
 const renderRich = (text: string) =>
-  text.split(/(\*\*.+?\*\*|(?:green|blue|red)\(.+?\))/g).map((part, i) => {
+  text.split(/(\*\*.+?\*\*|\*[^*]+\*|_[^_]+_|(?:green|blue|red)\(.+?\))/g).map((part, i) => {
     const bold = part.match(/^\*\*(.+)\*\*$/);
     if (bold) return <strong key={i}>{bold[1]}</strong>;
+    const italic = part.match(/^\*([^*]+)\*$|^_([^_]+)_$/);
+    if (italic) return <em key={i}>{italic[1] ?? italic[2]}</em>;
     const colored = part.match(/^(green|blue|red)\((.+)\)$/);
     if (colored) {
       return (
@@ -27,7 +29,7 @@ const renderRich = (text: string) =>
     return part;
   });
 
-/** A German sentence with its English translation; `**word**` is bolded and `green(word)` is bold and coloured. Usage: <Example de="Ich heiße **Anna**." en="My name is **Anna**." /> */
+/** A German sentence with its English translation; `**word**` is bolded, `*word*` is italic and `green(word)` is bold and coloured. Usage: <Example de="Ich heiße **Anna**." en="My name is **Anna**." /> */
 export function Example({ de, en, note }: { de: string; en: string; note?: ReactNode }) {
   const inList = useContext(InExampleListContext);
   return (

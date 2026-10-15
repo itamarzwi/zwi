@@ -93,12 +93,12 @@ function LessonFooter({ lesson, onRetry }: { lesson: Lesson; onRetry: () => void
       )}
       {completed && <p className="text-sm font-medium">Lesson completed ✓</p>}
       <div className="flex flex-wrap gap-2">
-        {!completed && <Button onClick={() => save(undefined)}>Mark as completed</Button>}
         {total > 0 && !checked && (
           <Button onClick={submit} disabled={answered < total}>
             Check answers
           </Button>
         )}
+        {!completed && <Button onClick={() => save(undefined)}>Mark as completed</Button>}
         {completed && (
           <Button variant="outline" onClick={() => clearProgress.mutate(lesson.key)}>
             Mark as not completed
