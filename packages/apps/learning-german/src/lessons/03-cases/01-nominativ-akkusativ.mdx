@@ -1,0 +1,46 @@
+export const meta = {
+  title: "Nominativ and Akkusativ",
+  summary: "The subject case and the direct-object case, and which articles change.",
+};
+
+## Two cases
+
+- **Nominativ**: the subject, the one *doing* the action.
+- **Akkusativ**: the direct object, the one the action happens *to*.
+
+<Example de="Der Mann sieht den Hund." en="The man sees the dog." note="der Mann = Nominativ (subject), den Hund = Akkusativ (object)" />
+
+## What changes?
+
+Only the **masculine** changes between Nominativ and Akkusativ. Feminine, neuter and plural stay the same.
+
+| Gender    | Nominativ | Akkusativ |
+| --------- | --------- | --------- |
+| masculine | der / ein | **den** / **einen** |
+| feminine  | die / eine | die / eine |
+| neuter    | das / ein  | das / ein |
+
+The same goes for possessives: mein → **meinen** (masculine only).
+
+<Example de="Ich habe einen Hund." en="I have a dog." />
+<Example de="Ich habe eine Katze." en="I have a cat." />
+<Example de="Ich habe ein Buch." en="I have a book." />
+<Example de="Ich sehe meinen Mann." en="I see my husband." />
+
+## Practice
+
+<MultipleChoice
+  question="Ich sehe ___ Mann."
+  options={["der", "den", "das"]}
+  answer={1}
+  explanation="Mann is masculine and the direct object, so der becomes den."
+/>
+
+<MultipleChoice
+  question="Ich habe ___ Katze. (a)"
+  options={["ein", "einen", "eine"]}
+  answer={2}
+  explanation="Katze is feminine, which does not change in the Akkusativ."
+/>
+
+<FillBlank prompt="Ich habe ___ Hund. (a)" answer="einen" />

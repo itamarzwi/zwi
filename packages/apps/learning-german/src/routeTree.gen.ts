@@ -14,6 +14,8 @@ import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as LessonsIndexRouteImport } from './routes/lessons.index'
 import { Route as VocabIndexRouteImport } from './routes/vocab.index'
 import { Route as VocabListIdRouteImport } from './routes/vocab.$listId'
+import { Route as WordsIndexRouteImport } from './routes/words.index'
+import { Route as WordsWordIdRouteImport } from './routes/words.$wordId'
 import { Route as LessonsModuleIdLessonIdRouteImport } from './routes/lessons.$moduleId.$lessonId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +43,16 @@ const VocabListIdRoute = VocabListIdRouteImport.update({
   path: '/vocab/$listId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WordsIndexRoute = WordsIndexRouteImport.update({
+  id: '/words/',
+  path: '/words/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WordsWordIdRoute = WordsWordIdRouteImport.update({
+  id: '/words/$wordId',
+  path: '/words/$wordId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LessonsModuleIdLessonIdRoute = LessonsModuleIdLessonIdRouteImport.update({
   id: '/lessons/$moduleId/$lessonId',
   path: '/lessons/$moduleId/$lessonId',
@@ -51,16 +63,20 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/practice': typeof PracticeRoute
   '/vocab/$listId': typeof VocabListIdRoute
+  '/words/$wordId': typeof WordsWordIdRoute
   '/lessons/': typeof LessonsIndexRoute
   '/vocab/': typeof VocabIndexRoute
+  '/words/': typeof WordsIndexRoute
   '/lessons/$moduleId/$lessonId': typeof LessonsModuleIdLessonIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/practice': typeof PracticeRoute
   '/vocab/$listId': typeof VocabListIdRoute
+  '/words/$wordId': typeof WordsWordIdRoute
   '/lessons': typeof LessonsIndexRoute
   '/vocab': typeof VocabIndexRoute
+  '/words': typeof WordsIndexRoute
   '/lessons/$moduleId/$lessonId': typeof LessonsModuleIdLessonIdRoute
 }
 export interface FileRoutesById {
@@ -68,8 +84,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/practice': typeof PracticeRoute
   '/vocab/$listId': typeof VocabListIdRoute
+  '/words/$wordId': typeof WordsWordIdRoute
   '/lessons/': typeof LessonsIndexRoute
   '/vocab/': typeof VocabIndexRoute
+  '/words/': typeof WordsIndexRoute
   '/lessons/$moduleId/$lessonId': typeof LessonsModuleIdLessonIdRoute
 }
 export interface FileRouteTypes {
@@ -78,24 +96,30 @@ export interface FileRouteTypes {
     | '/'
     | '/practice'
     | '/vocab/$listId'
+    | '/words/$wordId'
     | '/lessons/'
     | '/vocab/'
+    | '/words/'
     | '/lessons/$moduleId/$lessonId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/practice'
     | '/vocab/$listId'
+    | '/words/$wordId'
     | '/lessons'
     | '/vocab'
+    | '/words'
     | '/lessons/$moduleId/$lessonId'
   id:
     | '__root__'
     | '/'
     | '/practice'
     | '/vocab/$listId'
+    | '/words/$wordId'
     | '/lessons/'
     | '/vocab/'
+    | '/words/'
     | '/lessons/$moduleId/$lessonId'
   fileRoutesById: FileRoutesById
 }
@@ -103,8 +127,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PracticeRoute: typeof PracticeRoute
   VocabListIdRoute: typeof VocabListIdRoute
+  WordsWordIdRoute: typeof WordsWordIdRoute
   LessonsIndexRoute: typeof LessonsIndexRoute
   VocabIndexRoute: typeof VocabIndexRoute
+  WordsIndexRoute: typeof WordsIndexRoute
   LessonsModuleIdLessonIdRoute: typeof LessonsModuleIdLessonIdRoute
 }
 
@@ -145,6 +171,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VocabListIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/words/': {
+      id: '/words/'
+      path: '/words'
+      fullPath: '/words/'
+      preLoaderRoute: typeof WordsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/words/$wordId': {
+      id: '/words/$wordId'
+      path: '/words/$wordId'
+      fullPath: '/words/$wordId'
+      preLoaderRoute: typeof WordsWordIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lessons/$moduleId/$lessonId': {
       id: '/lessons/$moduleId/$lessonId'
       path: '/lessons/$moduleId/$lessonId'
@@ -159,8 +199,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PracticeRoute: PracticeRoute,
   VocabListIdRoute: VocabListIdRoute,
+  WordsWordIdRoute: WordsWordIdRoute,
   LessonsIndexRoute: LessonsIndexRoute,
   VocabIndexRoute: VocabIndexRoute,
+  WordsIndexRoute: WordsIndexRoute,
   LessonsModuleIdLessonIdRoute: LessonsModuleIdLessonIdRoute,
 }
 export const routeTree = rootRouteImport

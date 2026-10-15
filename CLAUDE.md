@@ -25,3 +25,7 @@ Named functions are preferred for:
 
 1. React functional components (functions returning JSX in `.tsx` files). These should always be named, NOT arrow.
 2. Cache libraries that use function names for keys.
+
+## IDs
+
+IDs are plain strings and may contain any Unicode, including umlauts and ß (e.g. the word id `heißen`, `tschüss`, `fünf`). Never transliterate to ASCII (`heissen`, `tschuess`) just for ids. Keep them NFC-normalized (precomposed characters, which is what editors produce by default). Router params and the database both handle this fine.

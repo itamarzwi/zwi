@@ -22,10 +22,10 @@ if (!root) throw new Error("Missing #root element");
 
 createRoot(root).render(
   // <StrictMode>
-    <RepositoryProvider repository={repository}>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-    </RepositoryProvider>
+  <RepositoryProvider repository={repository}>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  </RepositoryProvider>,
   // </StrictMode>,
 );
