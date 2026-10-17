@@ -1,0 +1,25 @@
+name: Deploy learning-german
+
+on:
+  push:
+    branches: [feat/learning-german]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-learning-german
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/setup@v3
+        with:
+          cache: true
+          require-lockfile: true
+      - run: pnpm --filter @zwi/learning-german build
+      - run: pnpm --filter @zwi/learning-german run deploy
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.LEARNING_GERMAN_NETLIFY_SITE_ID }}

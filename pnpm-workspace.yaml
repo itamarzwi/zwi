@@ -4,7 +4,9 @@ allowBuilds:
   '@parcel/watcher': true
   esbuild: true
   lightningcss: true
+  netlify-cli: true
   sharp: true
+  unix-dgram: true
   vue-demi: true
   workerd: true
 
@@ -70,3 +72,4 @@ catalog:
   wrangler: ^4.129.1
   zod: ^4.5.4
   cn: ^0.4.0
+  netlify-cli: ^27.12.1
