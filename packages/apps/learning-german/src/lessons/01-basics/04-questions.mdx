@@ -160,7 +160,7 @@ There are of course Dativ and Genitiv forms for "wer" as well (With *whom* are y
 | ------ | ------- |
 | welche? | which? |
 
-Welche is the only question word that changes with both the case and the gender. It always accompanies a noun and declines exactly like der, die and das; the Akkusativ only changes in masculine form.
+Welche is the only W-question word that changes with both the case and the gender. It always accompanies a noun and declines exactly like der, die and das; the Akkusativ only changes in masculine form.
 
 <GenderedTable
   label="Case"
@@ -188,14 +188,14 @@ In the Akkusativ, it is the direct object. Only the masculine changes:
   <Example de="blue(Welche Hunde) siehst du?" en="blue(Which dogs) do you see?" />
 </ExampleList>
 
-Both cases can appear in the same question:
+Both cases can also appear in the same question:
 
 <ExampleList>
   <Example de="green(Welcher Mann) hat blue(welchen Hund)?" en="green(Which man) has blue(which dog)?" />
   <Example de="green(Welche Frau) liest blue(welches Buch)?" en="green(Which woman) is reading blue(which book)?" />
 </ExampleList>
 
-## How much and how many
+## Wie viel und wie viele?
 
 | German | English |
 | ------ | ------- |
@@ -205,18 +205,27 @@ Both cases can appear in the same question:
 These questions translate 1-to-1 to the English "How much" and "How many" (viel=much, viele=many). We use "Wie viel" for uncountables like money or time, and "wie viele" for countable things with a plural noun.
 
 <ExampleList>
-  <Example de="Wie viel Zeit hast du?" en="How much time do you have?" />
-  <Example de="Wie viele Bücher hast du?" en="How many books do you have?" />
+  <Example de="**Wie viel** Zeit hast du?" en="**How much** time do you have?" />
+  <Example de="**Wie viele** Bücher hast du?" en="**How many** books do you have?" />
 </ExampleList>
 
 ## Practice
 
 <MultipleChoice
-  question='Choose the correct question: "Do you live in Marburg?"'
-  options={["Wohnst du in Marburg?", "Du wohnst in Marburg?", "Wohnen in Marburg du?"]}
-  answer={0}
-  explanation="The verb goes first in a yes/no question, followed by the subject."
+  question="Select the yes/no questions"
+  options={["Wohnst du in Marburg?", "Wo wohnst du?", "Ist das Buch neu?", "Wann lernst du Deutsch?"]}
+  answer={[0, 2]}
+  explanation="A yes/no question starts with the verb. The other two start with a question word."
 />
+
+<MultipleChoice
+  question='Choose the correct question: "Is Anna learning German?"'
+  options={["Lernt Anna Deutsch?", "Lernt Deutsch Anna?", "Ist Anna lernt Deutsch?"]}
+  answer={0}
+  explanation="The verb goes first, followed by the subject. German has no extra word like “do” or “is” for questions."
+/>
+
+<FillBlank translation="Does Anna live in Marburg?" prompt="___ Anna in Marburg? (wohnen)" answer="Wohnt" />
 
 <MultipleChoice
   question='Choose the correct question: "Where do you live?"'
@@ -225,33 +234,59 @@ These questions translate 1-to-1 to the English "How much" and "How many" (viel=
   explanation="The question word is first and the verb is second."
 />
 
-<FillBlank translation="Where is Anna from?" prompt="___ kommt Anna?" answer="Woher" />
+<FillBlank translation="When are we eating?" prompt="Wann ___ wir? (essen)" answer="essen" />
+
+<MultipleChoice
+  question='Choose the correct question: "What is your name?"'
+  options={["Was heißt du?", "Wie heißt du?", "Wo heißt du?"]}
+  answer={1}
+  explanation="German asks “How are you called?”, so it uses wie."
+/>
+
+<FillBlank translation="Why are you learning German?" prompt="___ lernst du Deutsch?" answer="Warum" />
+
+<FillBlank translation="What is the child reading?" prompt="___ liest das Kind?" answer="Was" />
+
+<FillBlank translation="Where are you from?" prompt="___ kommst du?" answer="Woher" />
 
 <FillBlank translation="Where are you going?" prompt="___ gehst du?" answer="Wohin" />
 
-<FillBlank translation="Is the book new?" prompt="___ das Buch neu?" answer="Ist" />
-
-<FillBlank translation="When are you learning German?" prompt="Wann ___ du Deutsch? (lernen)" answer="lernst" />
-
 <MultipleChoice
-  question="___ sieht den Hund? (the subject: a person)"
+  translation="Who sees the dog?"
+  question="___ sieht den Hund?"
   options={["Wer", "Wen", "Was"]}
   answer={0}
   explanation="The person seeing is the subject, so it is Nominativ: wer."
 />
 
 <MultipleChoice
-  question="___ sieht der Mann? (the object: a person)"
+  translation="Whom does the dog see?"
+  question="___ sieht der Hund?"
   options={["Wer", "Wen", "Was"]}
   answer={1}
   explanation="The person being seen is the direct object, so it is Akkusativ: wen."
 />
 
-<FillBlank translation="How many books do you have?" prompt="Wie ___ Bücher hast du?" answer="viele" />
+<MultipleChoice
+  translation="Which dog is sleeping?"
+  question="___ Hund schläft?"
+  options={["Welcher", "Welchen", "Welches"]}
+  answer={0}
+  explanation="Hund is masculine and the subject, so it is Nominativ: welcher."
+/>
+
+<FillBlank translation="Which cat is small?" prompt="___ Katze ist klein?" answer="Welche" />
+
+<FillBlank translation="Which dog do you see?" prompt="___ Hund siehst du?" answer="Welchen" />
+
+<FillBlank translation="Which book are you reading?" prompt="___ Buch liest du?" answer="Welches" />
 
 <MultipleChoice
-  question="Choose the correct questions"
-  options={["Wie heißt du?", "Wie du heißt?", "Heißt du Anna?", "Heißt Anna du?"]}
-  answer={[0, 2]}
-  explanation="A W-question has the verb second and a yes/no question has it first. The subject follows the verb either way."
+  translation="How much time do you have?"
+  question="___ Zeit hast du?"
+  options={["Wie viel", "Wie viele"]}
+  answer={0}
+  explanation="Time can't be counted one by one, so it is wie viel."
 />
+
+<FillBlank translation="How many books do you have?" prompt="Wie ___ Bücher hast du?" answer="viele" />
