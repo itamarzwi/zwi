@@ -31,7 +31,7 @@ const findClose = (text: string, from: number) => {
  * Renders light markup in a plain string: `**bold**`, `*italic*` (or `_italic_`) and `verb(...)`, `noun(...)`, `adjective(...)`, `possessive(...)`, `adverb(...)`, `timeplace(...)` (bold coloured word classes), plus `green(...)`/`blue(...)` for cases.
  * Coloured markup can be nested, e.g. `green(Der adjective(große) Hund)`; the inner colour wins.
  */
-const renderRich = (text: string): ReactNode[] => {
+export const renderRich = (text: string): ReactNode[] => {
   const out: ReactNode[] = [];
   let pos = 0;
   for (const m of text.matchAll(markupStart)) {

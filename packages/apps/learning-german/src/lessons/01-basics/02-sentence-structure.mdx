@@ -18,11 +18,13 @@ For now we only look at adjectives that describe the subject of the sentence (th
 
 ### der / die / das
 
-After der, die or das, the ending is always **-e**.
+After der, die or das, the ending is **-e**, except in the plural, where it is **-en**.
 
-| Gender | masculine | neuter | feminine |
-| ------ | --------- | ------ | -------- |
-| Example | der groß**e** Hund | das groß**e** Haus | die groß**e** Stadt |
+<GenderedTable
+  rows={[
+    ["der groß**e** Hund", "das groß**e** Haus", "die groß**e** Stadt", "die groß**en** Hunde"],
+  ]}
+/>
 
 <ExampleList>
   <Example de="Der **große** Hund schläft." en="The **big** dog is sleeping." />
@@ -36,12 +38,13 @@ With der, die and das there is no mistaking the gender of the noun, so the adjec
 
 ### With ein / eine
 
-After ein or eine, the ending depends on the gender:
+After ein or eine, the ending depends on the gender. There is no ein in the plural, so the table uses meine (my):
 
-| Gender | masculine | neuter | feminine |
-| ------ | --------- | ------ | -------- |
-| Example | ein groß**er** Hund | ein groß**es** Haus | eine groß**e** Stadt |
-| Ending | -er | -es | -e |
+<GenderedTable
+  rows={[
+    ["ein groß**er** Hund", "ein groß**es** Haus", "eine groß**e** Stadt", "meine groß**en** Hunde"],
+  ]}
+/>
 
 <ExampleList>
   <Example de="Ein **großer** Hund schläft." en="A **big** dog is sleeping." />

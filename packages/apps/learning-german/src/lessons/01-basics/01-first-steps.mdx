@@ -7,10 +7,13 @@ export const meta = {
 
 Every German noun is masculine, feminine or neuter. The gender shows up in the word for "the":
 
-| Gender  | masculine | neuter | feminine |
-| ------- | --------- | ------ | -------- |
-| Article | der | das | die |
-| Example | der Mann (the man) | das Kind (the child) | die Frau (the woman) |
+<GenderedTable
+  label=""
+  rows={[
+    ["Article", "der", "das", "die"],
+    ["Example", "der Mann (the man)", "das Kind (the child)", "die Frau (the woman)"],
+  ]}
+/>
 
 <Callout title="Learn the article with the noun">
 The gender is usually not guessable. Always learn a noun together with its article: not "Stadt", but **die Stadt**.

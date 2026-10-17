@@ -5,7 +5,7 @@ import { Callout } from "./callout.tsx";
 import { Example, ExampleList } from "./example.tsx";
 import { Footnote } from "./footnote.tsx";
 import { LessonPage, LessonPages } from "./lesson-pages.tsx";
-import { GridTable, ScrollableTable } from "./table.tsx";
+import { GenderedTable, GridTable, ScrollableTable } from "./table.tsx";
 
 const components: MDXComponents = {
   Example,
@@ -16,6 +16,7 @@ const components: MDXComponents = {
   FillBlank,
   table: ScrollableTable,
   GridTable,
+  GenderedTable,
   LessonPages,
   LessonPage,
 };

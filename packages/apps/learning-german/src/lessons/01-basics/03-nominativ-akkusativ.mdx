@@ -50,21 +50,13 @@ The good news: only masculine nouns change. Feminine nouns, neuter nouns and plu
 
 The table shows the article and the adjective together. In each cell, the first line is the form after der, die, das, and the second line is the form after ein, eine, ein. There is no ein in the plural, so the second line is the adjective on its own.
 
-<GridTable
-  columnColors={[
-    undefined,
-    { light: "#CCD6DD", dark: "#2B3D4D" },
-    { light: "#D6DDCC", dark: "#364529" },
-    { light: "#DDCCD6", dark: "#4A2D3E" },
+<GenderedTable
+  label="Case"
+  rows={[
+    ["Nom.", "de**r** gut*e*\nein gut**er**", "da**s** gut*e*\nein gut**es**", "di**e** gut*e*\nein**e** gut*e*", "di**e** gut*en*\nmein**e** gut*en*"],
+    ["Akk.", "de**n** gut*en*\nein**en** gut*en*", "da**s** gut*e*\nein gut**es**", "di**e** gut*e*\nein**e** gut*e*", "di**e** gut*en*\nmein**e** gut*en*"],
   ]}
->
-
-| Case | masculine | neuter | feminine | plural |
-| ---- | --------- | ------ | -------- | ------ |
-| Nom. | de**r** gut*e*<br />ein gut**er** | da**s** gut*e*<br />ein gut**es** | di**e** gut*e*<br />ein**e** gut*e* | di**e** gut*en*<br />mein**e** gut*e* |
-| Akk. | de**n** gut*en*<br />ein**en** gut*en* | da**s** gut*e*<br />ein gut**es** | di**e** gut*e*<br />ein**e** gut*e* | di**e** gut*en*<br />mein**e** gut*e* |
-
-</GridTable>
+/>
 
 ### Articles
 
