@@ -1,6 +1,6 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { BookOpen, GraduationCap, Home, Languages } from "lucide-react";
-import { ThemeToggle } from "#/components/theme-toggle.tsx";
+import { ThemeToggle } from "@zwi/ui";
 
 const links = [
   { to: "/", label: "Home", icon: Home },
