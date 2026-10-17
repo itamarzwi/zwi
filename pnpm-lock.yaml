@@ -185,9 +185,6 @@ catalogs:
     '@neondatabase/serverless':
       specifier: ^1.1.0
       version: 1.2.0
-    '@netlify/vite-plugin-tanstack-start':
-      specifier: ^1.3.19
-      version: 1.3.19
     '@tailwindcss/postcss':
       specifier: ^4.3.3
       version: 4.3.3
@@ -612,19 +609,19 @@ importers:
     dependencies:
       '@clerk/tanstack-react-start':
         specifier: 'catalog:'
-        version: 1.7.1(@tanstack/react-router@1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@tanstack/react-start@1.169.1(esbuild@0.28.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 1.7.1(@tanstack/react-router@1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@tanstack/react-start@1.169.1(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@neondatabase/serverless':
         specifier: 'catalog:'
         version: 1.2.0
       '@tailwindcss/vite':
         specifier: 'catalog:'
-        version: 4.3.3(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+        version: 4.3.3(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
       '@tanstack/react-devtools':
         specifier: 'catalog:'
         version: 0.10.13(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(csstype@3.2.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(solid-js@1.9.17)
       '@tanstack/react-form':
         specifier: 'catalog:'
-        version: 1.33.5(@tanstack/react-start@1.169.1(esbuild@0.28.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 1.33.5(@tanstack/react-start@1.169.1(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@tanstack/react-router':
         specifier: 'catalog:'
         version: 1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -633,7 +630,7 @@ importers:
         version: 1.167.2(@tanstack/react-router@1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@tanstack/router-core@1.171.37)(csstype@3.2.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@tanstack/react-start':
         specifier: 'catalog:'
-        version: 1.169.1(esbuild@0.28.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+        version: 1.169.1(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
       '@zwi/ui':
         specifier: workspace:*
         version: link:../../libs/ui
@@ -666,7 +663,7 @@ importers:
         version: 1.4.0
       vite-plugin-neon-new:
         specifier: 'catalog:'
-        version: 0.9.2(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+        version: 0.9.2(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
       zod:
         specifier: 'catalog:'
         version: 4.6.7
@@ -674,15 +671,15 @@ importers:
       '@biomejs/biome':
         specifier: 'catalog:'
         version: 2.5.15
-      '@netlify/vite-plugin-tanstack-start':
+      '@cloudflare/vite-plugin':
         specifier: 'catalog:'
-        version: 1.3.19(@parcel/watcher@2.6.0)(@tanstack/react-start@1.169.1(esbuild@0.28.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)))(rollup@4.64.6)(srvx@0.11.22)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+        version: 1.64.0(@types/node@26.6.5)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))(wrangler@4.151.0(@types/node@26.6.5))
       '@tailwindcss/typography':
         specifier: 'catalog:'
         version: 0.5.20(tailwindcss@4.3.3)
       '@tanstack/devtools-vite':
         specifier: 'catalog:'
-        version: 0.8.5(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+        version: 0.8.5(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
       '@tanstack/router-cli':
         specifier: 'catalog:'
         version: 1.167.43(supports-color@10.2.2)
@@ -697,13 +694,16 @@ importers:
         version: 19.3.0(@types/react@19.3.0)
       '@vitejs/plugin-react':
         specifier: 'catalog:'
-        version: 6.1.2(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+        version: 6.1.2(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
       typescript:
         specifier: 'catalog:'
         version: 7.0.2
       vite:
         specifier: 'catalog:'
-        version: 8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
+        version: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
+      wrangler:
+        specifier: 'catalog:'
+        version: 4.151.0(@types/node@26.6.5)
 
   packages/apps/website:
     dependencies:
@@ -762,6 +762,9 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
+      wrangler:
+        specifier: 'catalog:'
+        version: 4.151.0(@types/node@26.6.5)
 
   packages/libs/shared:
     devDependencies:
@@ -2474,25 +2477,6 @@ packages:
   '@netlify/types@3.2.0':
     resolution: {integrity: sha512-PVvY1EEN9i2Er0LQoiyNG7i/BnwnttLuZqIkBnhL2Jrcj3P5N/NcGkv1i20MJ2ngNGSPQcT7tagDmF3V6BsdWg==}
     engines: {node: '>=22.12.0'}
-
-  '@netlify/vite-plugin-tanstack-start@1.3.19':
-    resolution: {integrity: sha512-qLrbU7ZWyHtoCdtmTUOUc9VQwMRHfJ5EqAVOwZyXHbp4okdFGeJkpcpwNGa1pHDOvdrVf8dyIK0Plc0KvX829g==}
-    engines: {node: ^22.12.0 || >=24.0.0}
-    peerDependencies:
-      '@tanstack/react-start': '>=1.132.0'
-      '@tanstack/solid-start': '>=1.132.0'
-      vite: '>=7.0.0'
-    peerDependenciesMeta:
-      '@tanstack/react-start':
-        optional: true
-      '@tanstack/solid-start':
-        optional: true
-
-  '@netlify/vite-plugin@3.0.1':
-    resolution: {integrity: sha512-63vL+KpnbfJv+xQSfOn37j8aSOWjiljeaFL9g/HY+YNJpDJ3Y5BPPW1VExx4dcPqXBkggBHm5Y6HpTvBeTSx3Q==}
-    engines: {node: '>=22.12.0'}
-    peerDependencies:
-      vite: ^5 || ^6 || ^7 || ^8
 
   '@netlify/zip-it-and-ship-it@16.3.0':
     resolution: {integrity: sha512-y5O/GONXSkGN5pFAHxw2ckZdmAu3ej3CEXPHebNyQHbWILW+5F985ODShSqJcl/JtL4fUVta0XkqOYr/3nStUQ==}
@@ -5616,8 +5600,8 @@ packages:
   es-module-lexer@2.3.2:
     resolution: {integrity: sha512-poHGpORABojJJucnV9KbOavETW8lBVnphkW77ER5/BQ5Fz7oXSoCNek7IH3vR5nRjdsEz926ibFYX8KtLQmdyw==}
 
-  es-module-lexer@3.0.3:
-    resolution: {integrity: sha512-yWGe1O/j+almnV4hOYrmZo8u58JdnmXEMneRQAYkWtqSiT86yoMIEKF4rpqEDj52tbYl3xceBD3DQIBwcsC9Pw==}
+  es-module-lexer@3.0.4:
+    resolution: {integrity: sha512-BldNY5mwkVu+cQ5Ymn3e6hB9Sx8XHx4ZevWbiUyZbfKxJxYO27Hf0wfzkxIaD5CAJMaGl3YspKELj0ff/7nCMA==}
 
   es-object-atoms@1.1.2:
     resolution: {integrity: sha512-HWcBoN6NileqtSydK2FqHbS/LoDd2pqrnQHLyJzBj4kOp/ky2MWMN694xOfkK8/SnUsW2DH7EfyVlydKCsm1Zw==}
@@ -9994,13 +9978,13 @@ snapshots:
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
 
-  '@clerk/tanstack-react-start@1.7.1(@tanstack/react-router@1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@tanstack/react-start@1.169.1(esbuild@0.28.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@clerk/tanstack-react-start@1.7.1(@tanstack/react-router@1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@tanstack/react-start@1.169.1(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
     dependencies:
       '@clerk/backend': 3.23.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@clerk/react': 6.17.8(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@clerk/shared': 4.40.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@tanstack/react-router': 1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      '@tanstack/react-start': 1.169.1(esbuild@0.28.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+      '@tanstack/react-start': 1.169.1(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
       tslib: 2.8.1
@@ -10019,6 +10003,20 @@ snapshots:
       miniflare: 5.20261012.0-beta(@types/node@26.6.5)
       unenv: 2.0.0-rc.24
       vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
+      workerd: 1.20261012.1
+      wrangler: 4.151.0(@types/node@26.6.5)
+      ws: 8.21.0
+    transitivePeerDependencies:
+      - '@types/node'
+      - bufferutil
+      - utf-8-validate
+
+  '@cloudflare/vite-plugin@1.64.0(@types/node@26.6.5)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))(wrangler@4.151.0(@types/node@26.6.5))':
+    dependencies:
+      '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261012.1)
+      miniflare: 5.20261012.0-beta(@types/node@26.6.5)
+      unenv: 2.0.0-rc.24
+      vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
       workerd: 1.20261012.1
       wrangler: 4.151.0(@types/node@26.6.5)
       ws: 8.21.0
@@ -10743,19 +10741,6 @@ snapshots:
 
   '@lukeed/ms@2.0.2': {}
 
-  '@mapbox/node-pre-gyp@2.0.3(supports-color@10.2.2)':
-    dependencies:
-      consola: 3.4.2
-      detect-libc: 2.1.2
-      https-proxy-agent: 7.0.6(supports-color@10.2.2)
-      node-fetch: 2.7.0
-      nopt: 8.1.0
-      semver: 7.8.5
-      tar: 7.5.22
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-
   '@mapbox/node-pre-gyp@2.0.3(supports-color@11.0.0)':
     dependencies:
       consola: 3.4.2
@@ -10883,14 +10868,6 @@ snapshots:
       picoquery: 2.5.0
 
   '@netlify/binary-info@1.0.0': {}
-
-  '@netlify/blobs@11.1.4(supports-color@10.2.2)':
-    dependencies:
-      '@netlify/dev-utils': 6.0.3
-      '@netlify/otel': 7.0.4(supports-color@10.2.2)
-      '@netlify/runtime-utils': 3.0.0
-    transitivePeerDependencies:
-      - supports-color
 
   '@netlify/blobs@11.1.4(supports-color@11.0.0)':
     dependencies:
@@ -11024,50 +11001,6 @@ snapshots:
       parse-gitignore: 2.0.0
       semver: 7.8.5
 
-  '@netlify/dev@5.1.7(@parcel/watcher@2.6.0)(rollup@4.64.6)(srvx@0.11.22)(supports-color@10.2.2)':
-    dependencies:
-      '@netlify/ai': 1.0.1
-      '@netlify/blobs': 11.1.4(supports-color@10.2.2)
-      '@netlify/config': 25.2.6
-      '@netlify/database-dev': 1.0.1
-      '@netlify/dev-utils': 6.0.3
-      '@netlify/edge-functions-dev': 2.0.3
-      '@netlify/functions-dev': 2.0.11(rollup@4.64.6)(supports-color@10.2.2)
-      '@netlify/headers': 3.0.3
-      '@netlify/images': 2.0.3(@netlify/blobs@11.1.4(supports-color@10.2.2))(@parcel/watcher@2.6.0)(srvx@0.11.22)
-      '@netlify/redirects': 4.1.0
-      '@netlify/runtime': 5.0.8(supports-color@10.2.2)
-      '@netlify/server-dev': 0.1.3
-      '@netlify/static': 4.0.0
-      ulid: 3.0.2
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@parcel/watcher'
-      - '@planetscale/database'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/functions'
-      - '@vercel/kv'
-      - aws4fetch
-      - bare-abort-controller
-      - bare-buffer
-      - db0
-      - encoding
-      - idb-keyval
-      - ioredis
-      - react-native-b4a
-      - rollup
-      - srvx
-      - supports-color
-      - uploadthing
-
   '@netlify/dev@5.1.7(@parcel/watcher@2.6.0)(rollup@4.64.6)(srvx@0.11.22)(supports-color@11.0.0)':
     dependencies:
       '@netlify/ai': 1.0.1
@@ -11147,29 +11080,6 @@ snapshots:
     dependencies:
       '@netlify/types': 3.2.0
 
-  '@netlify/functions-dev@2.0.11(rollup@4.64.6)(supports-color@10.2.2)':
-    dependencies:
-      '@netlify/blobs': 11.1.4(supports-color@10.2.2)
-      '@netlify/dev-utils': 6.0.3
-      '@netlify/functions': 6.0.2
-      '@netlify/zip-it-and-ship-it': 16.3.0(rollup@4.64.6)(supports-color@10.2.2)
-      cron-parser: 5.10.2
-      decache: 4.6.2
-      is-stream: 4.0.1
-      jwt-decode: 4.0.0
-      lambda-local: 2.2.0
-      read-package-up: 12.0.0
-      semver: 7.8.5
-      source-map-support: 0.5.21
-      yauzl: 3.4.0
-    transitivePeerDependencies:
-      - bare-abort-controller
-      - bare-buffer
-      - encoding
-      - react-native-b4a
-      - rollup
-      - supports-color
-
   '@netlify/functions-dev@2.0.11(rollup@4.64.6)(supports-color@11.0.0)':
     dependencies:
       '@netlify/blobs': 11.1.4(supports-color@11.0.0)
@@ -11223,32 +11133,6 @@ snapshots:
   '@netlify/headers@3.0.3':
     dependencies:
       '@netlify/headers-parser': 10.1.1
-
-  '@netlify/images@2.0.3(@netlify/blobs@11.1.4(supports-color@10.2.2))(@parcel/watcher@2.6.0)(srvx@0.11.22)':
-    dependencies:
-      ipx: 3.1.1(@netlify/blobs@11.1.4(supports-color@10.2.2))(@parcel/watcher@2.6.0)(srvx@0.11.22)
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@netlify/blobs'
-      - '@parcel/watcher'
-      - '@planetscale/database'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/functions'
-      - '@vercel/kv'
-      - aws4fetch
-      - db0
-      - idb-keyval
-      - ioredis
-      - srvx
-      - uploadthing
 
   '@netlify/images@2.0.3(@netlify/blobs@11.1.4(supports-color@11.0.0))(@parcel/watcher@2.6.0)(srvx@0.11.22)':
     dependencies:
@@ -11333,16 +11217,6 @@ snapshots:
     dependencies:
       '@opentelemetry/api': 1.9.1
 
-  '@netlify/otel@7.0.4(supports-color@10.2.2)':
-    dependencies:
-      '@opentelemetry/api': 1.9.1
-      '@opentelemetry/core': 2.10.0(@opentelemetry/api@1.9.1)
-      '@opentelemetry/instrumentation': 0.221.0(@opentelemetry/api@1.9.1)(supports-color@10.2.2)
-      '@opentelemetry/resources': 2.10.0(@opentelemetry/api@1.9.1)
-      '@opentelemetry/sdk-trace-node': 2.10.0(@opentelemetry/api@1.9.1)
-    transitivePeerDependencies:
-      - supports-color
-
   '@netlify/otel@7.0.4(supports-color@11.0.0)':
     dependencies:
       '@opentelemetry/api': 1.9.1
@@ -11376,15 +11250,6 @@ snapshots:
 
   '@netlify/runtime-utils@3.0.0': {}
 
-  '@netlify/runtime@5.0.8(supports-color@10.2.2)':
-    dependencies:
-      '@netlify/blobs': 11.1.4(supports-color@10.2.2)
-      '@netlify/cache': 4.0.2
-      '@netlify/runtime-utils': 3.0.0
-      '@netlify/types': 3.2.0
-    transitivePeerDependencies:
-      - supports-color
-
   '@netlify/runtime@5.0.8(supports-color@11.0.0)':
     dependencies:
       '@netlify/blobs': 11.1.4(supports-color@11.0.0)
@@ -11411,119 +11276,6 @@ snapshots:
   '@netlify/types@2.8.0': {}
 
   '@netlify/types@3.2.0': {}
-
-  '@netlify/vite-plugin-tanstack-start@1.3.19(@parcel/watcher@2.6.0)(@tanstack/react-start@1.169.1(esbuild@0.28.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)))(rollup@4.64.6)(srvx@0.11.22)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))':
-    dependencies:
-      '@netlify/vite-plugin': 3.0.1(@parcel/watcher@2.6.0)(rollup@4.64.6)(srvx@0.11.22)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
-      vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
-    optionalDependencies:
-      '@tanstack/react-start': 1.169.1(esbuild@0.28.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@parcel/watcher'
-      - '@planetscale/database'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/functions'
-      - '@vercel/kv'
-      - aws4fetch
-      - babel-plugin-macros
-      - bare-abort-controller
-      - bare-buffer
-      - db0
-      - encoding
-      - idb-keyval
-      - ioredis
-      - react-native-b4a
-      - rollup
-      - srvx
-      - supports-color
-      - uploadthing
-
-  '@netlify/vite-plugin@3.0.1(@parcel/watcher@2.6.0)(rollup@4.64.6)(srvx@0.11.22)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))':
-    dependencies:
-      '@netlify/dev': 5.1.7(@parcel/watcher@2.6.0)(rollup@4.64.6)(srvx@0.11.22)(supports-color@10.2.2)
-      '@netlify/dev-utils': 6.0.3
-      dedent: 1.7.2
-      vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@parcel/watcher'
-      - '@planetscale/database'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/functions'
-      - '@vercel/kv'
-      - aws4fetch
-      - babel-plugin-macros
-      - bare-abort-controller
-      - bare-buffer
-      - db0
-      - encoding
-      - idb-keyval
-      - ioredis
-      - react-native-b4a
-      - rollup
-      - srvx
-      - supports-color
-      - uploadthing
-
-  '@netlify/zip-it-and-ship-it@16.3.0(rollup@4.64.6)(supports-color@10.2.2)':
-    dependencies:
-      '@babel/parser': 7.29.9
-      '@babel/types': 7.29.8
-      '@netlify/binary-info': 1.0.0
-      '@netlify/serverless-functions-api': 2.24.0
-      '@opentelemetry/api': 1.9.1
-      '@vercel/nft': 1.3.1(rollup@4.64.6)(supports-color@10.2.2)
-      archiver: 8.0.0
-      common-path-prefix: 3.0.0
-      copy-file: 11.1.0
-      es-module-lexer: 1.7.0
-      esbuild: 0.28.1
-      execa: 8.0.1
-      fast-glob: 3.3.3
-      filter-obj: 6.1.0
-      find-up: 7.0.0
-      is-path-inside: 4.0.0
-      junk: 4.0.1
-      locate-path: 7.2.0
-      merge-options: 3.0.4
-      minimatch: 10.2.6
-      normalize-path: 3.0.0
-      p-map: 7.1.1
-      path-exists: 5.0.0
-      precinct: 12.3.2(supports-color@10.2.2)
-      require-package-name: 2.0.1
-      resolve: 2.0.0-next.7
-      semver: 7.8.5
-      tmp-promise: 3.0.3
-      toml: 4.3.0
-      unixify: 1.0.0
-      urlpattern-polyfill: 8.0.2
-      yargs: 17.7.3
-      zod: 4.6.7
-    transitivePeerDependencies:
-      - bare-abort-controller
-      - bare-buffer
-      - encoding
-      - react-native-b4a
-      - rollup
-      - supports-color
 
   '@netlify/zip-it-and-ship-it@16.3.0(rollup@4.64.6)(supports-color@11.0.0)':
     dependencies:
@@ -11615,15 +11367,6 @@ snapshots:
     dependencies:
       '@opentelemetry/api': 1.9.1
       '@opentelemetry/semantic-conventions': 1.43.0
-
-  '@opentelemetry/instrumentation@0.221.0(@opentelemetry/api@1.9.1)(supports-color@10.2.2)':
-    dependencies:
-      '@opentelemetry/api': 1.9.1
-      '@opentelemetry/api-logs': 0.221.0
-      import-in-the-middle: 3.5.2
-      require-in-the-middle: 8.0.1(supports-color@10.2.2)
-    transitivePeerDependencies:
-      - supports-color
 
   '@opentelemetry/instrumentation@0.221.0(@opentelemetry/api@1.9.1)(supports-color@11.0.0)':
     dependencies:
@@ -13013,6 +12756,19 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
+  '@tanstack/devtools-vite@0.8.5(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))':
+    dependencies:
+      '@tanstack/devtools-bundler-core': 0.1.3(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
+      '@tanstack/devtools-client': 0.0.8
+      '@tanstack/devtools-event-bus': 0.4.3
+      chalk: 5.6.2
+      vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
+    transitivePeerDependencies:
+      - '@emnapi/core'
+      - '@emnapi/runtime'
+      - bufferutil
+      - utf-8-validate
+
   '@tanstack/devtools@0.15.0(csstype@3.2.3)(solid-js@1.9.17)':
     dependencies:
       '@neodrag/core': 3.0.0-next.11
@@ -13083,6 +12839,16 @@ snapshots:
       react: 19.3.0
     optionalDependencies:
       '@tanstack/react-start': 1.169.1(esbuild@0.28.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+    transitivePeerDependencies:
+      - react-dom
+
+  '@tanstack/react-form@1.33.5(@tanstack/react-start@1.169.1(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+    dependencies:
+      '@tanstack/form-core': 1.33.5
+      '@tanstack/react-store': 0.11.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      react: 19.3.0
+    optionalDependencies:
+      '@tanstack/react-start': 1.169.1(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
     transitivePeerDependencies:
       - react-dom
 
@@ -13164,6 +12930,31 @@ snapshots:
       - vite-plugin-solid
       - webpack
 
+  '@tanstack/react-start-rsc@0.1.62(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))':
+    dependencies:
+      '@tanstack/react-router': 1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      '@tanstack/router-core': 1.171.37
+      '@tanstack/router-utils': 1.162.3(supports-color@10.2.2)
+      '@tanstack/start-client-core': 1.170.37
+      '@tanstack/start-fn-stubs': 1.162.0
+      '@tanstack/start-plugin-core': 1.171.52(@tanstack/react-router@1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(esbuild@0.28.2)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+      '@tanstack/start-storage-context': 1.167.39
+      pathe: 2.0.3
+      react: 19.3.0
+      react-dom: 19.3.0(react@19.3.0)
+    transitivePeerDependencies:
+      - '@farmfe/core'
+      - '@rsbuild/core'
+      - bun-types-no-globals
+      - esbuild
+      - rolldown
+      - rollup
+      - supports-color
+      - unloader
+      - vite
+      - vite-plugin-solid
+      - webpack
+
   '@tanstack/react-start-server@1.167.49(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
     dependencies:
       '@tanstack/react-router': 1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -13187,6 +12978,34 @@ snapshots:
       react-dom: 19.3.0(react@19.3.0)
     optionalDependencies:
       vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
+    transitivePeerDependencies:
+      - '@farmfe/core'
+      - '@rspack/core'
+      - bun-types-no-globals
+      - esbuild
+      - react-server-dom-rspack
+      - rolldown
+      - rollup
+      - supports-color
+      - unloader
+      - vite-plugin-solid
+      - webpack
+
+  '@tanstack/react-start@1.169.1(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))':
+    dependencies:
+      '@tanstack/react-router': 1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      '@tanstack/react-start-client': 1.168.42(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      '@tanstack/react-start-rsc': 0.1.62(esbuild@0.28.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+      '@tanstack/react-start-server': 1.167.49(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      '@tanstack/router-utils': 1.162.3(supports-color@10.2.2)
+      '@tanstack/start-client-core': 1.170.37
+      '@tanstack/start-plugin-core': 1.171.52(@tanstack/react-router@1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(esbuild@0.28.2)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+      '@tanstack/start-server-core': 1.169.42
+      pathe: 2.0.3
+      react: 19.3.0
+      react-dom: 19.3.0(react@19.3.0)
+    optionalDependencies:
+      vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@farmfe/core'
       - '@rspack/core'
@@ -13270,6 +13089,30 @@ snapshots:
     optionalDependencies:
       '@tanstack/react-router': 1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
+    transitivePeerDependencies:
+      - '@farmfe/core'
+      - '@rspack/core'
+      - bun-types-no-globals
+      - esbuild
+      - rolldown
+      - rollup
+      - supports-color
+      - unloader
+
+  '@tanstack/router-plugin@1.168.45(@tanstack/react-router@1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(esbuild@0.28.2)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))':
+    dependencies:
+      '@babel/core': 7.29.7(supports-color@10.2.2)
+      '@babel/template': 7.29.7
+      '@babel/types': 7.29.8
+      '@tanstack/router-core': 1.171.37
+      '@tanstack/router-generator': 1.167.43(supports-color@10.2.2)
+      '@tanstack/router-utils': 1.162.3(supports-color@10.2.2)
+      chokidar: 5.0.0
+      unplugin: 3.4.0(esbuild@0.28.2)(rolldown@1.2.14)(rollup@4.64.6)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+      zod: 4.6.7
+    optionalDependencies:
+      '@tanstack/react-router': 1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@farmfe/core'
       - '@rspack/core'
@@ -13369,6 +13212,44 @@ snapshots:
       zod: 4.6.7
     optionalDependencies:
       vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
+    transitivePeerDependencies:
+      - '@farmfe/core'
+      - '@rspack/core'
+      - '@tanstack/react-router'
+      - bun-types-no-globals
+      - esbuild
+      - rolldown
+      - rollup
+      - supports-color
+      - unloader
+      - vite-plugin-solid
+      - webpack
+
+  '@tanstack/start-plugin-core@1.171.52(@tanstack/react-router@1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(esbuild@0.28.2)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))':
+    dependencies:
+      '@babel/code-frame': 7.29.7
+      '@babel/core': 7.29.7(supports-color@10.2.2)
+      '@babel/types': 7.29.8
+      '@jridgewell/remapping': 2.3.5
+      '@tanstack/router-core': 1.171.37
+      '@tanstack/router-generator': 1.167.43(supports-color@10.2.2)
+      '@tanstack/router-plugin': 1.168.45(@tanstack/react-router@1.170.44(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(esbuild@0.28.2)(rolldown@1.2.14)(rollup@4.64.6)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+      '@tanstack/router-utils': 1.162.3(supports-color@10.2.2)
+      '@tanstack/start-server-core': 1.169.42
+      exsolve: 1.1.3
+      lightningcss: 1.33.0
+      pathe: 2.0.3
+      picomatch: 4.0.7
+      seroval: 1.6.9
+      source-map: 0.7.6
+      srvx: 0.11.22
+      tinyglobby: 0.2.17
+      ufo: 1.6.4
+      vitefu: 1.1.3(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1))
+      xmlbuilder2: 4.0.3
+      zod: 4.6.7
+    optionalDependencies:
+      vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
     transitivePeerDependencies:
       - '@farmfe/core'
       - '@rspack/core'
@@ -13505,15 +13386,6 @@ snapshots:
 
   '@types/web-bluetooth@0.0.21': {}
 
-  '@typescript-eslint/project-service@8.71.2(supports-color@10.2.2)(typescript@5.9.3)':
-    dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.71.2(typescript@5.9.3)
-      '@typescript-eslint/types': 8.71.2
-      debug: 4.4.3(supports-color@10.2.2)
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
-
   '@typescript-eslint/project-service@8.71.2(supports-color@11.0.0)(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.71.2(typescript@5.9.3)
@@ -13528,21 +13400,6 @@ snapshots:
       typescript: 5.9.3
 
   '@typescript-eslint/types@8.71.2': {}
-
-  '@typescript-eslint/typescript-estree@8.71.2(supports-color@10.2.2)(typescript@5.9.3)':
-    dependencies:
-      '@typescript-eslint/project-service': 8.71.2(supports-color@10.2.2)(typescript@5.9.3)
-      '@typescript-eslint/tsconfig-utils': 8.71.2(typescript@5.9.3)
-      '@typescript-eslint/types': 8.71.2
-      '@typescript-eslint/visitor-keys': 8.71.2
-      debug: 4.4.3(supports-color@10.2.2)
-      minimatch: 10.2.6
-      semver: 7.8.5
-      tinyglobby: 0.2.17
-      ts-api-utils: 2.5.0(typescript@5.9.3)
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
 
   '@typescript-eslint/typescript-estree@8.71.2(supports-color@11.0.0)(typescript@5.9.3)':
     dependencies:
@@ -13625,25 +13482,6 @@ snapshots:
     optional: true
 
   '@ungap/structured-clone@1.4.0': {}
-
-  '@vercel/nft@1.3.1(rollup@4.64.6)(supports-color@10.2.2)':
-    dependencies:
-      '@mapbox/node-pre-gyp': 2.0.3(supports-color@10.2.2)
-      '@rollup/pluginutils': 5.4.0(rollup@4.64.6)
-      acorn: 8.19.0
-      acorn-import-attributes: 1.9.5(acorn@8.19.0)
-      async-sema: 3.1.1
-      bindings: 1.5.0
-      estree-walker: 2.0.2
-      glob: 13.0.6
-      graceful-fs: 4.2.11
-      node-gyp-build: 4.8.4
-      picomatch: 4.0.7
-      resolve-from: 5.0.0
-    transitivePeerDependencies:
-      - encoding
-      - rollup
-      - supports-color
 
   '@vercel/nft@1.3.1(rollup@4.64.6)(supports-color@11.0.0)':
     dependencies:
@@ -14572,33 +14410,11 @@ snapshots:
 
   detective-stylus@5.0.1: {}
 
-  detective-typescript@14.1.2(supports-color@10.2.2)(typescript@5.9.3):
-    dependencies:
-      '@typescript-eslint/typescript-estree': 8.71.2(supports-color@10.2.2)(typescript@5.9.3)
-      ast-module-types: 6.0.2
-      node-source-walk: 7.0.2
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
-
   detective-typescript@14.1.2(supports-color@11.0.0)(typescript@5.9.3):
     dependencies:
       '@typescript-eslint/typescript-estree': 8.71.2(supports-color@11.0.0)(typescript@5.9.3)
       ast-module-types: 6.0.2
       node-source-walk: 7.0.2
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
-
-  detective-vue2@2.3.0(supports-color@10.2.2)(typescript@5.9.3):
-    dependencies:
-      '@dependents/detective-less': 5.0.3
-      '@vue/compiler-sfc': 3.5.44
-      detective-es6: 5.0.2
-      detective-sass: 6.0.2
-      detective-scss: 5.0.2
-      detective-stylus: 5.0.1
-      detective-typescript: 14.1.2(supports-color@10.2.2)(typescript@5.9.3)
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -14794,7 +14610,7 @@ snapshots:
 
   es-module-lexer@2.3.2: {}
 
-  es-module-lexer@3.0.3: {}
+  es-module-lexer@3.0.4: {}
 
   es-object-atoms@1.1.2:
     dependencies:
@@ -15547,13 +15363,6 @@ snapshots:
 
   http-shutdown@1.2.2: {}
 
-  https-proxy-agent@7.0.6(supports-color@10.2.2):
-    dependencies:
-      agent-base: 7.1.4
-      debug: 4.4.3(supports-color@10.2.2)
-    transitivePeerDependencies:
-      - supports-color
-
   https-proxy-agent@7.0.6(supports-color@11.0.0):
     dependencies:
       agent-base: 7.1.4
@@ -15591,7 +15400,7 @@ snapshots:
   import-in-the-middle@3.5.2:
     dependencies:
       cjs-module-lexer: 2.3.0
-      es-module-lexer: 3.0.3
+      es-module-lexer: 3.0.4
       module-details-from-path: 1.0.4
 
   imurmurhash@0.1.4: {}
@@ -15619,47 +15428,6 @@ snapshots:
   ipaddr.js@1.9.1: {}
 
   ipaddr.js@2.5.0: {}
-
-  ipx@3.1.1(@netlify/blobs@11.1.4(supports-color@10.2.2))(@parcel/watcher@2.6.0)(srvx@0.11.22):
-    dependencies:
-      '@fastify/accept-negotiator': 2.1.1
-      citty: 0.1.6
-      consola: 3.4.2
-      defu: 6.1.7
-      destr: 2.0.5
-      etag: 1.8.1
-      h3: 1.15.11
-      image-meta: 0.2.2
-      listhen: 1.10.1(@parcel/watcher@2.6.0)(srvx@0.11.22)
-      ofetch: 1.5.1
-      pathe: 2.0.3
-      sharp: 0.34.5
-      svgo: 4.1.0
-      ufo: 1.6.4
-      unstorage: 1.17.5(@netlify/blobs@11.1.4(supports-color@10.2.2))
-      xss: 1.0.15
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@netlify/blobs'
-      - '@parcel/watcher'
-      - '@planetscale/database'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/functions'
-      - '@vercel/kv'
-      - aws4fetch
-      - db0
-      - idb-keyval
-      - ioredis
-      - srvx
-      - uploadthing
 
   ipx@3.1.1(@netlify/blobs@11.1.4(supports-color@11.0.0))(@parcel/watcher@2.6.0)(srvx@0.11.22):
     dependencies:
@@ -17417,26 +17185,6 @@ snapshots:
 
   powershell-utils@0.2.1: {}
 
-  precinct@12.3.2(supports-color@10.2.2):
-    dependencies:
-      '@dependents/detective-less': 5.0.3
-      commander: 12.1.0
-      detective-amd: 6.1.0
-      detective-cjs: 6.1.1
-      detective-es6: 5.0.2
-      detective-postcss: 8.0.4(postcss@8.5.30)
-      detective-sass: 6.0.2
-      detective-scss: 5.0.2
-      detective-stylus: 5.0.1
-      detective-typescript: 14.1.2(supports-color@10.2.2)(typescript@5.9.3)
-      detective-vue2: 2.3.0(supports-color@10.2.2)(typescript@5.9.3)
-      module-definition: 6.0.2
-      node-source-walk: 7.0.2
-      postcss: 8.5.30
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
-
   precinct@12.3.2(supports-color@11.0.0):
     dependencies:
       '@dependents/detective-less': 5.0.3
@@ -17846,13 +17594,6 @@ snapshots:
   require-directory@2.1.1: {}
 
   require-from-string@2.0.2: {}
-
-  require-in-the-middle@8.0.1(supports-color@10.2.2):
-    dependencies:
-      debug: 4.4.3(supports-color@10.2.2)
-      module-details-from-path: 1.0.4
-    transitivePeerDependencies:
-      - supports-color
 
   require-in-the-middle@8.0.1(supports-color@11.0.0):
     dependencies:
@@ -18986,19 +18727,6 @@ snapshots:
       rollup: 4.64.6
       vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
 
-  unstorage@1.17.5(@netlify/blobs@11.1.4(supports-color@10.2.2)):
-    dependencies:
-      anymatch: 3.1.3
-      chokidar: 5.0.0
-      destr: 2.0.5
-      h3: 1.15.11
-      lru-cache: 11.5.3
-      node-fetch-native: 1.6.7
-      ofetch: 1.5.1
-      ufo: 1.6.4
-    optionalDependencies:
-      '@netlify/blobs': 11.1.4(supports-color@10.2.2)
-
   unstorage@1.17.5(@netlify/blobs@11.1.4(supports-color@11.0.0)):
     dependencies:
       anymatch: 3.1.3
@@ -19098,6 +18826,12 @@ snapshots:
       neon-new: 0.15.2
       vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
 
+  vite-plugin-neon-new@0.9.2(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)):
+    dependencies:
+      '@clack/prompts': 0.10.1
+      neon-new: 0.15.2
+      vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
+
   vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1):
     dependencies:
       lightningcss: 1.33.0
@@ -19135,6 +18869,10 @@ snapshots:
   vitefu@1.1.3(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)):
     optionalDependencies:
       vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
+
+  vitefu@1.1.3(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)):
+    optionalDependencies:
+      vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)
 
   vitest@5.0.4(@opentelemetry/api@1.9.1)(@types/node@26.6.5)(jsdom@30.1.2(@noble/hashes@2.4.0))(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.1)(jiti@2.7.0)(sass-embedded@1.105.1)(sass@1.105.1)(tsx@4.23.15)(yaml@2.9.1)):
     dependencies:

@@ -73,3 +73,14 @@ catalog:
   zod: ^4.5.4
   cn: ^0.4.0
   netlify-cli: ^27.12.1
+permissions:
+  '@tanstack/devtools-vite':
+    skills: true
+  '@tanstack/react-start':
+    skills: true
+  '@tanstack/router-plugin':
+    skills: true
+
+skills:
+  dirs:
+    - .claude/skills
