@@ -63,13 +63,15 @@ const renderRich = (text: string): ReactNode[] => {
   return out;
 };
 
-/** A German sentence with its English translation; `**word**` is bolded, `*word*` is italic and `verb(word)` is bold and coloured. Usage: <Example de="Ich heiße **Anna**." en="My name is **Anna**." /> */
-export function Example({ de, en, note }: { de: string; en: string; note?: ReactNode }) {
+type ExampleProps = ({ de: string; en?: string } | { de?: string; en: string }) & { note?: ReactNode };
+
+/** A German sentence with its English translation; either one may be left out. `**word**` is bolded, `*word*` is italic and `verb(word)` is bold and coloured. Usage: <Example de="Ich heiße **Anna**." en="My name is **Anna**." /> */
+export function Example({ de, en, note }: ExampleProps) {
   const inList = useContext(InExampleListContext);
   return (
     <div className={inList ? "px-4 py-3" : "not-prose my-3 rounded-xl border bg-card px-4 py-3"}>
-      <p className="font-medium">{renderRich(de)}</p>
-      <p className="text-sm text-muted-foreground">{renderRich(en)}</p>
+      {de && <p className="font-medium">{renderRich(de)}</p>}
+      {en && <p className={de ? "text-sm text-muted-foreground" : "font-medium"}>{renderRich(en)}</p>}
       {note && <p className="mt-1 text-xs text-muted-foreground">{note}</p>}
     </div>
   );

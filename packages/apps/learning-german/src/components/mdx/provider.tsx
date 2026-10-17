@@ -3,6 +3,7 @@ import { FillBlank } from "#/components/quiz/fill-blank.tsx";
 import { MultipleChoice } from "#/components/quiz/multiple-choice.tsx";
 import { Callout } from "./callout.tsx";
 import { Example, ExampleList } from "./example.tsx";
+import { Footnote } from "./footnote.tsx";
 import { LessonPage, LessonPages } from "./lesson-pages.tsx";
 import { GridTable, ScrollableTable } from "./table.tsx";
 
@@ -10,6 +11,7 @@ const components: MDXComponents = {
   Example,
   ExampleList,
   Callout,
+  Footnote,
   MultipleChoice,
   FillBlank,
   table: ScrollableTable,

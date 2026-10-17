@@ -1,0 +1,192 @@
+export const meta = {
+  title: "Questions",
+  summary: "Yes/no questions, question words and the word order of questions.",
+};
+
+## Types of questions
+
+German has two types of questions:
+1. Yes/no questions
+2. Question-word questions (or "W-questions").
+
+Yes/no questions are simple questions that can be answered with a single "yes" or "no":
+
+
+<ExampleList>
+  <Example en="Are you learning German?" />
+  <Example en="Does Anna live in Marburg?" />
+  <Example en="Is the book new?" />
+</ExampleList>
+
+
+"W-questions", like who, where or when, ask questions that always require full sentence answers:
+
+<ExampleList>
+  <Example en="Where do you live?" />
+  <Example en="Who is Anna?" />
+  <Example en="Why are you learning German?" />
+</ExampleList>
+
+In German, W-questions have their own sentence structure, while yes/no questions follow a modified version of the basic sentence structure
+
+## Yes/no questions
+
+To turn a statement into a yes/no question, all you have to do is move the verb over to the first position:
+
+<ExampleList>
+  <Example de="Du verb(lernst) Deutsch." en="You are verb(learning) German." />
+  <Example de="verb(Lernst) du Deutsch?" en="Are you verb(learning) German?" />
+</ExampleList>
+
+<ExampleList>
+  <Example de="Anna verb(wohnt) in Marburg." en="Anna verb(lives) in Marburg" />
+  <Example de="verb(Wohnt) Anna in Marburg?" en="verb(Does) Anna verb(live) in Marburg?" />
+</ExampleList>
+
+<ExampleList>
+  <Example de="Das Buch verb(ist) neu." en="The book verb(is) new" />
+  <Example de="verb(Ist) das Buch neu?" en="verb(Is) the book new?" />
+</ExampleList>
+
+While the German version always looks the same, English has many different forms for yes/no questions. The above examples demonstrate this.
+
+
+German has no word like "do" or "does", the verb simply jumps to the first position.
+
+## W-question words
+
+A W-question starts with a W-question word. Here are some common ones:
+
+| German | English |
+| ------ | ------- |
+| wer? | who? |
+| was? | what? |
+| wo? | where? |
+| woher? | where from? |
+| wohin? | where to? |
+| wann? | when? |
+| wie? | how? |
+| warum? | why? |
+| wie viel? | how much? |
+| wie viele? | how many? |
+
+"woher" and "wohin" do not translate 1-to-1 with how you would use them in English. English separates these words and puts the second part at the end: "where ... from" and "where ... to". German keeps the word whole.
+
+<ExampleList>
+  <Example de="adverb(Woher) kommst du?" en="adverb(Where) are you adverb(from)?" />
+  <Example de="adverb(Wohin) gehst du?" en="adverb(Where) are you going adverb(to)?" />
+</ExampleList>
+
+<Callout>
+
+</Callout>
+
+Zum Beispiel¹, in English you would say "Where are you from?", not "Where from are you?", but in German you say "Woher kommst du?"
+
+<Footnote>1. Zum Beispiel means "for example".</Footnote>
+
+## W-questions
+
+In a W-question the question word comes first and the verb stays in second position, just like in a statement. The subject follows the verb.
+
+<ExampleList>
+  <Example de="Wo verb(wohnst) du?" en="Where do you live?" />
+  <Example de="Woher verb(kommt) Anna?" en="Where is Anna from?" />
+  <Example de="Wann verb(lernst) du Deutsch?" en="When do you learn German?" />
+  <Example de="Wie verb(heißt) du?" en="What is your name?" />
+  <Example de="Warum verb(lernst) du Deutsch?" en="Why are you learning German?" />
+</ExampleList>
+
+Wie heißt du? literally means "How are you called?", which is why German uses wie there and not was.
+
+<Callout title="Yes/no or W-question?">
+Look at the first word. If it is a verb, the question is yes/no. If it is a question word, the verb comes second.
+</Callout>
+
+### Wo, woher, wohin
+
+These three all ask about a place, but they ask different things. Wo asks where something is, woher asks where it comes from, and wohin asks where it is going.
+
+<ExampleList>
+  <Example de="Wo wohnst du?" en="Where do you live?" note="No movement, just a place." />
+  <Example de="Woher kommst du?" en="Where are you from?" note="The starting point." />
+  <Example de="Wohin gehst du?" en="Where are you going?" note="The destination." />
+</ExampleList>
+
+### Wie viel and wie viele
+
+Wie viel is for things you can't count one by one, like money or time. It never changes. Wie viele is for countable things and goes with a plural noun.
+
+<ExampleList>
+  <Example de="Wie viel Zeit hast du?" en="How much time do you have?" />
+  <Example de="Wie viele Bücher hast du?" en="How many books do you have?" />
+</ExampleList>
+
+## Wer and was
+
+Wer and was ask about people and things. Like any other noun, what they stand for has a case. If you ask about the subject, you use wer or was. If you ask about the direct object, the Akkusativ, was stays the same, but wer becomes wen.
+
+<GridTable>
+
+| Case | person | thing |
+| ---- | ------ | ----- |
+| Nom. | wer | was |
+| Akk. | wen | was |
+
+</GridTable>
+
+<ExampleList>
+  <Example de="green(Wer) sieht den Hund?" en="green(Who) sees the dog?" />
+  <Example de="blue(Wen) sieht der Mann?" en="blue(Whom) does the man see?" />
+  <Example de="green(Was) liegt auf dem Tisch?" en="green(What) is lying on the table?" />
+  <Example de="blue(Was) liest das Kind?" en="blue(What) is the child reading?" />
+</ExampleList>
+
+Asking "who or what?" finds the subject, and "whom or what?" finds the object. These are the same two questions you used to find the cases.
+
+## Practice
+
+<MultipleChoice
+  question='Choose the correct question: "Do you live in Marburg?"'
+  options={["Wohnst du in Marburg?", "Du wohnst in Marburg?", "Wohnen in Marburg du?"]}
+  answer={0}
+  explanation="The verb goes first in a yes/no question, followed by the subject."
+/>
+
+<MultipleChoice
+  question='Choose the correct question: "Where do you live?"'
+  options={["Wo du wohnst?", "Wo wohnst du?", "Wohnst du wo?"]}
+  answer={1}
+  explanation="The question word is first and the verb is second."
+/>
+
+<FillBlank translation="Where is Anna from?" prompt="___ kommt Anna?" answer="Woher" />
+
+<FillBlank translation="Where are you going?" prompt="___ gehst du?" answer="Wohin" />
+
+<FillBlank translation="Is the book new?" prompt="___ das Buch neu?" answer="Ist" />
+
+<FillBlank translation="When are you learning German?" prompt="Wann ___ du Deutsch? (lernen)" answer="lernst" />
+
+<MultipleChoice
+  question="___ sieht den Hund? (the subject: a person)"
+  options={["Wer", "Wen", "Was"]}
+  answer={0}
+  explanation="The person seeing is the subject, so it is Nominativ: wer."
+/>
+
+<MultipleChoice
+  question="___ sieht der Mann? (the object: a person)"
+  options={["Wer", "Wen", "Was"]}
+  answer={1}
+  explanation="The person being seen is the direct object, so it is Akkusativ: wen."
+/>
+
+<FillBlank translation="How many books do you have?" prompt="Wie ___ Bücher hast du?" answer="viele" />
+
+<MultipleChoice
+  question="Choose the correct questions"
+  options={["Wie heißt du?", "Wie du heißt?", "Heißt du Anna?", "Heißt Anna du?"]}
+  answer={[0, 2]}
+  explanation="A W-question has the verb second and a yes/no question has it first. The subject follows the verb either way."
+/>
