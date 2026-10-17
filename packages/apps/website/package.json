@@ -28,6 +28,7 @@
     "@vitejs/plugin-react": "catalog:",
     "sass-embedded": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "wrangler": "catalog:"
   }
 }
