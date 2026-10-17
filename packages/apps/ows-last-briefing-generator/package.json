@@ -10,6 +10,7 @@
     "generate-routes": "tsr generate",
     "build": "vite build",
     "preview": "vite preview",
+    "deploy": "pnpm run build && wrangler deploy",
     "format": "biome format",
     "lint": "biome lint",
     "check": "biome check"
@@ -38,7 +39,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
-    "@netlify/vite-plugin-tanstack-start": "catalog:",
+    "@cloudflare/vite-plugin": "catalog:",
     "@tailwindcss/typography": "catalog:",
     "@tanstack/devtools-vite": "catalog:",
     "@tanstack/router-cli": "catalog:",
@@ -47,7 +48,8 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "wrangler": "catalog:"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
