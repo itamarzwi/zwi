@@ -1,0 +1,183 @@
+export const meta = {
+  title: "Negation",
+  summary: "Kein and nicht, and where they go in the sentence.",
+};
+
+## Kein and nicht
+
+German has two words for negation:
+
+1. **kein** negates nouns.
+2. **nicht** negates everything else.
+
+English uses "no" and "not" in a similar way, but the German rule is stricter. The sections below explain when to use which.
+
+## Kein
+
+Kein is the negative form of "ein". It means "no" or "not a", and we use it the same way we use "ein".
+
+Kein follows the same declensions as ein, so you already know them. But unlike ein, kein also has a plural form:
+
+<GenderedTable
+  label
+  rows={[
+    ["Nom.", "kein", "kein", "keine", "keine"],
+    ["Akk.", "keinen", "kein", "keine", "keine"],
+  ]}
+/>
+
+Below are some examples of "kein", with their respective non-negated forms. Notice how for plural and uncountable nouns, there is no equivalent sentence with "ein", as it is omitted in the non-negated form:
+
+<ExampleList>
+  <Example de="Das ist blue(eine) Katze." en="That is a cat." />
+  <Example de="Das ist blue(keine) Katze." en="That is not a cat." />
+  <Example de="Ich habe blue(einen) Hund." en="I have a dog." />
+  <Example de="Ich habe blue(keinen) Hund." en="I don't have a dog." />
+  <Example de="Ich habe Hunde." en="I have dogs." />
+  <Example de="Ich habe blue(keine) Hunde." en="I don't have dogs." />
+  <Example de="Ich habe Geld." en="I have money." />
+  <Example de="Ich habe blue(kein) Geld." en="I don't have money." />
+</ExampleList>
+
+<Callout>
+  "Kein" could also be translated to "no" in some sense: "Das ist keine Katze" can translate to "That is no cat", "Ich habe kein Geld" can translate to "I have no money".
+</Callout>
+
+## Nicht
+
+Nicht negates everything that kein doesn't: verbs, adjectives, adverbs, and nouns with a definite article or a possessive.
+
+<ExampleList>
+  <Example de="Ich lerne heute adverb(nicht)." en="I'm not studying today." />
+  <Example de="Ich sehe den Hund adverb(nicht)." en="I don't see the dog." />
+  <Example de="Ich sehe meinen Mann adverb(nicht)." en="I don't see my husband." />
+  <Example de="Das Buch ist adverb(nicht) neu." en="The book is not new." />
+</ExampleList>
+
+Notice how "nicht" almost always goes at the *end* of the sentence, but not always.  
+The position of "nicht" is a bit more complicated than that of "kein", because it can negate different parts of the sentence.  
+Below are some rules for the most common cases:
+
+### At the end
+
+When nicht negates the whole sentence, it goes at the end:
+
+<ExampleList>
+  <Example de="Ich kenne ihn adverb(nicht)." en="I don't know him." />
+  <Example de="Anna arbeitet adverb(nicht)." en="Anna isn't working." />
+</ExampleList>
+
+If there is a time or place in the sentence, nicht usually goes before the place, but after the time:
+
+<ExampleList>
+  <Example de="Ich arbeite heute adverb(nicht)." en="I'm not working today." />
+  <Example de="Ich wohne adverb(nicht) in Marburg." en="I don't live in Marburg." />
+  <Example de="Ich arbeite heute adverb(nicht) in Marburg." en="I'm not working in Marburg today." />
+</ExampleList>
+
+### Before the adjective
+
+When the sentence has an adjective after sein, nicht goes directly in front of it:
+
+<ExampleList>
+  <Example de="Das Buch ist adverb(nicht) neu." en="The book is not new." />
+  <Example de="Die Stadt ist adverb(nicht) groß." en="The city is not big." />
+</ExampleList>
+
+### Before the part you negate
+
+Nicht can also go right before one specific word, to say that only that part is wrong. The rest of the sentence stays true.
+
+<Example de="Ich fahre adverb(nicht) heute nach Marburg" en="I'm not going to Marburg today" />
+
+Note that when you negate a single word like this, it "merges" with nicht into a single part. So the example above could be more accurately translated as:
+
+<Example de="Ich fahre timeplace(nicht heute) nach Marburg" en="I'm going to Marburg timeplace(not today)" />
+
+While the grammar is iffy on the English translation without a comma or a dash, the meaning becomes more clear - You *are going* to Marburg, but not today.
+
+A negation of this kind can always come with a correction of the wrong detail, zum Beispiel:
+
+
+<ExampleList>
+  <Example de="Ich fahre adverb(nicht) heute nach Marburg, sondern morgen." en="I'm not going to Marburg today, but rather tomorrow" />
+  <Example de="Ich fahre adverb(nicht) heute nach Marburg, ich fahre am Samstag." en="I'm not going to Marburg today, I'm going on Saturday" />
+</ExampleList>
+
+<Callout title="Fahren oder gehen?">
+The examples use the verb "go" in English, but "fahren" in German (not "gehen"!). That is because German is a bit more strict about what verb to use than English. "Fahren" means to go by vehicle (car, train, bus, etc.), while "gehen" means to go on foot, whereas in English we just use "go" for both.
+
+"Ich fahre nach Marburg" means you are travelling there by some vehicle. If you were walking, you would say "Ich gehe nach Marburg".
+</Callout>
+
+
+## Ja, nein, doch
+
+Answering a yes/no question is easy when the question is positive, but with a negative question, the English "yes" and "no" can be confusing. 
+
+Consider the following interaction:
+
+**Anna**: "Did you not learn this?"  
+**Max**: "No."
+
+Max could either be saying "No I did learn this" or "No, I did not learn this". Confusing! Answering "Yes, I did" or "No, I did not" will resolve the confusion but that requires using more words, which is inefficient. And the German language loves efficiency.
+
+German avoids this confusing by using **nein** to mean "No, I didn't" and **doch** to mean "Yes, I did":
+
+<ExampleList>
+  <Example de="Hast du das nicht gelernt?" en="Did you not learn this?" />
+  <Example de="adverb(Doch), ich habe das gelernt." en="Yes, I learned this." />
+  <Example de="adverb(Nein), ich habe das nicht gelernt." en="No, I didn't learn this." />
+</ExampleList>
+
+<Callout type="warning" title="Doch oder ja?">
+  Doch can **only** be used as an answer to a negative question. For normal questions, use "ja".
+</Callout>
+{/* 
+## Practice
+
+<MultipleChoice
+  translation="I have no dog."
+  question="Ich habe ___ Hund."
+  options={["kein", "keinen", "nicht"]}
+  answer={1}
+  explanation="Hund is masculine and the direct object, so it is Akkusativ: keinen."
+/>
+
+<FillBlank translation="She has no cat." prompt="Sie hat ___ Katze." answer="keine" />
+
+<FillBlank translation="I have no book." prompt="Ich habe ___ Buch." answer="kein" />
+
+<FillBlank translation="I don't have any dogs." prompt="Ich habe ___ Hunde." answer="keine" />
+
+<FillBlank translation="I have no time." prompt="Ich habe ___ Zeit." answer="keine" />
+
+<MultipleChoice
+  question='Choose the correct sentence: "The book is not new."'
+  options={["Das Buch ist nicht neu.", "Das Buch ist kein neu.", "Das Buch nicht ist neu."]}
+  answer={0}
+  explanation="Adjectives are negated with nicht, and nicht goes before the adjective."
+/>
+
+<MultipleChoice
+  question='Choose the correct sentence: "I don’t see my husband."'
+  options={["Ich sehe keinen Mann.", "Ich sehe nicht meinen Mann.", "Ich sehe kein meinen Mann."]}
+  answer={1}
+  explanation="With a possessive (meinen) you can't use kein. Use nicht."
+/>
+
+<MultipleChoice
+  translation="I'm not working today."
+  question="Ich arbeite heute ___."
+  options={["nicht", "kein", "keine"]}
+  answer={0}
+  explanation="There is no noun to negate, so it is nicht, at the end."
+/>
+
+<MultipleChoice
+  translation="Aren't you learning German? Yes I am!"
+  question="Lernst du nicht Deutsch? ___, ich lerne Deutsch."
+  options={["Ja", "Nein", "Doch"]}
+  answer={2}
+  explanation="Doch contradicts a negative question."
+/> */}
