@@ -23,7 +23,11 @@ function Home() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Lessons</CardTitle>
+            <CardTitle>
+              <Link to="/lessons" className="hover:underline">
+                Lessons
+              </Link>
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <Progress value={lessons.length ? (done / lessons.length) * 100 : 0} />

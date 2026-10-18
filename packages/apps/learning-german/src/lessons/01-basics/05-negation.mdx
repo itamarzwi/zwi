@@ -7,10 +7,10 @@ export const meta = {
 
 German has two words for negation:
 
-1. **kein** negates nouns.
+1. **kein** negates nouns in certain conditions.
 2. **nicht** negates everything else.
 
-English uses "no" and "not" in a similar way, but the German rule is stricter. The sections below explain when to use which.
+English uses "no" and "not" in a similar way, but the German rule is stricter. The follwing sections explain when to use which.
 
 ## Kein
 
@@ -54,8 +54,7 @@ Nicht negates everything that kein doesn't: verbs, adjectives, adverbs, and noun
   <Example de="Das Buch ist adverb(nicht) neu." en="The book is not new." />
 </ExampleList>
 
-Notice how "nicht" almost always goes at the *end* of the sentence, but not always.  
-The position of "nicht" is a bit more complicated than that of "kein", because it can negate different parts of the sentence.  
+Notice how "nicht" almost always goes at the *end* of the sentence, but not always. The position of "nicht" is a bit more complicated than that of "kein", because it can negate different parts of the sentence.  
 Below are some rules for the most common cases:
 
 ### At the end
@@ -84,7 +83,7 @@ When the sentence has an adjective after sein, nicht goes directly in front of i
   <Example de="Die Stadt ist adverb(nicht) groß." en="The city is not big." />
 </ExampleList>
 
-### Before the part you negate
+### Before the negated part
 
 Nicht can also go right before one specific word, to say that only that part is wrong. The rest of the sentence stays true.
 
@@ -111,6 +110,46 @@ The examples use the verb "go" in English, but "fahren" in German (not "gehen"!)
 </Callout>
 
 
+## Kein oder nicht?
+
+Sometimes it can be hard to tell whether a sentence needs "kein" or "nicht". Take the following two sentences for example: 
+
+1. "I'm not learning."
+2. "I'm not learning German."
+
+The English "not" has the exact same grammatical role here, it is negating the verb "to learn" both times. And so we might be tempted to say "Ich lerne Deutsch nicht". But that is wrong!
+
+We are not negating "lernen" on its own, we are negating "Deutsch lernen". The thing being negate here is the object; I'm not learning German, but I could be learning something else, so it would be wrong to say that "lernen" is being negated, and so we use kein:
+
+<ExampleList>
+  <Example de="Ich lerne Deutsch." en="I'm learning German." />
+  <Example de="Ich lerne **kein** Deutsch." en="I'm not learning German." />
+</ExampleList>
+
+The same goes for other verbs with an object that has no article or ein:
+
+<ExampleList>
+  <Example de="Ich trinke keinen Kaffee." en="I don't drink coffee." />
+  <Example de="Ich esse kein Brot." en="I don't eat bread." />
+  <Example de="Ich spreche kein Deutsch." en="I don't speak German." />
+  <Example de="Ich habe keinen Hunger." en="I'm not hungry." />
+</ExampleList>
+
+
+<Callout title="Ich habe keinen Hunger">
+  It is common in German to say "I have no hunger" where in English we say "I'm not hungry". Hunger is then a noun that you have, so it is negated with kein.
+
+  Were you to say "Ich bin nicht hungrig", using the adjective form, you would use "nicht" with the placement rule "Before the adjective"
+</Callout>
+
+But remember, "kein" is only to be used if the negated noun comes with the indefinite article (ein) or no article at all. If it comes with the definite article (der/die/das) or a possessive, or if there is no object, use nicht:
+
+<ExampleList>
+  <Example de="Ich baue den Tisch nicht." en="I'm not building the table." />
+  <Example de="Ich trinke meinen Kaffee nicht." en="I'm not drinking my coffee." />
+  <Example de="Ich esse nicht." en="I'm not eating." />
+</ExampleList>
+
 ## Ja, nein, doch
 
 Answering a yes/no question is easy when the question is positive, but with a negative question, the English "yes" and "no" can be confusing. 
@@ -133,51 +172,96 @@ German avoids this confusing by using **nein** to mean "No, I didn't" and **doch
 <Callout type="warning" title="Doch oder ja?">
   Doch can **only** be used as an answer to a negative question. For normal questions, use "ja".
 </Callout>
-{/* 
+
 ## Practice
 
 <MultipleChoice
-  translation="I have no dog."
-  question="Ich habe ___ Hund."
-  options={["kein", "keinen", "nicht"]}
-  answer={1}
-  explanation="Hund is masculine and the direct object, so it is Akkusativ: keinen."
-/>
-
-<FillBlank translation="She has no cat." prompt="Sie hat ___ Katze." answer="keine" />
-
-<FillBlank translation="I have no book." prompt="Ich habe ___ Buch." answer="kein" />
-
-<FillBlank translation="I don't have any dogs." prompt="Ich habe ___ Hunde." answer="keine" />
-
-<FillBlank translation="I have no time." prompt="Ich habe ___ Zeit." answer="keine" />
-
-<MultipleChoice
-  question='Choose the correct sentence: "The book is not new."'
-  options={["Das Buch ist nicht neu.", "Das Buch ist kein neu.", "Das Buch nicht ist neu."]}
+  translation="That is not a car."
+  question="Das ist ___ Auto."
+  options={["kein", "keine", "keinen"]}
   answer={0}
-  explanation="Adjectives are negated with nicht, and nicht goes before the adjective."
+  explanation="Auto is neuter, so it is kein."
 />
 
 <MultipleChoice
-  question='Choose the correct sentence: "I don’t see my husband."'
-  options={["Ich sehe keinen Mann.", "Ich sehe nicht meinen Mann.", "Ich sehe kein meinen Mann."]}
-  answer={1}
-  explanation="With a possessive (meinen) you can't use kein. Use nicht."
+  translation="I don't have a brother."
+  question="Ich habe ___ Bruder."
+  options={["kein", "keine", "keinen"]}
+  answer={2}
+  explanation="Bruder is masculine and the direct object, so it is Akkusativ: keinen."
 />
 
+<FillBlank translation="We don't have children." prompt="Wir haben ___ Kinder." answer="keine" />
+
 <MultipleChoice
-  translation="I'm not working today."
-  question="Ich arbeite heute ___."
+  translation="Anna doesn't see her mother."
+  question="Anna sieht ihre Mutter ___."
   options={["nicht", "kein", "keine"]}
+  answer={0}
+  explanation="A noun with a possessive like ihre is negated with nicht."
+/>
+
+<MultipleChoice
+  translation="Max isn't sleeping."
+  question="Max schläft ___."
+  options={["nicht", "kein", "keinen"]}
   answer={0}
   explanation="There is no noun to negate, so it is nicht, at the end."
 />
 
 <MultipleChoice
-  translation="Aren't you learning German? Yes I am!"
-  question="Lernst du nicht Deutsch? ___, ich lerne Deutsch."
+  question='Choose the correct sentence: "I don’t know her."'
+  options={["Ich kenne nicht sie.", "Ich kenne sie nicht.", "Ich nicht kenne sie."]}
+  answer={1}
+  explanation="When nicht negates the whole sentence, it goes at the end."
+/>
+
+<MultipleChoice
+  question='Choose the correct sentence: "Anna isn’t working in Marburg tomorrow."'
+  options={["Anna arbeitet morgen nicht in Marburg.", "Anna arbeitet nicht morgen in Marburg.", "Anna arbeitet morgen in Marburg nicht."]}
+  answer={0}
+  explanation="Nicht goes after the time and before the place."
+/>
+
+<FillBlank translation="The house is not old." prompt="Das Haus ist ___ alt." answer="nicht" />
+
+<MultipleChoice
+  translation="We are not going to Marburg tomorrow, but rather on Saturday."
+  question="Wir fahren ___ morgen nach Marburg, sondern am Samstag."
+  options={["nicht", "kein", "keine"]}
+  answer={0}
+  explanation="Nicht goes right before the part you negate: morgen."
+/>
+
+<MultipleChoice
+  question='Choose the correct sentence: "I don’t drink coffee."'
+  options={["Ich trinke Kaffee nicht.", "Ich trinke nicht Kaffee.", "Ich trinke keinen Kaffee."]}
+  answer={2}
+  explanation="Kaffee has no article, so it is negated with kein. Kaffee is masculine, so it is keinen."
+/>
+
+<FillBlank translation="I don't speak English." prompt="Ich spreche ___ Englisch." answer="kein" />
+
+<MultipleChoice
+  translation="I don't eat the bread."
+  question="Ich esse das Brot ___."
+  options={["nicht", "kein", "keinen"]}
+  answer={0}
+  explanation="Das Brot has a definite article, so it is negated with nicht."
+/>
+
+<MultipleChoice
+  translation="Are you not hungry? Yes, I am hungry."
+  question="Hast du keinen Hunger? ___, ich habe Hunger."
   options={["Ja", "Nein", "Doch"]}
   answer={2}
-  explanation="Doch contradicts a negative question."
-/> */}
+  explanation="Doch answers a negative question with yes."
+/>
+
+<MultipleChoice
+  translation="Are you not coming? No, I'm not coming."
+  question="Kommst du nicht? ___, ich komme nicht."
+  options={["Ja", "Nein", "Doch"]}
+  answer={1}
+  explanation="Nein agrees with the negative question."
+/>
