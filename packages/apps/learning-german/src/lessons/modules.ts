@@ -7,4 +7,9 @@ export const modules: ModuleInfo[] = [
     title: "The basics",
     description: "Genders, first verbs, numbers, introductions, sentence structure and the first cases.",
   },
+  {
+    id: "02-prepositions-dativ",
+    title: "Prepositions and the Dativ case",
+    description: "The Dativ case, prepositions, stationary vs movement cases",
+  },
 ];

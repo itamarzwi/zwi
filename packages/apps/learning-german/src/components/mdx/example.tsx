@@ -9,9 +9,10 @@ const colorClasses = {
   possessive: "text-fuchsia-700 dark:text-fuchsia-300",
   adverb: "text-teal-700 dark:text-teal-300",
   timeplace: "text-violet-700 dark:text-violet-300",
-  // Case colors (Nominativ/Akkusativ), not word classes.
+  // Case colors (Nominativ/Akkusativ/Dativ), not word classes.
   green: "text-green-700 dark:text-green-400",
   blue: "text-blue-700 dark:text-blue-400",
+  orange: "text-orange-700 dark:text-orange-400",
 } as const;
 
 const colorNames = Object.keys(colorClasses).join("|");
@@ -28,7 +29,7 @@ const findClose = (text: string, from: number) => {
 };
 
 /**
- * Renders light markup in a plain string: `**bold**`, `*italic*` (or `_italic_`) and `verb(...)`, `noun(...)`, `adjective(...)`, `possessive(...)`, `adverb(...)`, `timeplace(...)` (bold coloured word classes), plus `green(...)`/`blue(...)` for cases.
+ * Renders light markup in a plain string: `**bold**`, `*italic*` (or `_italic_`) and `verb(...)`, `noun(...)`, `adjective(...)`, `possessive(...)`, `adverb(...)`, `timeplace(...)` (bold coloured word classes), plus `green(...)`/`blue(...)`/`orange(...)` for cases.
  * Coloured markup can be nested, e.g. `green(Der adjective(große) Hund)`; the inner colour wins.
  */
 export const renderRich = (text: string): ReactNode[] => {
