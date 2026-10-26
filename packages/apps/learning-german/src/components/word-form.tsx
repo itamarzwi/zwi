@@ -3,7 +3,7 @@ import { Button } from "#/components/ui/button.tsx";
 import { Input } from "#/components/ui/input.tsx";
 import { Label } from "#/components/ui/label.tsx";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "#/components/ui/select.tsx";
-import type { Article, Word, WordType } from "#/storage/schemas.ts";
+import type { Article, Auxiliary, Word, WordType } from "#/storage/schemas.ts";
 
 const NO_ARTICLE = "none";
 const types: WordType[] = ["noun", "verb", "adjective", "adverb", "phrase", "number", "other"];
@@ -13,6 +13,8 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
   const [english, setEnglish] = useState("");
   const [article, setArticle] = useState<string>(NO_ARTICLE);
   const [type, setType] = useState<WordType>("noun");
+  const [auxiliary, setAuxiliary] = useState<Auxiliary>("haben");
+  const [participle, setParticiple] = useState("");
   const [exampleDe, setExampleDe] = useState("");
   const [exampleEn, setExampleEn] = useState("");
 
@@ -29,12 +31,15 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
       german: german.trim(),
       english: meanings,
       article: type === "noun" && article !== NO_ARTICLE ? (article as Article) : undefined,
+      perfect: type === "verb" && participle.trim() ? { auxiliary, participle: participle.trim() } : undefined,
       type,
       examples: hasExample ? [{ de: exampleDe.trim(), en: exampleEn.trim() }] : [],
     });
     setGerman("");
     setEnglish("");
     setArticle(NO_ARTICLE);
+    setAuxiliary("haben");
+    setParticiple("");
     setExampleDe("");
     setExampleEn("");
   };
@@ -80,6 +85,30 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
               <SelectItem value="das">das</SelectItem>
             </SelectContent>
           </Select>
+        </div>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="space-y-1.5">
+          <Label>Perfekt auxiliary</Label>
+          <Select value={auxiliary} onValueChange={(v) => setAuxiliary(v as Auxiliary)} disabled={type !== "verb"}>
+            <SelectTrigger className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="haben">haben</SelectItem>
+              <SelectItem value="sein">sein</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-1.5">
+          <Label htmlFor="participle">Participle (optional)</Label>
+          <Input
+            id="participle"
+            value={participle}
+            onChange={(e) => setParticiple(e.target.value)}
+            placeholder="gemacht"
+            disabled={type !== "verb"}
+          />
         </div>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">

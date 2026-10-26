@@ -2,10 +2,11 @@ import { useMemo, useState } from "react";
 import { Button } from "#/components/ui/button.tsx";
 import { Progress } from "#/components/ui/progress.tsx";
 import { formatInterval, type Rating, review } from "#/lib/srs.ts";
-import { type DictionaryWord, displayGerman } from "#/lib/vocab.ts";
+import { type DictionaryWord, displayGerman, displayPerfect } from "#/lib/vocab.ts";
 import type { CardState } from "#/storage/schemas.ts";
 
-export type Direction = "de-en" | "en-de";
+/** "perfect" quizzes a verb's infinitive → its Perfekt (only for verbs that have one). */
+export type Direction = "de-en" | "en-de" | "perfect";
 
 type Props = {
   words: DictionaryWord[];
@@ -42,8 +43,14 @@ export function FlashcardSession({ words, states, direction, onRate, onDone }: P
     );
   }
 
-  const front = direction === "de-en" ? displayGerman(word) : word.english.join(", ");
-  const back = direction === "de-en" ? word.english.join(", ") : displayGerman(word);
+  const german = displayGerman(word);
+  const english = word.english.join(", ");
+  const [front, back] =
+    direction === "perfect" && word.perfect
+      ? [german, displayPerfect(word.perfect)]
+      : direction === "en-de"
+        ? [english, german]
+        : [german, english];
 
   const rate = (rating: Rating) => {
     onRate(review(states.get(word.id), word.id, rating, Date.now()));

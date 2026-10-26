@@ -6,7 +6,7 @@ import { Button } from "#/components/ui/button.tsx";
 import { AddToList, LearnedToggle } from "#/components/word-actions.tsx";
 import { WordTypeBadge } from "#/components/word-type-badge.tsx";
 import { useDeleteCustomWord, useRemoveWordFromList, useVocab } from "#/hooks/use-data.ts";
-import { displayGerman } from "#/lib/vocab.ts";
+import { displayGerman, displayPerfect } from "#/lib/vocab.ts";
 
 export const Route = createFileRoute("/words/$wordId")({ component: WordPage });
 
@@ -38,6 +38,11 @@ function WordPage() {
       {word.plural && (
         <p className="mb-4 text-sm text-muted-foreground">
           Plural: <span className="font-medium text-foreground">die {word.plural}</span>
+        </p>
+      )}
+      {word.perfect && (
+        <p className="mb-4 text-sm text-muted-foreground">
+          Perfekt: <span className="font-medium text-foreground">{displayPerfect(word.perfect)}</span>
         </p>
       )}
 

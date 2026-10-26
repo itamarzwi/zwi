@@ -21,8 +21,9 @@ function PracticePage() {
   const [queue, setQueue] = useState<DictionaryWord[] | null>(null);
 
   const states = new Map((cards.data ?? []).map((c) => [c.wordId, c]));
-  const scoped =
+  const inScope =
     scope === ALL ? words : (lists.find((l) => l.id === scope)?.wordIds ?? []).flatMap((id) => wordsById.get(id) ?? []);
+  const scoped = direction === "perfect" ? inScope.filter((w) => w.perfect) : inScope;
   const now = Date.now();
   const due = scoped.filter((w) => {
     const s = states.get(w.id);
@@ -73,6 +74,7 @@ function PracticePage() {
             <SelectContent>
               <SelectItem value="de-en">German → English</SelectItem>
               <SelectItem value="en-de">English → German</SelectItem>
+              <SelectItem value="perfect">Verb → Perfekt</SelectItem>
             </SelectContent>
           </Select>
         </div>

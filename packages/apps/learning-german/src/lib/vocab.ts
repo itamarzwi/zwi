@@ -1,7 +1,7 @@
 import { builtinWords } from "#/data/dictionary.ts";
 import { builtinLists } from "#/data/lists.ts";
 import { MY_WORDS_ID, MY_WORDS_NAME } from "#/storage/repository.ts";
-import type { UserList, Word } from "#/storage/schemas.ts";
+import type { Perfect, UserList, Word } from "#/storage/schemas.ts";
 
 export type DictionaryWord = Word & { builtin: boolean };
 
@@ -39,8 +39,14 @@ export const buildLists = (userLists: UserList[]): WordList[] => {
 export const displayGerman = (word: Pick<Word, "german" | "article">) =>
   word.article ? `${word.article} ${word.german}` : word.german;
 
+/** "hat gemacht" / "ist gekommen": the Perfekt as dictionaries list it. */
+export const displayPerfect = ({ auxiliary, participle }: Perfect) =>
+  `${auxiliary === "haben" ? "hat" : "ist"} ${participle}`;
+
 export const matchesQuery = (word: Word, query: string) => {
   const q = query.trim().toLowerCase();
   if (!q) return true;
-  return [word.german, word.plural ?? "", ...word.english].some((t) => t.toLowerCase().includes(q));
+  return [word.german, word.plural ?? "", word.perfect?.participle ?? "", ...word.english].some((t) =>
+    t.toLowerCase().includes(q),
+  );
 };

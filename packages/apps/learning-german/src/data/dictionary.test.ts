@@ -28,6 +28,10 @@ describe("built-in dictionary", () => {
     for (const word of builtinWords) expect(Boolean(word.article), word.id).toBe(word.type === "noun");
   });
 
+  it("gives every verb a Perfekt and no one else", () => {
+    for (const word of builtinWords) expect(Boolean(word.perfect), word.id).toBe(word.type === "verb");
+  });
+
   it("has examples for every word except numbers", () => {
     for (const word of builtinWords) {
       if (word.type === "number") continue;

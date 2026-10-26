@@ -167,36 +167,42 @@ const entries = {
   // Verbs
   sein: {
     german: "sein",
+    perfect: { auxiliary: "sein", participle: "gewesen" },
     type: "verb",
     english: ["to be"],
     examples: [ex("Ich bin Anna.", "I am Anna."), ex("Das Kind ist groß.", "The child is big.")],
   },
   haben: {
     german: "haben",
+    perfect: { auxiliary: "haben", participle: "gehabt" },
     type: "verb",
     english: ["to have"],
     examples: [ex("Ich habe einen Hund.", "I have a dog."), ex("Wir haben zwei Kinder.", "We have two children.")],
   },
   heißen: {
     german: "heißen",
+    perfect: { auxiliary: "haben", participle: "geheißen" },
     type: "verb",
     english: ["to be called"],
     examples: [ex("Ich heiße Anna.", "My name is Anna."), ex("Wie heißt du?", "What is your name?")],
   },
   kommen: {
     german: "kommen",
+    perfect: { auxiliary: "sein", participle: "gekommen" },
     type: "verb",
     english: ["to come"],
     examples: [ex("Ich komme aus Litauen.", "I am from Lithuania."), ex("Woher kommst du?", "Where are you from?")],
   },
   wohnen: {
     german: "wohnen",
+    perfect: { auxiliary: "haben", participle: "gewohnt" },
     type: "verb",
     english: ["to live", "to reside"],
     examples: [ex("Ich wohne in Marburg.", "I live in Marburg."), ex("Wo wohnst du?", "Where do you live?")],
   },
   machen: {
     german: "machen",
+    perfect: { auxiliary: "haben", participle: "gemacht" },
     type: "verb",
     english: ["to do", "to make"],
     examples: [
@@ -206,12 +212,14 @@ const entries = {
   },
   lernen: {
     german: "lernen",
+    perfect: { auxiliary: "haben", participle: "gelernt" },
     type: "verb",
     english: ["to learn"],
     examples: [ex("Ich lerne Deutsch.", "I am learning German."), ex("Wir lernen heute.", "We are learning today.")],
   },
   sprechen: {
     german: "sprechen",
+    perfect: { auxiliary: "haben", participle: "gesprochen" },
     type: "verb",
     english: ["to speak"],
     examples: [ex("Ich spreche Deutsch.", "I speak German."), ex("Sprichst du Englisch?", "Do you speak English?")],
