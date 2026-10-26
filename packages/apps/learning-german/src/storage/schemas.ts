@@ -9,6 +9,16 @@ export const exampleSchema = z.object({ de: z.string().min(1), en: z.string().mi
 /** The Perfekt of a verb: its auxiliary and Partizip II, e.g. haben + "gemacht". */
 export const perfectSchema = z.object({ auxiliary: auxiliarySchema, participle: z.string().min(1) });
 
+/** The forms of a verb besides its infinitive, without pronouns: "mache", "macht", "machte". */
+export const conjugationSchema = z.object({
+  ich: z.string().min(1),
+  /** er/sie/es. */
+  er: z.string().min(1),
+  /** Präteritum, ich and er/sie/es (they're the same). */
+  preterite: z.string().min(1),
+  perfect: perfectSchema,
+});
+
 /**
  * A dictionary entry. `german` is the lemma exactly as it is written in a dictionary:
  * capitalised only for nouns, lowercase for everything else (e.g. "bitte", "guten Morgen").
@@ -22,7 +32,7 @@ export const wordSchema = z.object({
   /** Nouns only: the plural form without article, e.g. "Männer". */
   plural: z.string().optional(),
   /** Verbs only. */
-  perfect: perfectSchema.optional(),
+  conjugation: conjugationSchema.optional(),
   type: wordTypeSchema,
   /** One or more English meanings. */
   english: z.array(z.string().min(1)).min(1),
@@ -66,6 +76,7 @@ export const progressSchema = z.object({
 export type Article = z.infer<typeof articleSchema>;
 export type Auxiliary = z.infer<typeof auxiliarySchema>;
 export type Perfect = z.infer<typeof perfectSchema>;
+export type Conjugation = z.infer<typeof conjugationSchema>;
 export type WordType = z.infer<typeof wordTypeSchema>;
 export type Example = z.infer<typeof exampleSchema>;
 export type Word = z.infer<typeof wordSchema>;

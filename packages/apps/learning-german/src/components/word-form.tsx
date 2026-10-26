@@ -13,6 +13,9 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
   const [english, setEnglish] = useState("");
   const [article, setArticle] = useState<string>(NO_ARTICLE);
   const [type, setType] = useState<WordType>("noun");
+  const [ich, setIch] = useState("");
+  const [er, setEr] = useState("");
+  const [preterite, setPreterite] = useState("");
   const [auxiliary, setAuxiliary] = useState<Auxiliary>("haben");
   const [participle, setParticiple] = useState("");
   const [exampleDe, setExampleDe] = useState("");
@@ -26,18 +29,26 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
       .filter(Boolean);
     if (!german.trim() || meanings.length === 0) return;
     const hasExample = exampleDe.trim() && exampleEn.trim();
+    // Verb forms are all-or-nothing: a half-filled conjugation is dropped.
+    const forms = [ich, er, preterite, participle].map((f) => f.trim());
+    const hasConjugation = type === "verb" && forms.every(Boolean);
     onSubmit({
       id: crypto.randomUUID(),
       german: german.trim(),
       english: meanings,
       article: type === "noun" && article !== NO_ARTICLE ? (article as Article) : undefined,
-      perfect: type === "verb" && participle.trim() ? { auxiliary, participle: participle.trim() } : undefined,
+      conjugation: hasConjugation
+        ? { ich: forms[0], er: forms[1], preterite: forms[2], perfect: { auxiliary, participle: forms[3] } }
+        : undefined,
       type,
       examples: hasExample ? [{ de: exampleDe.trim(), en: exampleEn.trim() }] : [],
     });
     setGerman("");
     setEnglish("");
     setArticle(NO_ARTICLE);
+    setIch("");
+    setEr("");
+    setPreterite("");
     setAuxiliary("haben");
     setParticiple("");
     setExampleDe("");
@@ -87,30 +98,53 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
           </Select>
         </div>
       </div>
-      <div className="grid gap-3 sm:grid-cols-2">
-        <div className="space-y-1.5">
-          <Label>Perfekt auxiliary</Label>
-          <Select value={auxiliary} onValueChange={(v) => setAuxiliary(v as Auxiliary)} disabled={type !== "verb"}>
-            <SelectTrigger className="w-full">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="haben">haben</SelectItem>
-              <SelectItem value="sein">sein</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-1.5">
-          <Label htmlFor="participle">Participle (optional)</Label>
-          <Input
-            id="participle"
-            value={participle}
-            onChange={(e) => setParticiple(e.target.value)}
-            placeholder="gemacht"
-            disabled={type !== "verb"}
-          />
-        </div>
-      </div>
+      {type === "verb" && (
+        <>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <div className="space-y-1.5">
+              <Label htmlFor="ich">ich</Label>
+              <Input id="ich" value={ich} onChange={(e) => setIch(e.target.value)} placeholder="mache" />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="er">er/sie/es</Label>
+              <Input id="er" value={er} onChange={(e) => setEr(e.target.value)} placeholder="macht" />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="preterite">Präteritum</Label>
+              <Input
+                id="preterite"
+                value={preterite}
+                onChange={(e) => setPreterite(e.target.value)}
+                placeholder="machte"
+              />
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="space-y-1.5">
+              <Label>Perfekt auxiliary</Label>
+              <Select value={auxiliary} onValueChange={(v) => setAuxiliary(v as Auxiliary)}>
+                <SelectTrigger className="w-full">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="haben">haben</SelectItem>
+                  <SelectItem value="sein">sein</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="participle">Participle</Label>
+              <Input
+                id="participle"
+                value={participle}
+                onChange={(e) => setParticiple(e.target.value)}
+                placeholder="gemacht"
+              />
+            </div>
+          </div>
+          <p className="text-xs text-muted-foreground">Verb forms are optional, but only saved if all are filled in.</p>
+        </>
+      )}
       <div className="grid gap-3 sm:grid-cols-2">
         <div className="space-y-1.5">
           <Label htmlFor="example-de">Example sentence (optional)</Label>

@@ -23,7 +23,7 @@ function PracticePage() {
   const states = new Map((cards.data ?? []).map((c) => [c.wordId, c]));
   const inScope =
     scope === ALL ? words : (lists.find((l) => l.id === scope)?.wordIds ?? []).flatMap((id) => wordsById.get(id) ?? []);
-  const scoped = direction === "perfect" ? inScope.filter((w) => w.perfect) : inScope;
+  const scoped = direction === "perfect" ? inScope.filter((w) => w.conjugation) : inScope;
   const now = Date.now();
   const due = scoped.filter((w) => {
     const s = states.get(w.id);

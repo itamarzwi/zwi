@@ -46,8 +46,8 @@ export function FlashcardSession({ words, states, direction, onRate, onDone }: P
   const german = displayGerman(word);
   const english = word.english.join(", ");
   const [front, back] =
-    direction === "perfect" && word.perfect
-      ? [german, displayPerfect(word.perfect)]
+    direction === "perfect" && word.conjugation
+      ? [german, displayPerfect(word.conjugation.perfect)]
       : direction === "en-de"
         ? [english, german]
         : [german, english];

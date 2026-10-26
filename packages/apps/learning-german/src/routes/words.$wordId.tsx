@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { X } from "lucide-react";
+import { Fragment } from "react";
 import { PageHeader } from "#/components/page-header.tsx";
 import { Badge } from "#/components/ui/badge.tsx";
 import { Button } from "#/components/ui/button.tsx";
@@ -40,10 +41,21 @@ function WordPage() {
           Plural: <span className="font-medium text-foreground">die {word.plural}</span>
         </p>
       )}
-      {word.perfect && (
-        <p className="mb-4 text-sm text-muted-foreground">
-          Perfekt: <span className="font-medium text-foreground">{displayPerfect(word.perfect)}</span>
-        </p>
+      {word.conjugation && (
+        <dl className="mb-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 rounded-xl border bg-card px-4 py-3 text-sm">
+          {[
+            ["Infinitiv", word.german],
+            ["ich", word.conjugation.ich],
+            ["er/sie/es", word.conjugation.er],
+            ["Präteritum", word.conjugation.preterite],
+            ["Perfekt", displayPerfect(word.conjugation.perfect)],
+          ].map(([label, form]) => (
+            <Fragment key={label}>
+              <dt className="text-muted-foreground">{label}</dt>
+              <dd className="font-medium">{form}</dd>
+            </Fragment>
+          ))}
+        </dl>
       )}
 
       <div className="mb-6 flex flex-wrap items-center gap-2">

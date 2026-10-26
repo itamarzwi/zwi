@@ -46,7 +46,7 @@ export const displayPerfect = ({ auxiliary, participle }: Perfect) =>
 export const matchesQuery = (word: Word, query: string) => {
   const q = query.trim().toLowerCase();
   if (!q) return true;
-  return [word.german, word.plural ?? "", word.perfect?.participle ?? "", ...word.english].some((t) =>
-    t.toLowerCase().includes(q),
-  );
+  const c = word.conjugation;
+  const forms = c ? [c.ich, c.er, c.preterite, c.perfect.participle] : [];
+  return [word.german, word.plural ?? "", ...forms, ...word.english].some((t) => t.toLowerCase().includes(q));
 };

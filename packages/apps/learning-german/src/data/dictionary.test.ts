@@ -13,6 +13,9 @@ describe("built-in dictionary", () => {
     for (const word of builtinWords) {
       expect(word.id, word.id).toBe(word.id.normalize("NFC"));
       expect(word.german, word.id).toBe(word.german.normalize("NFC"));
+      const c = word.conjugation;
+      for (const form of c ? [c.ich, c.er, c.preterite, c.perfect.participle] : [])
+        expect(form, word.id).toBe(form.normalize("NFC"));
     }
   });
 
@@ -28,8 +31,8 @@ describe("built-in dictionary", () => {
     for (const word of builtinWords) expect(Boolean(word.article), word.id).toBe(word.type === "noun");
   });
 
-  it("gives every verb a Perfekt and no one else", () => {
-    for (const word of builtinWords) expect(Boolean(word.perfect), word.id).toBe(word.type === "verb");
+  it("conjugates every verb and nothing else", () => {
+    for (const word of builtinWords) expect(Boolean(word.conjugation), word.id).toBe(word.type === "verb");
   });
 
   it("has examples for every word except numbers", () => {
