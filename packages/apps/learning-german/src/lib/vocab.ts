@@ -43,6 +43,13 @@ export const displayGerman = (word: Pick<Word, "german" | "article">) =>
 export const displayPerfect = ({ auxiliary, participle }: Perfect) =>
   `${auxiliary === "haben" ? "hat" : "ist"} ${participle}`;
 
+/** "bin · ist · ist gewesen" for verbs, "die Namen" for nouns: the forms at a glance, without labels. */
+export const formsPreview = (word: Word) => {
+  if (word.plural) return `die ${word.plural}`;
+  const c = word.conjugation;
+  return c && [c.ich, c.er, displayPerfect(c.perfect)].join(" · ");
+};
+
 export const matchesQuery = (word: Word, query: string) => {
   const q = query.trim().toLowerCase();
   if (!q) return true;

@@ -44,8 +44,8 @@ export const builtinLists: BuiltinList[] = [
   },
   {
     id: "irregular-perfekt-participles",
-    name: "Irregular Perfekt participles",
-    description: "Verbs with an irregular Perfekt participle",
+    name: "Irregular Partizip II forms",
+    description: "Verbs with an irregular Partizip II",
     wordIds: [
       "essen",
       "trinken",

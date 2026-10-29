@@ -1,0 +1,119 @@
+export const meta = {
+  title: "The Perfekt with sein",
+  summary: "Verbs of movement and bleiben use sein instead of haben.",
+};
+
+## Some verbs use sein
+
+A small group of verbs builds the Perfekt with sein instead of haben. Everything else stays the same: sein goes in second position, the participle goes to the end.
+
+<ExampleList>
+  <Example de="Ich verb(bin) nach Marburg verb(gefahren)." en="I drove to Marburg." />
+  <Example de="Wir verb(sind) nach Hause verb(gegangen)." en="We went home." />
+  <Example de="Anna verb(ist) nach Litauen verb(geflogen)." en="Anna flew to Lithuania." />
+</ExampleList>
+
+These are verbs of movement: someone goes from one place to another. You already know their participles from the list:
+
+| Infinitive | Participle |
+| ---------- | ---------- |
+| gehen | gegangen |
+| fahren | gefahren |
+| fliegen | geflogen |
+| kommen | gekommen |
+
+<Callout title="I am gone">
+"Ich bin gegangen" is literally "I am gone". English used to work like this too, and you can still hear it in phrases like "he is gone" or "the time has come", which used to be "the time is come".
+</Callout>
+
+sein changes with the person, and the participle stays the same:
+
+| German | English |
+| ------ | ------- |
+| ich bin gefahren | I drove |
+| du bist gefahren | you drove |
+| er/sie/es ist gefahren | he/she/it drove |
+| wir sind gefahren | we drove |
+| ihr seid gefahren | you (all) drove |
+| sie/Sie sind gefahren | they/you (formal) drove |
+
+<ExampleList>
+  <Example de="Jess ist gestern verb(gekommen)." en="Jess came yesterday." />
+  <Example de="Seid ihr nach Marburg verb(gefahren)?" en="Did you (all) drive to Marburg?" />
+  <Example de="Letztes Jahr sind wir nach Litauen verb(geflogen)." en="Last year we flew to Lithuania." />
+</ExampleList>
+
+## bleiben
+
+bleiben (to stay) is the odd one out. It is the opposite of movement, but it still uses sein.
+
+<ExampleList>
+  <Example de="Ich bin zu Hause verb(geblieben)." en="I stayed at home." />
+  <Example de="Anna ist zwei Tage in Marburg verb(geblieben)." en="Anna stayed in Marburg for two days." />
+</ExampleList>
+
+## haben or sein?
+
+For now, the rule is simple: sein for movement from one place to another and for bleiben, haben for everything else.
+
+<ExampleList>
+  <Example de="Ich verb(habe) in Marburg verb(gewohnt)." en="I lived in Marburg." note="no movement: haben" />
+  <Example de="Ich verb(bin) nach Marburg verb(gefahren)." en="I drove to Marburg." note="from one place to another: sein" />
+  <Example de="Wir verb(haben) Pizza verb(gegessen)." en="We ate pizza." note="no movement: haben" />
+  <Example de="Wir verb(sind) nach Hause verb(gegangen)." en="We went home." note="from one place to another: sein" />
+</ExampleList>
+
+<Callout type="warning" title="Common mistake">
+"Ich habe nach Marburg gefahren" is wrong. fahren is movement, so it uses sein: "Ich bin nach Marburg gefahren".
+</Callout>
+
+## Practice
+
+<FillBlank translation="I went home." prompt="Ich ___ nach Hause gegangen." answer="bin" />
+
+<FillBlank translation="Anna drove to Marburg." prompt="Anna ___ nach Marburg gefahren." answer="ist" />
+
+<MultipleChoice
+  translation="We ate pizza."
+  question="Wir ___ Pizza gegessen."
+  options={["haben", "sind"]}
+  answer={0}
+  explanation="Eating is not movement, so it is haben."
+/>
+
+<FillBlank translation="Did you fly to Lithuania?" prompt="___ du nach Litauen geflogen?" answer="Bist" />
+
+<MultipleChoice
+  translation="Jess stayed at home."
+  question="Jess ___ zu Hause geblieben."
+  options={["hat", "ist"]}
+  answer={1}
+  explanation="bleiben always uses sein."
+/>
+
+<FillBlank translation="They came yesterday." prompt="Sie sind gestern ___. (kommen)" answer="gekommen" />
+
+<MultipleChoice
+  translation="I lived in Marburg."
+  question="Ich ___ in Marburg gewohnt."
+  options={["habe", "bin"]}
+  answer={0}
+  explanation="Living somewhere is not movement from one place to another, so it is haben."
+/>
+
+<MultipleChoice
+  question='Choose the correct sentence: "We drove to Marburg yesterday."'
+  options={[
+    "Wir haben gestern nach Marburg gefahren.",
+    "Wir sind gestern nach Marburg gefahren.",
+    "Wir sind gestern gefahren nach Marburg.",
+  ]}
+  answer={1}
+  explanation="fahren is movement, so it is sein, and the participle goes to the end."
+/>
+
+<FillBlank translation="You (all) went home." prompt="Ihr ___ nach Hause gegangen." answer="seid" />
+
+<FillBlank translation="Last week Anna read a book." prompt="Letzte Woche ___ Anna ein Buch gelesen." answer="hat" />
+
+<FillBlank translation="We stayed in Marburg." prompt="Wir sind in Marburg ___. (bleiben)" answer="geblieben" />

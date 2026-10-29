@@ -1,13 +1,13 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { X } from "lucide-react";
-import { Fragment } from "react";
 import { PageHeader } from "#/components/page-header.tsx";
 import { Badge } from "#/components/ui/badge.tsx";
 import { Button } from "#/components/ui/button.tsx";
 import { AddToList, LearnedToggle } from "#/components/word-actions.tsx";
+import { WordForms } from "#/components/word-forms.tsx";
 import { WordTypeBadge } from "#/components/word-type-badge.tsx";
 import { useDeleteCustomWord, useRemoveWordFromList, useVocab } from "#/hooks/use-data.ts";
-import { displayGerman, displayPerfect } from "#/lib/vocab.ts";
+import { displayGerman } from "#/lib/vocab.ts";
 
 export const Route = createFileRoute("/words/$wordId")({ component: WordPage });
 
@@ -36,27 +36,7 @@ function WordPage() {
         description={word.english.join(", ")}
         actions={<WordTypeBadge type={word.type} />}
       />
-      {word.plural && (
-        <p className="mb-4 text-sm text-muted-foreground">
-          Plural: <span className="font-medium text-foreground">die {word.plural}</span>
-        </p>
-      )}
-      {word.conjugation && (
-        <dl className="mb-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 rounded-xl border bg-card px-4 py-3 text-sm">
-          {[
-            ["Infinitiv", word.german],
-            ["ich", word.conjugation.ich],
-            ["er/sie/es", word.conjugation.er],
-            ["Präteritum", word.conjugation.preterite],
-            ["Perfekt", displayPerfect(word.conjugation.perfect)],
-          ].map(([label, form]) => (
-            <Fragment key={label}>
-              <dt className="text-muted-foreground">{label}</dt>
-              <dd className="font-medium">{form}</dd>
-            </Fragment>
-          ))}
-        </dl>
-      )}
+      <WordForms word={word} className={word.plural ? "mb-4" : "mb-6"} />
 
       <div className="mb-6 flex flex-wrap items-center gap-2">
         <LearnedToggle wordId={word.id} learned={learned.has(word.id)} />

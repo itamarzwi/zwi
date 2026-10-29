@@ -1,0 +1,129 @@
+export const meta = {
+  title: "Participles without ge-",
+  summary: "Verbs ending in -ieren, and verbs starting with be-, ver- or er-.",
+};
+
+## Two groups without ge-
+
+Most participles start with ge-, but two groups of verbs never get it:
+
+1. Verbs ending in -ieren.
+2. Verbs starting with be-, ver- or er-.
+
+Everything else stays the same as before: regular verbs still end in -t, irregular verbs still end in -en.
+
+## Verbs ending in -ieren
+
+Verbs that end in -ieren are always regular, so their participle is just the root + -t, without ge-.
+
+| Infinitive | Participle |
+| ---------- | ---------- |
+| studieren | studiert |
+| telefonieren | telefoniert |
+| fotografieren | fotografiert |
+| reparieren | repariert |
+| passieren | passiert |
+
+<ExampleList>
+  <Example de="Anna hat in Marburg verb(studiert)." en="Anna studied in Marburg." />
+  <Example de="Ich habe gestern mit Jess verb(telefoniert)." en="I talked to Jess on the phone yesterday." />
+  <Example de="Wir haben das Auto verb(repariert)." en="We repaired the car." />
+</ExampleList>
+
+passieren (to happen) uses sein, like bleiben. You will hear it a lot in one question:
+
+<Example de="Was verb(ist) verb(passiert)?" en="What happened?" />
+
+## be-, ver- and er-
+
+Verbs that start with be-, ver- or er- don't get ge- either. If the verb is regular, the participle ends in -t:
+
+| Infinitive | Participle |
+| ---------- | ---------- |
+| besuchen | besucht |
+| bezahlen | bezahlt |
+| erzählen | erzählt |
+| verkaufen | verkauft |
+
+<ExampleList>
+  <Example de="Wir haben Anna verb(besucht)." en="We visited Anna." />
+  <Example de="Jess hat den Kaffee verb(bezahlt)." en="Jess paid for the coffee." />
+  <Example de="Ich habe mein Auto verb(verkauft)." en="I sold my car." />
+</ExampleList>
+
+If the verb is irregular, it ends in -en. Many of these are built from verbs you already know, so you can take the participle you know and remove the ge-:
+
+| Infinitive | Comes from | Participle |
+| ---------- | ---------- | ---------- |
+| verstehen | stehen → gestanden | verstanden |
+| bekommen | kommen → gekommen | bekommen |
+| vergessen | essen → gegessen | vergessen |
+
+<ExampleList>
+  <Example de="Ich habe das nicht verb(verstanden)." en="I didn't understand that." />
+  <Example de="Anna hat ein Buch verb(bekommen)." en="Anna got a book." />
+  <Example de="Wir haben den Schlüssel verb(vergessen)." en="We forgot the key." />
+</ExampleList>
+
+Notice that bekommen and vergessen look exactly the same as the infinitive. The haben in second position tells you it is the Perfekt.
+
+<Callout title="bekommen is not become">
+bekommen means to get or to receive. "Ich habe ein Buch bekommen" means "I got a book", not "I became a book".
+</Callout>
+
+<Callout title="Not movement">
+bekommen comes from kommen, but it uses haben. Getting something is not moving from one place to another.
+</Callout>
+
+## Practice
+
+<FillBlank translation="I studied in Marburg." prompt="Ich habe in Marburg ___. (studieren)" answer="studiert" />
+
+<MultipleChoice
+  translation="We talked on the phone."
+  question="Wir haben ___."
+  options={["getelefoniert", "telefoniert", "telefonieren"]}
+  answer={1}
+  explanation="Verbs ending in -ieren don't get ge-: telefoniert."
+/>
+
+<FillBlank translation="What happened?" prompt="Was ___ passiert?" answer="ist" />
+
+<FillBlank translation="Anna visited her mother." prompt="Anna hat ihre Mutter ___. (besuchen)" answer="besucht" />
+
+<MultipleChoice
+  translation="Jess paid for the pizza."
+  question="Jess hat die Pizza ___."
+  options={["gebezahlt", "bezahlt", "bezahlen"]}
+  answer={1}
+  explanation="Verbs starting with be- don't get ge-: bezahlt."
+/>
+
+<FillBlank translation="Did you understand that?" prompt="Hast du das ___? (verstehen)" answer="verstanden" />
+
+<MultipleChoice
+  translation="I forgot the book."
+  question="Ich habe das Buch ___."
+  options={["gevergessen", "vergessen", "vergesst"]}
+  answer={1}
+  explanation="vergessen comes from essen → gegessen. Without ge- it is vergessen."
+/>
+
+<MultipleChoice
+  translation="We got a message."
+  question="Wir ___ eine Nachricht bekommen."
+  options={["haben", "sind"]}
+  answer={0}
+  explanation="bekommen is not movement, so it uses haben."
+/>
+
+<FillBlank translation="Anna told a story." prompt="Anna hat eine Geschichte ___. (erzählen)" answer="erzählt" />
+
+<FillBlank translation="We repaired the car." prompt="Wir haben das Auto ___. (reparieren)" answer="repariert" />
+
+<MultipleChoice
+  question="Which participle is wrong?"
+  options={["fotografiert", "gekauft", "gebesucht"]}
+  answer={2}
+  explanation="besuchen starts with be-, so it is besucht, without ge-."
+/>

@@ -1,0 +1,153 @@
+export const meta = {
+  title: "Questions and negation in the past",
+  summary: "Asking and answering about the past, nicht and kein in the Perfekt, and talking about your weekend.",
+};
+
+## Yes/no questions
+
+Yes/no questions work just like in the present tense: the conjugated verb moves to the first position. In the Perfekt, that is haben or sein. The participle stays at the end.
+
+<ExampleList>
+  <Example de="Du verb(hast) Pizza verb(gekauft)." en="You bought pizza." />
+  <Example de="verb(Hast) du Pizza verb(gekauft)?" en="Did you buy pizza?" />
+</ExampleList>
+
+<ExampleList>
+  <Example de="Anna verb(ist) nach Marburg verb(gefahren)." en="Anna drove to Marburg." />
+  <Example de="verb(Ist) Anna nach Marburg verb(gefahren)?" en="Did Anna drive to Marburg?" />
+</ExampleList>
+
+With war and hatte, there is only one verb, so it simply moves to the front:
+
+<ExampleList>
+  <Example de="verb(Warst) du gestern in Marburg?" en="Were you in Marburg yesterday?" />
+  <Example de="verb(Hattest) du Zeit?" en="Did you have time?" />
+</ExampleList>
+
+## W-questions
+
+W-questions also work like in the present tense: the question word comes first, then the conjugated verb. The participle still goes to the end.
+
+<ExampleList>
+  <Example de="Was verb(hast) du gestern verb(gemacht)?" en="What did you do yesterday?" />
+  <Example de="Wann verb(bist) du nach Hause verb(gekommen)?" en="When did you come home?" />
+  <Example de="Wer verb(hat) das verb(gesagt)?" en="Who said that?" />
+  <Example de="Wo verb(warst) du?" en="Where were you?" />
+  <Example de="Wie verb(war) der Film?" en="How was the film?" />
+</ExampleList>
+
+## Negation
+
+### nicht
+
+In the Perfekt, nicht goes right before the participle, at the end of the sentence.
+
+<ExampleList>
+  <Example de="Ich habe das Buch adverb(nicht) gelesen." en="I didn't read the book." />
+  <Example de="Anna hat gestern adverb(nicht) gearbeitet." en="Anna didn't work yesterday." />
+  <Example de="Wir haben das adverb(nicht) verstanden." en="We didn't understand that." />
+</ExampleList>
+
+The other rules from the negation lesson still apply. For example, nicht still goes before a place:
+
+<Example de="Ich bin adverb(nicht) nach Marburg gefahren." en="I didn't drive to Marburg." />
+
+With war, nicht goes where it would with ist:
+
+<Example de="Der Film war adverb(nicht) gut." en="The film was not good." />
+
+### kein
+
+kein works the same as always: it replaces ein, or goes in front of a noun with no article.
+
+<ExampleList>
+  <Example de="Ich habe adverb(keinen) Kaffee getrunken." en="I didn't drink coffee." />
+  <Example de="Wir hatten adverb(keine) Zeit." en="We had no time." />
+  <Example de="Jess hat adverb(kein) Buch gekauft." en="Jess didn't buy a book." />
+</ExampleList>
+
+### Doch
+
+doch also works with past questions:
+
+<ExampleList>
+  <Example de="Hast du nicht gegessen?" en="Didn't you eat?" />
+  <Example de="adverb(Doch), ich habe gegessen." en="Yes, I did eat." />
+</ExampleList>
+
+## Was hast du am Wochenende gemacht?
+
+This is one of the most common questions in German, especially on a Monday morning. Here is how a conversation about the weekend might go:
+
+<ExampleList>
+  <Example de="Jess: Hallo Anna! Wie war dein Wochenende?" en="Jess: Hi Anna! How was your weekend?" />
+  <Example de="Anna: Gut, danke! Am Samstag war ich in Marburg." en="Anna: Good, thanks! On Saturday I was in Marburg." />
+  <Example de="Jess: Was hast du da gemacht?" en="Jess: What did you do there?" />
+  <Example de="Anna: Ich habe eine Freundin besucht. Wir haben Kaffee getrunken und viel geredet." en="Anna: I visited a friend. We drank coffee and talked a lot." />
+  <Example de="Jess: Und am Sonntag?" en="Jess: And on Sunday?" />
+  <Example de="Anna: Am Sonntag bin ich zu Hause geblieben und habe ein Buch gelesen. Und du?" en="Anna: On Sunday I stayed at home and read a book. And you?" />
+  <Example de="Jess: Ich hatte keine Zeit. Ich habe am Samstag und am Sonntag gearbeitet." en="Jess: I had no time. I worked on Saturday and on Sunday." />
+  <Example de="Anna: Oh nein! Hast du nicht geschlafen?" en="Anna: Oh no! Didn't you sleep?" />
+  <Example de="Jess: Doch, aber nicht viel." en="Jess: Yes, I did, but not much." />
+</ExampleList>
+
+Notice how they use war and hatte for sein and haben, and the Perfekt for everything else, with haben for most verbs and sein for bleiben.
+
+## Practice
+
+<MultipleChoice
+  question='Choose the correct question: "Did you read the book?"'
+  options={["Hast du das Buch gelesen?", "Hast du gelesen das Buch?", "Du hast das Buch gelesen?"]}
+  answer={0}
+  explanation="haben moves to the front, the participle stays at the end."
+/>
+
+<FillBlank translation="What did you do yesterday?" prompt="Was ___ du gestern gemacht?" answer="hast" />
+
+<FillBlank translation="When did Anna come?" prompt="Wann ___ Anna gekommen?" answer="ist" />
+
+<FillBlank translation="Where were you?" prompt="Wo ___ ihr?" answer="wart" />
+
+<MultipleChoice
+  question='Choose the correct sentence: "I didn’t see the film."'
+  options={["Ich habe nicht den Film gesehen.", "Ich habe den Film gesehen nicht.", "Ich habe den Film nicht gesehen."]}
+  answer={2}
+  explanation="nicht goes right before the participle."
+/>
+
+<MultipleChoice
+  translation="We didn't drink coffee."
+  question="Wir haben ___ Kaffee getrunken."
+  options={["nicht", "keinen", "kein"]}
+  answer={1}
+  explanation="Kaffee has no article, so it is kein. It is masculine and the object: keinen."
+/>
+
+<FillBlank translation="Jess didn't work yesterday." prompt="Jess hat gestern ___ gearbeitet." answer="nicht" />
+
+<MultipleChoice
+  translation="Didn't you go home? Yes, I did."
+  question="Bist du nicht nach Hause gegangen? ___, ich bin nach Hause gegangen."
+  options={["Ja", "Nein", "Doch"]}
+  answer={2}
+  explanation="Doch answers a negative question with yes."
+/>
+
+<FillBlank translation="How was your weekend?" prompt="Wie ___ dein Wochenende?" answer="war" />
+
+<MultipleChoice
+  translation="What did you do on the weekend?"
+  question="Was hast du am Wochenende ___?"
+  options={["gemacht", "machen", "gemachen"]}
+  answer={0}
+  explanation="machen is regular: gemacht."
+/>
+
+<FillBlank translation="We had no time." prompt="Wir hatten ___ Zeit." answer="keine" />
+
+<MultipleChoice
+  question='Choose the correct answer to "Was hast du am Sonntag gemacht?"'
+  options={["Ich bin zu Hause geblieben.", "Ich habe zu Hause geblieben.", "Ich bin zu Hause bleiben."]}
+  answer={0}
+  explanation="bleiben uses sein, and its participle is geblieben."
+/>

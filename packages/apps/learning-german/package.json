@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "vite dev --port 3100",
+    "start": "vite dev --port 3100",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "deploy": "netlify deploy --prod --no-build",

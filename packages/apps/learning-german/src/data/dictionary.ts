@@ -129,7 +129,7 @@ const entries = {
     type: "noun",
     english: ["man", "husband"],
     examples: [
-      ex("Der Mann heißt Peter.", "The man is called Peter."),
+      ex("Der Mann heißt Jess.", "The man is called Jess."),
       ex("Mein Mann spricht Deutsch.", "My husband speaks German."),
     ],
   },
@@ -333,7 +333,7 @@ const entries = {
     english: ["to write"],
     examples: [
       ex("Ich schreibe eine Nachricht.", "I am writing a message."),
-      ex("Peter hat eine E-Mail geschrieben.", "Peter wrote an email."),
+      ex("Jess hat eine E-Mail geschrieben.", "Jess wrote an email."),
     ],
   },
   schlafen: {
@@ -386,7 +386,7 @@ const entries = {
     type: "verb",
     english: ["to meet"],
     examples: [
-      ex("Ich treffe Peter heute.", "I am meeting Peter today."),
+      ex("Ich treffe Jess heute.", "I am meeting Jess today."),
       ex("Wir haben Anna in Marburg getroffen.", "We met Anna in Marburg."),
     ],
   },
@@ -416,7 +416,7 @@ const entries = {
     type: "verb",
     english: ["to drive", "to go (by vehicle)"],
     examples: [
-      ex("Peter fährt nach Marburg.", "Peter is driving to Marburg."),
+      ex("Jess fährt nach Marburg.", "Jess is driving/going to Marburg."),
       ex("Ich bin mit dem Zug gefahren.", "I went by train."),
     ],
   },
