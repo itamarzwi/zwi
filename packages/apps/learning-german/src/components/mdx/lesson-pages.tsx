@@ -5,6 +5,14 @@ import { useLessonPages } from "#/components/lesson/pages-context.tsx";
 import { Button } from "#/components/ui/button.tsx";
 import { Progress } from "#/components/ui/progress.tsx";
 
+/** Elements that use the arrow keys themselves (text fields, tabs, selects, …). */
+const isArrowKeyTarget = (target: EventTarget | null) =>
+  target instanceof HTMLElement &&
+  (target.isContentEditable ||
+    target.closest(
+      "input, textarea, select, [role=tablist], [role=radiogroup], [role=listbox], [role=menu], [role=slider], [role=combobox]",
+    ) !== null);
+
 /** One `##` section of a lesson. Created automatically by plugins/remark-lesson-pages.ts. */
 export function LessonPage({ children }: { title: string; children?: ReactNode }) {
   return <>{children}</>;
@@ -28,6 +36,19 @@ export function LessonPages({ children }: { children?: ReactNode }) {
     if (previous.current !== current) window.scrollTo({ top: 0 });
     previous.current = current;
   }, [current]);
+
+  const goToPage = lesson?.goToPage;
+  useEffect(() => {
+    if (!goToPage) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (isArrowKeyTarget(event.target)) return;
+      if (event.key === "ArrowLeft" && current > 1) goToPage(current - 1);
+      else if (event.key === "ArrowRight" && current < total) goToPage(current + 1);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [goToPage, current, total]);
 
   if (!lesson) return <>{pages}</>;
 

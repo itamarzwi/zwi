@@ -450,6 +450,165 @@ const entries = {
       ex("Wir sind zwei Tage in Marburg geblieben.", "We stayed in Marburg for two days."),
     ],
   },
+  werden: {
+    german: "werden",
+    conjugation: {
+      ich: "werde",
+      er: "wird",
+      preterite: "wurde",
+      perfect: { auxiliary: "sein", participle: "geworden" },
+    },
+    type: "verb",
+    english: ["to become"],
+    examples: [
+      ex("Es wird kalt.", "It is getting cold."),
+      ex("Anna ist Lehrerin geworden.", "Anna became a teacher."),
+    ],
+  },
+  wachsen: {
+    german: "wachsen",
+    conjugation: {
+      ich: "wachse",
+      er: "wächst",
+      preterite: "wuchs",
+      perfect: { auxiliary: "sein", participle: "gewachsen" },
+    },
+    type: "verb",
+    english: ["to grow"],
+    examples: [
+      ex("Das Kind wächst schnell.", "The child is growing fast."),
+      ex("Du bist aber gewachsen!", "You have really grown!"),
+    ],
+  },
+  sterben: {
+    german: "sterben",
+    conjugation: {
+      ich: "sterbe",
+      er: "stirbt",
+      preterite: "starb",
+      perfect: { auxiliary: "sein", participle: "gestorben" },
+    },
+    type: "verb",
+    english: ["to die"],
+    examples: [ex("Mein Hund ist letztes Jahr gestorben.", "My dog died last year.")],
+  },
+  stehen: {
+    german: "stehen",
+    conjugation: {
+      ich: "stehe",
+      er: "steht",
+      preterite: "stand",
+      perfect: { auxiliary: "haben", participle: "gestanden" },
+    },
+    type: "verb",
+    english: ["to stand"],
+    examples: [
+      ex("Jess steht an der Tür.", "Jess is standing at the door."),
+      ex("Wir haben lange gestanden.", "We stood for a long time."),
+    ],
+  },
+  verstehen: {
+    german: "verstehen",
+    conjugation: {
+      ich: "verstehe",
+      er: "versteht",
+      preterite: "verstand",
+      perfect: { auxiliary: "haben", participle: "verstanden" },
+    },
+    type: "verb",
+    english: ["to understand"],
+    examples: [
+      ex("Verstehst du das?", "Do you understand that?"),
+      ex("Ich habe das nicht verstanden.", "I didn't understand that."),
+    ],
+  },
+  bekommen: {
+    german: "bekommen",
+    conjugation: {
+      ich: "bekomme",
+      er: "bekommt",
+      preterite: "bekam",
+      perfect: { auxiliary: "haben", participle: "bekommen" },
+    },
+    type: "verb",
+    english: ["to get", "to receive"],
+    examples: [
+      ex("Ich bekomme viele E-Mails.", "I get a lot of emails."),
+      ex("Anna hat ein Buch bekommen.", "Anna got a book."),
+    ],
+  },
+  verschlafen: {
+    german: "verschlafen",
+    conjugation: {
+      ich: "verschlafe",
+      er: "verschläft",
+      preterite: "verschlief",
+      perfect: { auxiliary: "haben", participle: "verschlafen" },
+    },
+    type: "verb",
+    english: ["to oversleep"],
+    examples: [ex("Jess hat heute verschlafen.", "Jess overslept today.")],
+  },
+  wissen: {
+    german: "wissen",
+    conjugation: {
+      ich: "weiß",
+      er: "weiß",
+      preterite: "wusste",
+      perfect: { auxiliary: "haben", participle: "gewusst" },
+    },
+    type: "verb",
+    english: ["to know (a fact)"],
+    examples: [
+      ex("Ich weiß es nicht.", "I don't know."),
+      ex("Das habe ich nicht gewusst.", "I didn't know that."),
+    ],
+  },
+  kennen: {
+    german: "kennen",
+    conjugation: {
+      ich: "kenne",
+      er: "kennt",
+      preterite: "kannte",
+      perfect: { auxiliary: "haben", participle: "gekannt" },
+    },
+    type: "verb",
+    english: ["to know (a person or place)"],
+    examples: [
+      ex("Kennst du Anna?", "Do you know Anna?"),
+      ex("Ich habe Jess schon in Marburg gekannt.", "I already knew Jess in Marburg."),
+    ],
+  },
+  denken: {
+    german: "denken",
+    conjugation: {
+      ich: "denke",
+      er: "denkt",
+      preterite: "dachte",
+      perfect: { auxiliary: "haben", participle: "gedacht" },
+    },
+    type: "verb",
+    english: ["to think"],
+    examples: [
+      ex("Was denkst du?", "What do you think?"),
+      ex("Das habe ich auch gedacht.", "I thought so too."),
+    ],
+  },
+  bringen: {
+    german: "bringen",
+    conjugation: {
+      ich: "bringe",
+      er: "bringt",
+      preterite: "brachte",
+      perfect: { auxiliary: "haben", participle: "gebracht" },
+    },
+    type: "verb",
+    english: ["to bring"],
+    examples: [
+      ex("Ich bringe einen Kuchen.", "I'm bringing a cake."),
+      ex("Anna hat Kaffee gebracht.", "Anna brought coffee."),
+    ],
+  },
 } satisfies Record<string, Entry>;
 
 export type BuiltinWordId = keyof typeof entries;

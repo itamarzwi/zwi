@@ -99,12 +99,12 @@ A negation of this kind can always come with a correction of the wrong detail, z
 
 
 <ExampleList>
-  <Example de="Ich fahre adverb(nicht) heute nach Marburg, sondern morgen." en="I'm not going to Marburg today, but rather tomorrow" />
-  <Example de="Ich fahre adverb(nicht) heute nach Marburg, ich fahre am Samstag." en="I'm not going to Marburg today, I'm going on Saturday" />
+  <Example de="Ich fahre timeplace(nicht heute) nach Marburg, sondern morgen." en="I'm not going to Marburg today, but rather tomorrow" />
+  <Example de="Ich fahre timeplace(nicht heute) nach Marburg, ich fahre am Samstag." en="I'm not going to Marburg today, I'm going on Saturday" />
 </ExampleList>
 
 <Callout title="Fahren oder gehen?">
-The examples use the verb "go" in English, but "fahren" in German (not "gehen"!). That is because German is a bit more strict about what verb to use than English. "Fahren" means to go by vehicle (car, train, bus, etc.), while "gehen" means to go on foot, whereas in English we just use "go" for both.
+The examples use the verb "go" in English, but "fahren" in German (not "gehen"!). That is because German is a bit more strict about what verb to use than English. "Fahren" means to go by vehicle (car, train, bus, etc.), while "gehen" means to go on foot. In English we use "go" for both.
 
 "Ich fahre nach Marburg" means you are travelling there by some vehicle. If you were walking, you would say "Ich gehe nach Marburg".
 </Callout>
@@ -180,7 +180,6 @@ German avoids this confusing by using **nein** to mean "No, I didn't" and **doch
   question="Das ist ___ Auto."
   options={["kein", "keine", "keinen"]}
   answer={0}
-  explanation="Auto is neuter, so it is kein."
 />
 
 <MultipleChoice
@@ -198,7 +197,6 @@ German avoids this confusing by using **nein** to mean "No, I didn't" and **doch
   question="Anna sieht ihre Mutter ___."
   options={["nicht", "kein", "keine"]}
   answer={0}
-  explanation="A noun with a possessive like ihre is negated with nicht."
 />
 
 <MultipleChoice
@@ -206,18 +204,18 @@ German avoids this confusing by using **nein** to mean "No, I didn't" and **doch
   question="Max schläft ___."
   options={["nicht", "kein", "keinen"]}
   answer={0}
-  explanation="There is no noun to negate, so it is nicht, at the end."
+  explanation="There is no noun to negate, so we use nicht at the end."
 />
 
 <MultipleChoice
-  question='Choose the correct sentence: "I don’t know her."'
+  question={`Choose the correct sentence: "I don't know her."`}
   options={["Ich kenne nicht sie.", "Ich kenne sie nicht.", "Ich nicht kenne sie."]}
   answer={1}
   explanation="When nicht negates the whole sentence, it goes at the end."
 />
 
 <MultipleChoice
-  question='Choose the correct sentence: "Anna isn’t working in Marburg tomorrow."'
+  question={`Choose the correct sentence: "Anna isn't working in Marburg tomorrow."`}
   options={["Anna arbeitet morgen nicht in Marburg.", "Anna arbeitet nicht morgen in Marburg.", "Anna arbeitet morgen in Marburg nicht."]}
   answer={0}
   explanation="Nicht goes after the time and before the place."
@@ -234,7 +232,7 @@ German avoids this confusing by using **nein** to mean "No, I didn't" and **doch
 />
 
 <MultipleChoice
-  question='Choose the correct sentence: "I don’t drink coffee."'
+  question={`Choose the correct sentence: "I don't drink coffee."`}
   options={["Ich trinke Kaffee nicht.", "Ich trinke nicht Kaffee.", "Ich trinke keinen Kaffee."]}
   answer={2}
   explanation="Kaffee has no article, so it is negated with kein. Kaffee is masculine, so it is keinen."
