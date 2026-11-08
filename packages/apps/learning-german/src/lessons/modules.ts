@@ -10,7 +10,7 @@ export const modules: ModuleInfo[] = [
   {
     id: "02-past-tense",
     title: "The past tense",
-    description: "The Perfekt with haben and sein, regular and irregular participles, war and hatte.",
+    description: "The Perfekt with haben and sein, regular and irregular verbs, war and hatte.",
   },
   {
     id: "03-prepositions-separable",
