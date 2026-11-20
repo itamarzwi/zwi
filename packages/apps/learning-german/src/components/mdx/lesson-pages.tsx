@@ -62,7 +62,7 @@ export function LessonPages({ children }: { children?: ReactNode }) {
     <>
       {multiple && (
         <div className="not-prose mb-6 space-y-2">
-          <Progress value={(current / total) * 100} />
+          <Progress aria-label="Lesson progress" value={(current / total) * 100} />
           <p className="text-sm text-muted-foreground">
             Step {current} of {total}
             {title && ` · ${title}`}

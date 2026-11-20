@@ -1,5 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import {
+  browserLocalPersistence,
+  browserSessionPersistence,
+  indexedDBLocalPersistence,
+  initializeAuth,
+} from "firebase/auth";
 import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from "firebase/firestore";
 
 /**
@@ -18,7 +23,11 @@ const isConfigured = Object.values(config).every(Boolean);
 const init = () => {
   const app = initializeApp(config);
   return {
-    auth: getAuth(app),
+    // Like getAuth(), minus the popup/redirect resolver: that one loads a ~95 KB iframe from
+    // firebaseapp.com on every page load. signInWithPopup passes it instead, so it loads on click.
+    auth: initializeAuth(app, {
+      persistence: [indexedDBLocalPersistence, browserLocalPersistence, browserSessionPersistence],
+    }),
     // The persistent cache keeps a copy in IndexedDB, so the app works offline and syncs later.
     db: initializeFirestore(app, {
       localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }),

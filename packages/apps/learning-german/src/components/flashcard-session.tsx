@@ -60,7 +60,7 @@ export function FlashcardSession({ words, states, direction, onRate, onDone }: P
 
   return (
     <div className="space-y-4">
-      <Progress value={(index / queue.length) * 100} />
+      <Progress aria-label="Session progress" value={(index / queue.length) * 100} />
       <p className="text-sm text-muted-foreground">
         Card {index + 1} of {queue.length}
       </p>

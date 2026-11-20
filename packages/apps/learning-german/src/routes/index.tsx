@@ -30,7 +30,7 @@ function Home() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            <Progress value={lessons.length ? (done / lessons.length) * 100 : 0} />
+            <Progress aria-label="Lessons completed" value={lessons.length ? (done / lessons.length) * 100 : 0} />
             <p className="text-sm text-muted-foreground">
               {done} of {lessons.length} completed
             </p>
