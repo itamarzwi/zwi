@@ -1,5 +1,4 @@
-import { builtinWords } from "#/data/dictionary.ts";
-import { builtinLists } from "#/data/lists.ts";
+import type { BuiltinList } from "#/data/dictionary/index.ts";
 import { MY_WORDS_ID, MY_WORDS_NAME } from "#/storage/repository.ts";
 import type { Perfect, UserList, Word } from "#/storage/schemas.ts";
 
@@ -13,13 +12,17 @@ export type WordList = {
   wordIds: string[];
 };
 
-export const buildDictionary = (customWords: Word[]): DictionaryWord[] => [
+/**
+ * Pure helpers for words and lists. Nothing here imports the dictionary itself (only its
+ * types), so these can be used anywhere without pulling the word data into a bundle.
+ */
+export const buildDictionary = (builtinWords: Word[], customWords: Word[]): DictionaryWord[] => [
   ...builtinWords.map((w) => ({ ...w, builtin: true })),
   ...customWords.map((w) => ({ ...w, builtin: false })),
 ];
 
 /** Built-in lists, then "My words" (always present), then the user's other lists. */
-export const buildLists = (userLists: UserList[]): WordList[] => {
+export const buildLists = (builtinLists: BuiltinList[], userLists: UserList[]): WordList[] => {
   const myWords = userLists.find((l) => l.id === MY_WORDS_ID);
   const others = userLists.filter((l) => l.id !== MY_WORDS_ID);
   return [

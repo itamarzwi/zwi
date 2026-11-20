@@ -5,7 +5,7 @@ import { Badge } from "#/components/ui/badge.tsx";
 import { Button } from "#/components/ui/button.tsx";
 import { AddToList, LearnedToggle } from "#/components/word-actions.tsx";
 import { WordForms } from "#/components/word-forms.tsx";
-import { WordTypeBadge } from "#/components/word-type-badge.tsx";
+import { WordLevelBadge, WordTypeBadge } from "#/components/word-type-badge.tsx";
 import { useDeleteCustomWord, useRemoveWordFromList, useVocab } from "#/hooks/use-data.ts";
 import { displayGerman } from "#/lib/vocab.ts";
 
@@ -34,7 +34,12 @@ function WordPage() {
       <PageHeader
         title={displayGerman(word)}
         description={word.english.join(", ")}
-        actions={<WordTypeBadge type={word.type} />}
+        actions={
+          <span className="flex items-center gap-2">
+            <WordLevelBadge level={word.level} />
+            <WordTypeBadge type={word.type} />
+          </span>
+        }
       />
       <WordForms word={word} className={word.plural ? "mb-4" : "mb-6"} />
 

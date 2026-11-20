@@ -2,6 +2,8 @@ import { z } from "zod";
 
 export const articleSchema = z.enum(["der", "die", "das"]);
 export const auxiliarySchema = z.enum(["haben", "sein"]);
+/** CEFR level. Built-in words take theirs from the Goethe-Institut word lists. */
+export const levelSchema = z.enum(["A1", "A2", "B1", "B2", "C1"]);
 export const wordTypeSchema = z.enum(["noun", "verb", "adjective", "adverb", "phrase", "number", "other"]);
 
 export const exampleSchema = z.object({ de: z.string().min(1), en: z.string().min(1) });
@@ -51,6 +53,8 @@ export const wordSchema = z.object({
    */
   separablePrefix: z.string().min(1).optional(),
   type: wordTypeSchema,
+  /** Always set on built-in words; custom words may leave it out. */
+  level: levelSchema.optional(),
   /** One or more English meanings. */
   english: z.array(z.string().min(1)).min(1),
   examples: z.array(exampleSchema),
@@ -95,6 +99,7 @@ export type Auxiliary = z.infer<typeof auxiliarySchema>;
 export type Perfect = z.infer<typeof perfectSchema>;
 export type Conjugation = z.infer<typeof conjugationSchema>;
 export type WordType = z.infer<typeof wordTypeSchema>;
+export type Level = z.infer<typeof levelSchema>;
 export type Example = z.infer<typeof exampleSchema>;
 export type Word = z.infer<typeof wordSchema>;
 export type UserList = z.infer<typeof userListSchema>;

@@ -5,7 +5,7 @@ import { PageHeader } from "#/components/page-header.tsx";
 import { Input } from "#/components/ui/input.tsx";
 import { Tabs, TabsList, TabsTrigger } from "#/components/ui/tabs.tsx";
 import { WordForm } from "#/components/word-form.tsx";
-import { WordTypeBadge } from "#/components/word-type-badge.tsx";
+import { WordLevelBadge, WordTypeBadge } from "#/components/word-type-badge.tsx";
 import { useCreateWord, useVocab } from "#/hooks/use-data.ts";
 import { displayGerman, matchesQuery } from "#/lib/vocab.ts";
 import { MY_WORDS_ID } from "#/storage/repository.ts";
@@ -59,6 +59,7 @@ function WordsPage() {
                   <span className="ml-3 text-muted-foreground">{word.english.join(", ")}</span>
                 </span>
                 <span className="flex items-center gap-2">
+                  <WordLevelBadge level={word.level} />
                   <WordTypeBadge type={word.type} />
                   {learned.has(word.id) && <Check className="size-4 text-green-600" aria-label="Learned" />}
                 </span>

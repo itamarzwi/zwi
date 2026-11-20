@@ -1,4 +1,5 @@
-import type { BuiltinWordId } from "./dictionary.ts";
+import type { Level } from "#/storage/schemas.ts";
+import { type BuiltinWordId, builtinWords } from "./words.ts";
 
 export type BuiltinList = {
   id: string;
@@ -7,7 +8,17 @@ export type BuiltinList = {
   wordIds: BuiltinWordId[];
 };
 
+/** One list per level, with every built-in word of that level. */
+const levelList = (level: Level, description: string): BuiltinList => ({
+  id: `level-${level.toLowerCase()}`,
+  name: `All ${level} words`,
+  description,
+  wordIds: builtinWords.filter((w) => w.level === level).map((w) => w.id as BuiltinWordId),
+});
+
 export const builtinLists: BuiltinList[] = [
+  levelList("A1", "Every word from the Goethe A1 word list."),
+  levelList("A2", "Every word the Goethe A2 word list adds on top of A1."),
   {
     id: "numbers-1-10",
     name: "Numbers 1-10",

@@ -7,7 +7,7 @@ import { Button } from "#/components/ui/button.tsx";
 import { Input } from "#/components/ui/input.tsx";
 import { WordForm } from "#/components/word-form.tsx";
 import { WordForms } from "#/components/word-forms.tsx";
-import { WordTypeBadge } from "#/components/word-type-badge.tsx";
+import { WordLevelBadge, WordTypeBadge } from "#/components/word-type-badge.tsx";
 import { useCreateWord, useDeleteUserList, useRemoveWordFromList, useVocab } from "#/hooks/use-data.ts";
 import { cn } from "#/lib/utils.ts";
 import { displayGerman, formsPreview, matchesQuery } from "#/lib/vocab.ts";
@@ -92,6 +92,7 @@ function ListPage() {
                     </span>
                     <span className="flex items-center gap-2">
                       {learned.has(word.id) && <Check className="size-4 text-green-600" aria-label="Learned" />}
+                      <WordLevelBadge level={word.level} />
                       <WordTypeBadge type={word.type} />
                     </span>
                   </AccordionTrigger>

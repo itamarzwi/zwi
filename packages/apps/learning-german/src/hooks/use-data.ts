@@ -1,9 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMemo } from "react";
 import { buildDictionary, buildLists } from "#/lib/vocab.ts";
 import { useRepository } from "#/storage/repository-context.tsx";
 import type { CardState, LessonProgress, UserList, Word } from "#/storage/schemas.ts";
 
 const keys = {
+  builtin: ["builtin-dictionary"] as const,
   progress: ["progress"] as const,
   lists: ["user-lists"] as const,
   words: ["custom-words"] as const,
@@ -21,20 +23,47 @@ export const useCardStates = () => {
   return useQuery({ queryKey: keys.cards, queryFn: () => repo.listCardStates() });
 };
 
+/**
+ * The built-in words and lists. They live in their own chunk, fetched the first time a page
+ * needs vocab and then kept for the rest of the session (the browser caches the hashed file
+ * across sessions). This is the one place that loads it.
+ */
+const useBuiltinDictionary = () =>
+  useQuery({
+    queryKey: keys.builtin,
+    queryFn: async () => {
+      const { builtinWords, builtinLists } = await import("#/data/dictionary/index.ts");
+      return { words: builtinWords, lists: builtinLists };
+    },
+    staleTime: Number.POSITIVE_INFINITY,
+    gcTime: Number.POSITIVE_INFINITY,
+    structuralSharing: false,
+  });
+
 /** The full dictionary (built-in + custom), all lists (built-in + user) and learned flags. */
 export const useVocab = () => {
   const repo = useRepository();
+  const builtin = useBuiltinDictionary();
   const lists = useQuery({ queryKey: keys.lists, queryFn: () => repo.listUserLists() });
   const words = useQuery({ queryKey: keys.words, queryFn: () => repo.listCustomWords() });
   const states = useQuery({ queryKey: keys.states, queryFn: () => repo.listWordStates() });
 
-  const dictionary = buildDictionary(words.data ?? []);
+  const dictionary = useMemo(
+    () => buildDictionary(builtin.data?.words ?? [], words.data ?? []),
+    [builtin.data, words.data],
+  );
+  const wordsById = useMemo(() => new Map(dictionary.map((w) => [w.id, w])), [dictionary]);
+  const allLists = useMemo(() => buildLists(builtin.data?.lists ?? [], lists.data ?? []), [builtin.data, lists.data]);
+  const learned = useMemo(
+    () => new Set((states.data ?? []).filter((s) => s.learned).map((s) => s.wordId)),
+    [states.data],
+  );
   return {
-    isLoading: lists.isLoading || words.isLoading || states.isLoading,
+    isLoading: builtin.isLoading || lists.isLoading || words.isLoading || states.isLoading,
     words: dictionary,
-    wordsById: new Map(dictionary.map((w) => [w.id, w])),
-    lists: buildLists(lists.data ?? []),
-    learned: new Set((states.data ?? []).filter((s) => s.learned).map((s) => s.wordId)),
+    wordsById,
+    lists: allLists,
+    learned,
   };
 };
 

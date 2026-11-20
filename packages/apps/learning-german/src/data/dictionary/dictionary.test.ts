@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { wordSchema } from "#/storage/schemas.ts";
-import { builtinWords } from "./dictionary.ts";
-import { builtinLists } from "./lists.ts";
+import { builtinLists, builtinWords } from "./index.ts";
+
+/** Formal "Sie", and phrases that start with a noun. */
+const capitalisedNonNouns = new Set(["Sie", "Rad fahren"]);
 
 describe("built-in dictionary", () => {
   it("only contains valid words with unique ids", () => {
@@ -23,7 +25,9 @@ describe("built-in dictionary", () => {
     for (const word of builtinWords) {
       const first = word.german[0];
       const capitalised = first === first.toUpperCase();
-      expect(capitalised, `${word.id}: "${word.german}"`).toBe(word.type === "noun");
+      expect(capitalised, `${word.id}: "${word.german}"`).toBe(
+        word.type === "noun" || capitalisedNonNouns.has(word.german),
+      );
     }
   });
 
@@ -60,6 +64,20 @@ describe("built-in dictionary", () => {
 
   it("only gives verbs a separable prefix", () => {
     for (const word of builtinWords) if (word.separablePrefix) expect(word.type, word.id).toBe("verb");
+  });
+
+  it("gives every word a level", () => {
+    for (const word of builtinWords) expect(word.level, word.id).toBeDefined();
+  });
+
+  it("uses the infinitive for wir (true of every verb except sein)", () => {
+    for (const word of builtinWords) {
+      const c = word.conjugation;
+      if (!c || word.german === "sein") continue;
+      const prefix = word.separablePrefix;
+      const infinitive = prefix ? `${word.german.slice(prefix.length).trimStart()} ${prefix}` : word.german;
+      expect(c.present.wir, word.id).toBe(infinitive);
+    }
   });
 
   it("has examples for every word except numbers", () => {
