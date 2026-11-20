@@ -11,7 +11,8 @@ export type Lesson = LessonMeta & {
   Content: () => Promise<{ default: ComponentType }>;
 };
 
-const metas = import.meta.glob<LessonMeta>("./*/*.mdx", { import: "meta", eager: true });
+// Only the metas are eager (see plugins/lesson-meta.ts); each lesson's content is its own lazy chunk.
+const metas = import.meta.glob<LessonMeta>("./*/*.mdx", { query: "?meta", import: "meta", eager: true });
 const contents = import.meta.glob<{ default: ComponentType }>("./*/*.mdx");
 
 /** All lessons, ordered by module order and then by file name (01-..., 02-...). */
