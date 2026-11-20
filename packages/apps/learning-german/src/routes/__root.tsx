@@ -1,6 +1,7 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
-import { BookOpen, GraduationCap, Home, Languages } from "lucide-react";
 import { ThemeToggle } from "@zwi/ui";
+import { BookOpen, GraduationCap, Home, Languages } from "lucide-react";
+import { AccountButton } from "#/components/account-button.tsx";
 
 const links = [
   { to: "/", label: "Home", icon: Home },
@@ -33,8 +34,9 @@ function RootLayout() {
               </Link>
             ))}
           </nav>
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-1">
             <ThemeToggle />
+            <AccountButton />
           </div>
         </div>
       </header>

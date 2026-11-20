@@ -24,6 +24,7 @@
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "cn": "catalog:",
+    "firebase": "catalog:",
     "lucide-react": "catalog:",
     "radix-ui": "catalog:",
     "react": "catalog:",

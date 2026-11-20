@@ -3,8 +3,10 @@ packages:
 allowBuilds:
   '@parcel/watcher': true
   esbuild: true
+  '@firebase/util': false
   lightningcss: true
   netlify-cli: true
+  protobufjs: false
   sharp: true
   unix-dgram: true
   vue-demi: true
@@ -73,6 +75,7 @@ catalog:
   zod: ^4.5.4
   cn: ^0.4.0
   netlify-cli: ^27.12.1
+  firebase: ^13.4.0
 permissions:
   '@tanstack/devtools-vite':
     skills: true

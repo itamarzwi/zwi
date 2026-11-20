@@ -1,4 +1,5 @@
 import { z } from "zod";
+import type { LocalSnapshot } from "./firestore-repository.ts";
 import { MY_WORDS_ID, MY_WORDS_NAME, type Repository } from "./repository.ts";
 import {
   type CardState,
@@ -124,3 +125,21 @@ export const createLocalStorageRepository = (): Repository => ({
     write("cards", [...cards.filter((c) => c.wordId !== state.wordId), state]);
   },
 });
+
+const KEYS = ["progress", "words", "lists", "word-states", "cards"] as const;
+
+/** Whether this device has anything saved while signed out. */
+export const hasLocalData = () => KEYS.some((key) => localStorage.getItem(PREFIX + key) !== null);
+
+export const readLocalSnapshot = (): LocalSnapshot => ({
+  progress: readProgress(),
+  words: read("words", wordsSchema, []),
+  lists: read("lists", listsSchema, []),
+  wordStates: read("word-states", statesSchema, []),
+  cards: read("cards", cardsSchema, []),
+});
+
+/** Called once local data has been imported into an account, so it isn't imported twice. */
+export const clearLocalData = () => {
+  for (const key of KEYS) localStorage.removeItem(PREFIX + key);
+};

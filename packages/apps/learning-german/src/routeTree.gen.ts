@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PracticeRouteImport } from './routes/practice'
+import { Route as SignInRouteImport } from './routes/sign-in'
+import { Route as SignUpRouteImport } from './routes/sign-up'
 import { Route as LessonsIndexRouteImport } from './routes/lessons.index'
 import { Route as VocabIndexRouteImport } from './routes/vocab.index'
 import { Route as VocabListIdRouteImport } from './routes/vocab.$listId'
@@ -26,6 +28,16 @@ const IndexRoute = IndexRouteImport.update({
 const PracticeRoute = PracticeRouteImport.update({
   id: '/practice',
   path: '/practice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignInRoute = SignInRouteImport.update({
+  id: '/sign-in',
+  path: '/sign-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignUpRoute = SignUpRouteImport.update({
+  id: '/sign-up',
+  path: '/sign-up',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LessonsIndexRoute = LessonsIndexRouteImport.update({
@@ -62,6 +74,8 @@ const LessonsModuleIdLessonIdRoute = LessonsModuleIdLessonIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/practice': typeof PracticeRoute
+  '/sign-in': typeof SignInRoute
+  '/sign-up': typeof SignUpRoute
   '/vocab/$listId': typeof VocabListIdRoute
   '/words/$wordId': typeof WordsWordIdRoute
   '/lessons/': typeof LessonsIndexRoute
@@ -72,6 +86,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/practice': typeof PracticeRoute
+  '/sign-in': typeof SignInRoute
+  '/sign-up': typeof SignUpRoute
   '/vocab/$listId': typeof VocabListIdRoute
   '/words/$wordId': typeof WordsWordIdRoute
   '/lessons': typeof LessonsIndexRoute
@@ -83,6 +99,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/practice': typeof PracticeRoute
+  '/sign-in': typeof SignInRoute
+  '/sign-up': typeof SignUpRoute
   '/vocab/$listId': typeof VocabListIdRoute
   '/words/$wordId': typeof WordsWordIdRoute
   '/lessons/': typeof LessonsIndexRoute
@@ -95,6 +113,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/practice'
+    | '/sign-in'
+    | '/sign-up'
     | '/vocab/$listId'
     | '/words/$wordId'
     | '/lessons/'
@@ -105,6 +125,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/practice'
+    | '/sign-in'
+    | '/sign-up'
     | '/vocab/$listId'
     | '/words/$wordId'
     | '/lessons'
@@ -115,6 +137,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/practice'
+    | '/sign-in'
+    | '/sign-up'
     | '/vocab/$listId'
     | '/words/$wordId'
     | '/lessons/'
@@ -126,6 +150,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PracticeRoute: typeof PracticeRoute
+  SignInRoute: typeof SignInRoute
+  SignUpRoute: typeof SignUpRoute
   VocabListIdRoute: typeof VocabListIdRoute
   WordsWordIdRoute: typeof WordsWordIdRoute
   LessonsIndexRoute: typeof LessonsIndexRoute
@@ -148,6 +174,20 @@ declare module '@tanstack/react-router' {
       path: '/practice'
       fullPath: '/practice'
       preLoaderRoute: typeof PracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign-in': {
+      id: '/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof SignInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign-up': {
+      id: '/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof SignUpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lessons/': {
@@ -198,6 +238,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PracticeRoute: PracticeRoute,
+  SignInRoute: SignInRoute,
+  SignUpRoute: SignUpRoute,
   VocabListIdRoute: VocabListIdRoute,
   WordsWordIdRoute: WordsWordIdRoute,
   LessonsIndexRoute: LessonsIndexRoute,
