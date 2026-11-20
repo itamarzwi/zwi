@@ -3,8 +3,182 @@ export const meta = {
   summary: "Mir, dir, ihm, ihr and the rest, and the order of two objects.",
 };
 
-## Pronouns in the Dativ
+## Dativ pronouns
 
-👷👷‍♀️ 🚧 Under construction 🚧
+You already know the pronouns in the Nominativ and the Akkusativ case (see: [Pronouns and cases](/lessons/01-basics/06-pronouns?page=2)). And you've met the dative forms of ich and du in "Wie geht es dir?" and "Mir ist kalt". Here is the expanded pronouns table with the Dativ form:
 
-{/* TODO: JESS - mir, dir, ihm, ihr, ihm, uns, euch, ihnen, Ihnen. Order of two objects: noun-noun (Dat before Akk), pronoun before noun, pronoun-pronoun (Akk before Dat). Practice. */}
+| English      | Nominativ | Akkusativ | Dativ |
+| ------------ | --------- | --------- | ----- |
+| I / me       | ich       | mich      | mir   |
+| you          | du        | dich      | dir   |
+| he / him     | er        | ihn       | ihm   |
+| she / her    | sie       | sie       | ihr   |
+| it           | es        | es        | ihm   |
+| we / us      | wir       | uns       | uns   |
+| you (pl.)    | ihr       | euch      | euch  |
+| they / them  | sie       | sie       | ihnen |
+| you (formal) | Sie       | Sie       | Ihnen |
+
+Here's 2 observations that can make this easier to remember:
+
+1. -r and -m endings are indicative of the Dativ case. This covers all of the first 5 rows! 
+2. we / you (pl.) have the same pronouns in the Akkusativ and the Dativ.
+
+Examples:
+
+<ExampleList>
+  <Example de="green(Ich) gebe orange(dem Mann) blue(den Schlüssel)." en="I give the man the key / I give the key to the man." />
+  <Example de="green(Ich) gebe orange(ihm) blue(den Schlüssel)." en="I give him the key." />
+  <Example de="green(Anna) zeigt orange(der Frau) blue(die Stadt)." en="Anna shows the woman the city." />
+  <Example de="green(Anna) zeigt orange(ihr) blue(die Stadt)." en="Anna shows her the city." />
+</ExampleList>
+
+<Callout title="Ihr has two jobs">
+  Ihr is the Nominativ "you (plural)", and it is also the Dativ of sie (she). "Ihr gebt ihr das Buch" means "You (plural) are giving her the book". The verb helps distinguish here: ihr as the subject comes with the -t verb form (ihr gebt), and the Dativ ihr is the one receiving something.
+</Callout>
+
+## Two objects: word order
+
+In the Dativ lesson you saw that with two nouns, the Dativ normally comes first. Pronouns change that. There are three cases, depending on what the two objects are.
+
+### Two nouns: Dativ first
+
+This is the rule you already know:
+
+<ExampleList>
+  <Example de="green(Ich) gebe orange(dem Mann) blue(den Schlüssel)." en="I give the man the key / I give the key to the man." />
+</ExampleList>
+
+### A pronoun and a noun: pronoun first
+
+When one object is a pronoun and the other is a noun, the pronoun comes first, whatever its case:
+
+<ExampleList>
+  <Example de="green(Ich) gebe orange(ihm) blue(den Schlüssel)." en="I give him the key." note="Dativ pronoun first" />
+  <Example de="Ich habe einen Schlüssel. green(Ich) gebe blue(ihn) orange(dem Mann)." en="I have a key. I give it to the man." note="Akkusativ pronoun first." />
+  <Example de="green(Anna) zeigt orange(mir) blue(das Foto)." en="Anna shows me the photo." note="Dativ pronoun first" />
+  <Example de="Anna hat ein Foto. green(Sie) zeigt blue(es) orange(ihrer Mutter)." en="Anna has a photo. She shows it to her mother." note="Akkusativ pronoun first." />
+</ExampleList>
+
+### Thema-Rhema
+
+In German, we put information that is already known before information that is new. The known part is called the Thema (the topic), and the new part is the Rhema (what we are saying about it).  The new information goes towards the end of the sentence, where the emphasis naturally falls. This is called the the **Thema-Rhema-Gliederung** or just **Thema-Rhema**.
+
+A pronoun is always known information. You can only say "es" if everyone already knows what "es" is. That is why pronouns move to the front, before any noun:
+
+<ExampleList>
+  <Example de="Was macht Jess? green(Ich) muss orange(ihm) blue(den Schlüssel) geben." en="What is Jess doing? I need to give him the key." note="We know Jess. The key is the new information." />
+</ExampleList>
+
+### Two pronouns: Akkusativ first
+
+When both objects are pronouns, the order flips: the Akkusativ comes first.
+
+<ExampleList>
+  <Example de="green(Ich) gebe blue(es) orange(dir)." en="I give it to you." />
+  <Example de="green(Anna) zeigt blue(es) orange(mir)." en="Anna shows it to me." />
+</ExampleList>
+
+Thema and Rhema don't help here, since both pronouns are known information. This one is just a rule to learn. "Ich gebe es dir" is one of the most common sentences you will hear, so if you remember that one, you remember the rule.
+
+### Summary
+
+| Objects             | Order            | Example                          |
+| ------------------- | ---------------- | -------------------------------- |
+| Noun and noun       | Dativ, Akkusativ | Ich gebe dem Mann den Schlüssel. |
+| Pronoun and noun    | Pronoun, noun    | Ich gebe ihm den Schlüssel.      |
+| Noun and pronoun    | Pronoun, noun    | Ich gebe ihn dem Mann.           |
+| Pronoun and pronoun | Akkusativ, Dativ | Ich gebe ihn ihm.                |
+
+<Callout title="The subject is not part of this">
+  These rules are only about the two objects. The subject and the verb do their usual thing: the verb is in position 2, and the subject comes right before or right after it. Tomorrow I'll give it to you - "Morgen gebe ich es dir".
+</Callout>
+
+## Practice
+
+<FillBlank translation="I give him the key." prompt="Ich gebe ___ den Schlüssel." answer="ihm" />
+
+<FillBlank translation="Anna shows her the city." prompt="Anna zeigt ___ die Stadt." answer="ihr" />
+
+<MultipleChoice
+  question="Das Kind hat Geburtstag. Wir kaufen ___ einen Ball."
+  translation="It is the child's birthday. We are buying him a ball."
+  options={["ihn", "ihm", "ihr"]}
+  answer={1}
+  explanation="Kind is neuter, so the pronoun is es. The child is the one receiving, so it is in the Dativ: es becomes ihm, just like das becomes dem."
+/>
+
+<FillBlank translation="Jess writes them a letter." prompt="Jess schreibt ___ einen Brief." answer="ihnen" />
+
+<FillBlank translation="I'll bring you the coffee. (formal)" prompt="Ich bringe ___ den Kaffee." answer="Ihnen" />
+
+<FillBlank translation="We show you (plural) the photos." prompt="Wir zeigen ___ die Fotos." answer="euch" />
+
+<MultipleChoice
+  question="Choose the pronouns that look the same in the Akkusativ and the Dativ."
+  options={["uns", "ihn", "euch", "dich"]}
+  answer={[0, 2]}
+  explanation="Uns and euch don't change. Ihn becomes ihm and dich becomes dir."
+/>
+
+<MultipleChoice
+  question={`What does "Ihr gebt ihr das Buch" mean?`}
+  options={["She gives you (plural) the book.", "You (plural) give her the book.", "You (plural) give them the book."]}
+  answer={1}
+  explanation="The first ihr is the subject (ihr gebt). The second ihr is the Dativ of sie, so she is the one receiving the book."
+/>
+
+<MultipleChoice
+  question='Choose the correct sentence: "I give him the key."'
+  options={["Ich gebe den Schlüssel ihm.", "Ich gebe ihm den Schlüssel."]}
+  answer={1}
+  explanation="One pronoun and one noun: the pronoun comes first."
+/>
+
+<MultipleChoice
+  question='Choose the correct sentence: "I give it (the key) to the man."'
+  options={["Ich gebe dem Mann ihn.", "Ich gebe ihn dem Mann."]}
+  answer={1}
+  explanation="The pronoun comes before the noun, even though the noun is the Dativ."
+/>
+
+<MultipleChoice
+  question='Choose the correct sentence: "I give it to you."'
+  options={["Ich gebe dir es.", "Ich gebe es dir."]}
+  answer={1}
+  explanation="Two pronouns: the Akkusativ (es) comes before the Dativ (dir)."
+/>
+
+<FillBlank translation="Anna shows it (das Foto) to me." prompt="Anna zeigt es ___." answer="mir" />
+
+<FillBlank translation="I give it (der Schlüssel) to him." prompt="Ich gebe ___ ihm." answer="ihn" />
+
+<MultipleChoice
+  question='Choose the correct sentence: "We are gifting her the book."'
+  options={["Wir schenken ihr das Buch.", "Wir schenken das Buch ihr.", "Wir schenken sie das Buch."]}
+  answer={0}
+  explanation="The one receiving is in the Dativ (ihr), and as a pronoun it comes before the noun."
+/>
+
+<MultipleChoice
+  question='Choose the correct sentence: "We are gifting it to her."'
+  options={["Wir schenken ihr es.", "Wir schenken es ihr.", "Wir schenken es sie."]}
+  answer={1}
+  explanation="Two pronouns: Akkusativ (es) first, then Dativ (ihr)."
+/>
+
+<FillBlank translation="I give the man the key." prompt="Ich gebe ___ Mann den Schlüssel." answer="dem" />
+
+<MultipleChoice
+  question={`"Wo ist das Buch?" Choose the most natural answer: "I am giving it to a friend."`}
+  options={["Ich gebe einem Freund das Buch.", "Ich gebe es einem Freund.", "Ich gebe einem Freund es."]}
+  answer={1}
+  explanation="The book is already known (Thema), so it becomes the pronoun es and comes first. The friend is the new information (Rhema), so it goes at the end."
+/>
+
+<MultipleChoice
+  question="Why does the pronoun come before the noun in “Ich gebe ihn dem Mann”?"
+  options={["Akkusativ always comes first.", "Pronouns are known information, and known information comes first.", "Masculine comes before feminine."]}
+  answer={1}
+  explanation="Thema before Rhema: a pronoun always refers to something already known, so it goes before the new information."
+/>
