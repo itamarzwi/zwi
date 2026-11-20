@@ -1,9 +1,10 @@
 import { type FormEvent, useState } from "react";
 import { Button } from "#/components/ui/button.tsx";
+import { Checkbox } from "#/components/ui/checkbox.tsx";
 import { Input } from "#/components/ui/input.tsx";
 import { Label } from "#/components/ui/label.tsx";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "#/components/ui/select.tsx";
-import { personLabels, regularPresent } from "#/lib/conjugation.ts";
+import { guessSeparablePrefix, personLabels, regularPresent } from "#/lib/conjugation.ts";
 import { type Article, type Auxiliary, type Person, persons, type Word, type WordType } from "#/storage/schemas.ts";
 
 const NO_ARTICLE = "none";
@@ -17,13 +18,22 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
   const [type, setType] = useState<WordType>("noun");
   /** Only the Präsens forms the user typed; the rest follow the regular pattern of `german`. */
   const [editedPresent, setEditedPresent] = useState<Partial<Record<Person, string>>>({});
+  /** Set once the user touches the checkbox or prefix; until then both follow the guess from `german`. */
+  const [separableChoice, setSeparableChoice] = useState<boolean>();
+  const [editedPrefix, setEditedPrefix] = useState<string>();
   const [preterite, setPreterite] = useState("");
   const [auxiliary, setAuxiliary] = useState<Auxiliary>("haben");
   const [participle, setParticiple] = useState("");
   const [exampleDe, setExampleDe] = useState("");
   const [exampleEn, setExampleEn] = useState("");
 
-  const regularForms = german.trim() ? regularPresent(german.trim()) : undefined;
+  const guessedPrefix = guessSeparablePrefix(german.trim());
+  const separable = separableChoice ?? Boolean(guessedPrefix);
+  const prefix = (editedPrefix ?? guessedPrefix ?? "").trim();
+  // Only a prefix the infinitive actually starts with counts ("auf" for "aufwachen").
+  const separablePrefix =
+    type === "verb" && separable && prefix && german.trim().startsWith(prefix) ? prefix : undefined;
+  const regularForms = german.trim() ? regularPresent(german.trim(), separablePrefix) : undefined;
   const presentValue = (p: Person) => editedPresent[p] ?? regularForms?.[p] ?? "";
 
   const submit = (e: FormEvent) => {
@@ -50,6 +60,7 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
             perfect: { auxiliary, participle: part },
           }
         : undefined,
+      separablePrefix,
       type,
       examples: hasExample ? [{ de: exampleDe.trim(), en: exampleEn.trim() }] : [],
     });
@@ -57,6 +68,8 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
     setEnglish("");
     setArticle(NO_ARTICLE);
     setEditedPresent({});
+    setSeparableChoice(undefined);
+    setEditedPrefix(undefined);
     setPreterite("");
     setAuxiliary("haben");
     setParticiple("");
@@ -109,6 +122,26 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
       </div>
       {type === "verb" && (
         <>
+          <div className="grid items-end gap-3 sm:grid-cols-2">
+            <div className="flex h-9 items-center gap-2">
+              <Checkbox
+                id="separable"
+                checked={separable}
+                onCheckedChange={(checked) => setSeparableChoice(checked === true)}
+              />
+              <Label htmlFor="separable">Separable</Label>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="prefix">Prefix</Label>
+              <Input
+                id="prefix"
+                value={editedPrefix ?? guessedPrefix ?? ""}
+                onChange={(e) => setEditedPrefix(e.target.value)}
+                disabled={!separable}
+                placeholder="auf"
+              />
+            </div>
+          </div>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             {persons.map((p) => (
               <div key={p} className="space-y-1.5">
@@ -124,6 +157,8 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
           </div>
           <p className="text-xs text-muted-foreground">
             The Präsens is filled in with the regular forms. Correct any that are irregular, like "fährst".
+            {separablePrefix &&
+              ' Write separable forms split, as they\'re said: "wache auf", "wachte auf", "aufgewacht".'}
           </p>
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="space-y-1.5">

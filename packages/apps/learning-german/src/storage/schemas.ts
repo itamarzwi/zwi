@@ -45,6 +45,11 @@ export const wordSchema = z.object({
   plural: z.string().optional(),
   /** Verbs only. */
   conjugation: conjugationSchema.optional(),
+  /**
+   * Separable verbs only: the prefix that moves to the end of the sentence, e.g. "auf" for
+   * "aufwachen". The conjugation is stored split, as it's said: "wache auf", "wachte auf".
+   */
+  separablePrefix: z.string().min(1).optional(),
   type: wordTypeSchema,
   /** One or more English meanings. */
   english: z.array(z.string().min(1)).min(1),

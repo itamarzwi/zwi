@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { regularPresent } from "./conjugation.ts";
+import { guessSeparablePrefix, regularPresent } from "./conjugation.ts";
 
 /** ich du er wir ihr sie, as one string so the tables stay readable. */
 const table = (forms: string) => {
@@ -27,5 +27,34 @@ describe("regularPresent", () => {
     ["tun", "tue tust tut tun tut tun"],
   ])("%s", (infinitive, forms) => {
     expect(regularPresent(infinitive)).toEqual(table(forms));
+  });
+
+  it("puts a separable prefix after the conjugated base verb", () => {
+    expect(regularPresent("aufwachen", "auf")).toEqual({
+      ich: "wache auf",
+      du: "wachst auf",
+      er: "wacht auf",
+      wir: "wachen auf",
+      ihr: "wacht auf",
+      sie: "wachen auf",
+    });
+    expect(regularPresent("anmelden", "an").du).toBe("meldest an");
+  });
+});
+
+describe("guessSeparablePrefix", () => {
+  it.each([
+    ["aufwachen", "auf"],
+    ["einschlafen", "ein"],
+    ["anrufen", "an"],
+    ["zur\u00fcckkommen", "zur\u00fcck"],
+    ["zusammenarbeiten", "zusammen"],
+    ["herausfinden", "heraus"],
+    ["machen", undefined],
+    ["verstehen", undefined],
+    ["antworten", undefined],
+    ["\u00fcbersetzen", undefined],
+  ])("%s -> %s", (infinitive, prefix) => {
+    expect(guessSeparablePrefix(infinitive)).toBe(prefix);
   });
 });

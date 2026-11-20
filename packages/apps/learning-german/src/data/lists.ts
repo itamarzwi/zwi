@@ -75,4 +75,10 @@ export const builtinLists: BuiltinList[] = [
       "bringen",
     ],
   },
+  {
+    id: "separable-verbs",
+    name: "Separable verbs",
+    description: "Verbs whose prefix moves to the end of the sentence.",
+    wordIds: ["aufwachen", "einschlafen"],
+  },
 ];

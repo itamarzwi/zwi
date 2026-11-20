@@ -42,6 +42,26 @@ describe("built-in dictionary", () => {
     }
   });
 
+  it("stores separable verbs split, and every other verb as one word", () => {
+    for (const word of builtinWords) {
+      const c = word.conjugation;
+      if (!c) continue;
+      const prefix = word.separablePrefix;
+      const split = [...Object.values(c.present), c.preterite];
+      if (!prefix) {
+        for (const form of split) expect(form, word.id).not.toContain(" ");
+        continue;
+      }
+      expect(word.german.startsWith(prefix), word.id).toBe(true);
+      expect(c.perfect.participle.startsWith(prefix), word.id).toBe(true);
+      for (const form of split) expect(form, word.id).toMatch(new RegExp(`^\\S+ ${prefix}$`));
+    }
+  });
+
+  it("only gives verbs a separable prefix", () => {
+    for (const word of builtinWords) if (word.separablePrefix) expect(word.type, word.id).toBe("verb");
+  });
+
   it("has examples for every word except numbers", () => {
     for (const word of builtinWords) {
       if (word.type === "number") continue;

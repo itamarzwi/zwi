@@ -589,6 +589,51 @@ const entries = {
       ex("Anna hat Kaffee gebracht.", "Anna brought coffee."),
     ],
   },
+  // Separable verbs: forms are stored split, as they're said ("wache auf").
+  aufwachen: {
+    german: "aufwachen",
+    separablePrefix: "auf",
+    conjugation: {
+      present: {
+        ich: "wache auf",
+        du: "wachst auf",
+        er: "wacht auf",
+        wir: "wachen auf",
+        ihr: "wacht auf",
+        sie: "wachen auf",
+      },
+      preterite: "wachte auf",
+      perfect: { auxiliary: "sein", participle: "aufgewacht" },
+    },
+    type: "verb",
+    english: ["to wake up"],
+    examples: [
+      ex("Ich wache um sieben Uhr auf.", "I wake up at seven o'clock."),
+      ex("Jess ist heute spät aufgewacht.", "Jess woke up late today."),
+    ],
+  },
+  einschlafen: {
+    german: "einschlafen",
+    separablePrefix: "ein",
+    conjugation: {
+      present: {
+        ich: "schlafe ein",
+        du: "schläfst ein",
+        er: "schläft ein",
+        wir: "schlafen ein",
+        ihr: "schlaft ein",
+        sie: "schlafen ein",
+      },
+      preterite: "schlief ein",
+      perfect: { auxiliary: "sein", participle: "eingeschlafen" },
+    },
+    type: "verb",
+    english: ["to fall asleep"],
+    examples: [
+      ex("Das Kind schläft schnell ein.", "The child falls asleep quickly."),
+      ex("Ich bin im Zug eingeschlafen.", "I fell asleep on the train."),
+    ],
+  },
 } satisfies Record<string, Entry>;
 
 export type BuiltinWordId = keyof typeof entries;
