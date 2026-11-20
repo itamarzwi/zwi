@@ -168,8 +168,7 @@ const entries = {
   sein: {
     german: "sein",
     conjugation: {
-      ich: "bin",
-      er: "ist",
+      present: { ich: "bin", du: "bist", er: "ist", wir: "sind", ihr: "seid", sie: "sind" },
       preterite: "war",
       perfect: { auxiliary: "sein", participle: "gewesen" },
     },
@@ -180,8 +179,7 @@ const entries = {
   haben: {
     german: "haben",
     conjugation: {
-      ich: "habe",
-      er: "hat",
+      present: { ich: "habe", du: "hast", er: "hat", wir: "haben", ihr: "habt", sie: "haben" },
       preterite: "hatte",
       perfect: { auxiliary: "haben", participle: "gehabt" },
     },
@@ -192,8 +190,7 @@ const entries = {
   heißen: {
     german: "heißen",
     conjugation: {
-      ich: "heiße",
-      er: "heißt",
+      present: { ich: "heiße", du: "heißt", er: "heißt", wir: "heißen", ihr: "heißt", sie: "heißen" },
       preterite: "hieß",
       perfect: { auxiliary: "haben", participle: "geheißen" },
     },
@@ -204,8 +201,7 @@ const entries = {
   kommen: {
     german: "kommen",
     conjugation: {
-      ich: "komme",
-      er: "kommt",
+      present: { ich: "komme", du: "kommst", er: "kommt", wir: "kommen", ihr: "kommt", sie: "kommen" },
       preterite: "kam",
       perfect: { auxiliary: "sein", participle: "gekommen" },
     },
@@ -216,8 +212,7 @@ const entries = {
   wohnen: {
     german: "wohnen",
     conjugation: {
-      ich: "wohne",
-      er: "wohnt",
+      present: { ich: "wohne", du: "wohnst", er: "wohnt", wir: "wohnen", ihr: "wohnt", sie: "wohnen" },
       preterite: "wohnte",
       perfect: { auxiliary: "haben", participle: "gewohnt" },
     },
@@ -228,8 +223,7 @@ const entries = {
   machen: {
     german: "machen",
     conjugation: {
-      ich: "mache",
-      er: "macht",
+      present: { ich: "mache", du: "machst", er: "macht", wir: "machen", ihr: "macht", sie: "machen" },
       preterite: "machte",
       perfect: { auxiliary: "haben", participle: "gemacht" },
     },
@@ -243,8 +237,7 @@ const entries = {
   lernen: {
     german: "lernen",
     conjugation: {
-      ich: "lerne",
-      er: "lernt",
+      present: { ich: "lerne", du: "lernst", er: "lernt", wir: "lernen", ihr: "lernt", sie: "lernen" },
       preterite: "lernte",
       perfect: { auxiliary: "haben", participle: "gelernt" },
     },
@@ -255,8 +248,7 @@ const entries = {
   sprechen: {
     german: "sprechen",
     conjugation: {
-      ich: "spreche",
-      er: "spricht",
+      present: { ich: "spreche", du: "sprichst", er: "spricht", wir: "sprechen", ihr: "sprecht", sie: "sprechen" },
       preterite: "sprach",
       perfect: { auxiliary: "haben", participle: "gesprochen" },
     },
@@ -267,8 +259,7 @@ const entries = {
   essen: {
     german: "essen",
     conjugation: {
-      ich: "esse",
-      er: "isst",
+      present: { ich: "esse", du: "isst", er: "isst", wir: "essen", ihr: "esst", sie: "essen" },
       preterite: "aß",
       perfect: { auxiliary: "haben", participle: "gegessen" },
     },
@@ -282,8 +273,7 @@ const entries = {
   trinken: {
     german: "trinken",
     conjugation: {
-      ich: "trinke",
-      er: "trinkt",
+      present: { ich: "trinke", du: "trinkst", er: "trinkt", wir: "trinken", ihr: "trinkt", sie: "trinken" },
       preterite: "trank",
       perfect: { auxiliary: "haben", participle: "getrunken" },
     },
@@ -297,8 +287,7 @@ const entries = {
   sehen: {
     german: "sehen",
     conjugation: {
-      ich: "sehe",
-      er: "sieht",
+      present: { ich: "sehe", du: "siehst", er: "sieht", wir: "sehen", ihr: "seht", sie: "sehen" },
       preterite: "sah",
       perfect: { auxiliary: "haben", participle: "gesehen" },
     },
@@ -309,8 +298,7 @@ const entries = {
   lesen: {
     german: "lesen",
     conjugation: {
-      ich: "lese",
-      er: "liest",
+      present: { ich: "lese", du: "liest", er: "liest", wir: "lesen", ihr: "lest", sie: "lesen" },
       preterite: "las",
       perfect: { auxiliary: "haben", participle: "gelesen" },
     },
@@ -324,8 +312,14 @@ const entries = {
   schreiben: {
     german: "schreiben",
     conjugation: {
-      ich: "schreibe",
-      er: "schreibt",
+      present: {
+        ich: "schreibe",
+        du: "schreibst",
+        er: "schreibt",
+        wir: "schreiben",
+        ihr: "schreibt",
+        sie: "schreiben",
+      },
       preterite: "schrieb",
       perfect: { auxiliary: "haben", participle: "geschrieben" },
     },
@@ -339,8 +333,7 @@ const entries = {
   schlafen: {
     german: "schlafen",
     conjugation: {
-      ich: "schlafe",
-      er: "schläft",
+      present: { ich: "schlafe", du: "schläfst", er: "schläft", wir: "schlafen", ihr: "schlaft", sie: "schlafen" },
       preterite: "schlief",
       perfect: { auxiliary: "haben", participle: "geschlafen" },
     },
@@ -351,8 +344,7 @@ const entries = {
   finden: {
     german: "finden",
     conjugation: {
-      ich: "finde",
-      er: "findet",
+      present: { ich: "finde", du: "findest", er: "findet", wir: "finden", ihr: "findet", sie: "finden" },
       preterite: "fand",
       perfect: { auxiliary: "haben", participle: "gefunden" },
     },
@@ -366,8 +358,7 @@ const entries = {
   nehmen: {
     german: "nehmen",
     conjugation: {
-      ich: "nehme",
-      er: "nimmt",
+      present: { ich: "nehme", du: "nimmst", er: "nimmt", wir: "nehmen", ihr: "nehmt", sie: "nehmen" },
       preterite: "nahm",
       perfect: { auxiliary: "haben", participle: "genommen" },
     },
@@ -378,8 +369,7 @@ const entries = {
   treffen: {
     german: "treffen",
     conjugation: {
-      ich: "treffe",
-      er: "trifft",
+      present: { ich: "treffe", du: "triffst", er: "trifft", wir: "treffen", ihr: "trefft", sie: "treffen" },
       preterite: "traf",
       perfect: { auxiliary: "haben", participle: "getroffen" },
     },
@@ -393,8 +383,7 @@ const entries = {
   gehen: {
     german: "gehen",
     conjugation: {
-      ich: "gehe",
-      er: "geht",
+      present: { ich: "gehe", du: "gehst", er: "geht", wir: "gehen", ihr: "geht", sie: "gehen" },
       preterite: "ging",
       perfect: { auxiliary: "sein", participle: "gegangen" },
     },
@@ -408,8 +397,7 @@ const entries = {
   fahren: {
     german: "fahren",
     conjugation: {
-      ich: "fahre",
-      er: "fährt",
+      present: { ich: "fahre", du: "fährst", er: "fährt", wir: "fahren", ihr: "fahrt", sie: "fahren" },
       preterite: "fuhr",
       perfect: { auxiliary: "sein", participle: "gefahren" },
     },
@@ -423,8 +411,7 @@ const entries = {
   fliegen: {
     german: "fliegen",
     conjugation: {
-      ich: "fliege",
-      er: "fliegt",
+      present: { ich: "fliege", du: "fliegst", er: "fliegt", wir: "fliegen", ihr: "fliegt", sie: "fliegen" },
       preterite: "flog",
       perfect: { auxiliary: "sein", participle: "geflogen" },
     },
@@ -438,8 +425,7 @@ const entries = {
   bleiben: {
     german: "bleiben",
     conjugation: {
-      ich: "bleibe",
-      er: "bleibt",
+      present: { ich: "bleibe", du: "bleibst", er: "bleibt", wir: "bleiben", ihr: "bleibt", sie: "bleiben" },
       preterite: "blieb",
       perfect: { auxiliary: "sein", participle: "geblieben" },
     },
@@ -453,23 +439,18 @@ const entries = {
   werden: {
     german: "werden",
     conjugation: {
-      ich: "werde",
-      er: "wird",
+      present: { ich: "werde", du: "wirst", er: "wird", wir: "werden", ihr: "werdet", sie: "werden" },
       preterite: "wurde",
       perfect: { auxiliary: "sein", participle: "geworden" },
     },
     type: "verb",
     english: ["to become"],
-    examples: [
-      ex("Es wird kalt.", "It is getting cold."),
-      ex("Anna ist Lehrerin geworden.", "Anna became a teacher."),
-    ],
+    examples: [ex("Es wird kalt.", "It is getting cold."), ex("Anna ist Lehrerin geworden.", "Anna became a teacher.")],
   },
   wachsen: {
     german: "wachsen",
     conjugation: {
-      ich: "wachse",
-      er: "wächst",
+      present: { ich: "wachse", du: "wächst", er: "wächst", wir: "wachsen", ihr: "wachst", sie: "wachsen" },
       preterite: "wuchs",
       perfect: { auxiliary: "sein", participle: "gewachsen" },
     },
@@ -483,8 +464,7 @@ const entries = {
   sterben: {
     german: "sterben",
     conjugation: {
-      ich: "sterbe",
-      er: "stirbt",
+      present: { ich: "sterbe", du: "stirbst", er: "stirbt", wir: "sterben", ihr: "sterbt", sie: "sterben" },
       preterite: "starb",
       perfect: { auxiliary: "sein", participle: "gestorben" },
     },
@@ -495,8 +475,7 @@ const entries = {
   stehen: {
     german: "stehen",
     conjugation: {
-      ich: "stehe",
-      er: "steht",
+      present: { ich: "stehe", du: "stehst", er: "steht", wir: "stehen", ihr: "steht", sie: "stehen" },
       preterite: "stand",
       perfect: { auxiliary: "haben", participle: "gestanden" },
     },
@@ -510,8 +489,14 @@ const entries = {
   verstehen: {
     german: "verstehen",
     conjugation: {
-      ich: "verstehe",
-      er: "versteht",
+      present: {
+        ich: "verstehe",
+        du: "verstehst",
+        er: "versteht",
+        wir: "verstehen",
+        ihr: "versteht",
+        sie: "verstehen",
+      },
       preterite: "verstand",
       perfect: { auxiliary: "haben", participle: "verstanden" },
     },
@@ -525,8 +510,7 @@ const entries = {
   bekommen: {
     german: "bekommen",
     conjugation: {
-      ich: "bekomme",
-      er: "bekommt",
+      present: { ich: "bekomme", du: "bekommst", er: "bekommt", wir: "bekommen", ihr: "bekommt", sie: "bekommen" },
       preterite: "bekam",
       perfect: { auxiliary: "haben", participle: "bekommen" },
     },
@@ -540,8 +524,14 @@ const entries = {
   verschlafen: {
     german: "verschlafen",
     conjugation: {
-      ich: "verschlafe",
-      er: "verschläft",
+      present: {
+        ich: "verschlafe",
+        du: "verschläfst",
+        er: "verschläft",
+        wir: "verschlafen",
+        ihr: "verschlaft",
+        sie: "verschlafen",
+      },
       preterite: "verschlief",
       perfect: { auxiliary: "haben", participle: "verschlafen" },
     },
@@ -552,23 +542,18 @@ const entries = {
   wissen: {
     german: "wissen",
     conjugation: {
-      ich: "weiß",
-      er: "weiß",
+      present: { ich: "weiß", du: "weißt", er: "weiß", wir: "wissen", ihr: "wisst", sie: "wissen" },
       preterite: "wusste",
       perfect: { auxiliary: "haben", participle: "gewusst" },
     },
     type: "verb",
     english: ["to know (a fact)"],
-    examples: [
-      ex("Ich weiß es nicht.", "I don't know."),
-      ex("Das habe ich nicht gewusst.", "I didn't know that."),
-    ],
+    examples: [ex("Ich weiß es nicht.", "I don't know."), ex("Das habe ich nicht gewusst.", "I didn't know that.")],
   },
   kennen: {
     german: "kennen",
     conjugation: {
-      ich: "kenne",
-      er: "kennt",
+      present: { ich: "kenne", du: "kennst", er: "kennt", wir: "kennen", ihr: "kennt", sie: "kennen" },
       preterite: "kannte",
       perfect: { auxiliary: "haben", participle: "gekannt" },
     },
@@ -582,23 +567,18 @@ const entries = {
   denken: {
     german: "denken",
     conjugation: {
-      ich: "denke",
-      er: "denkt",
+      present: { ich: "denke", du: "denkst", er: "denkt", wir: "denken", ihr: "denkt", sie: "denken" },
       preterite: "dachte",
       perfect: { auxiliary: "haben", participle: "gedacht" },
     },
     type: "verb",
     english: ["to think"],
-    examples: [
-      ex("Was denkst du?", "What do you think?"),
-      ex("Das habe ich auch gedacht.", "I thought so too."),
-    ],
+    examples: [ex("Was denkst du?", "What do you think?"), ex("Das habe ich auch gedacht.", "I thought so too.")],
   },
   bringen: {
     german: "bringen",
     conjugation: {
-      ich: "bringe",
-      er: "bringt",
+      present: { ich: "bringe", du: "bringst", er: "bringt", wir: "bringen", ihr: "bringt", sie: "bringen" },
       preterite: "brachte",
       perfect: { auxiliary: "haben", participle: "gebracht" },
     },

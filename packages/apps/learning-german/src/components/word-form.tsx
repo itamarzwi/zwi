@@ -3,23 +3,28 @@ import { Button } from "#/components/ui/button.tsx";
 import { Input } from "#/components/ui/input.tsx";
 import { Label } from "#/components/ui/label.tsx";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "#/components/ui/select.tsx";
-import type { Article, Auxiliary, Word, WordType } from "#/storage/schemas.ts";
+import { personLabels, regularPresent } from "#/lib/conjugation.ts";
+import { type Article, type Auxiliary, type Person, persons, type Word, type WordType } from "#/storage/schemas.ts";
 
 const NO_ARTICLE = "none";
 const types: WordType[] = ["noun", "verb", "adjective", "adverb", "phrase", "number", "other"];
+const examplePresent = regularPresent("machen");
 
 export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
   const [german, setGerman] = useState("");
   const [english, setEnglish] = useState("");
   const [article, setArticle] = useState<string>(NO_ARTICLE);
   const [type, setType] = useState<WordType>("noun");
-  const [ich, setIch] = useState("");
-  const [er, setEr] = useState("");
+  /** Only the Präsens forms the user typed; the rest follow the regular pattern of `german`. */
+  const [editedPresent, setEditedPresent] = useState<Partial<Record<Person, string>>>({});
   const [preterite, setPreterite] = useState("");
   const [auxiliary, setAuxiliary] = useState<Auxiliary>("haben");
   const [participle, setParticiple] = useState("");
   const [exampleDe, setExampleDe] = useState("");
   const [exampleEn, setExampleEn] = useState("");
+
+  const regularForms = german.trim() ? regularPresent(german.trim()) : undefined;
+  const presentValue = (p: Person) => editedPresent[p] ?? regularForms?.[p] ?? "";
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
@@ -30,15 +35,20 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
     if (!german.trim() || meanings.length === 0) return;
     const hasExample = exampleDe.trim() && exampleEn.trim();
     // Verb forms are all-or-nothing: a half-filled conjugation is dropped.
-    const forms = [ich, er, preterite, participle].map((f) => f.trim());
-    const hasConjugation = type === "verb" && forms.every(Boolean);
+    const present = Object.fromEntries(persons.map((p) => [p, presentValue(p).trim()])) as Record<Person, string>;
+    const [pret, part] = [preterite.trim(), participle.trim()];
+    const hasConjugation = type === "verb" && [...Object.values(present), pret, part].every(Boolean);
     onSubmit({
       id: crypto.randomUUID(),
       german: german.trim(),
       english: meanings,
       article: type === "noun" && article !== NO_ARTICLE ? (article as Article) : undefined,
       conjugation: hasConjugation
-        ? { ich: forms[0], er: forms[1], preterite: forms[2], perfect: { auxiliary, participle: forms[3] } }
+        ? {
+            present,
+            preterite: pret,
+            perfect: { auxiliary, participle: part },
+          }
         : undefined,
       type,
       examples: hasExample ? [{ de: exampleDe.trim(), en: exampleEn.trim() }] : [],
@@ -46,8 +56,7 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
     setGerman("");
     setEnglish("");
     setArticle(NO_ARTICLE);
-    setIch("");
-    setEr("");
+    setEditedPresent({});
     setPreterite("");
     setAuxiliary("haben");
     setParticiple("");
@@ -100,15 +109,23 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
       </div>
       {type === "verb" && (
         <>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {persons.map((p) => (
+              <div key={p} className="space-y-1.5">
+                <Label htmlFor={`present-${p}`}>{personLabels[p]}</Label>
+                <Input
+                  id={`present-${p}`}
+                  value={presentValue(p)}
+                  onChange={(e) => setEditedPresent((forms) => ({ ...forms, [p]: e.target.value }))}
+                  placeholder={examplePresent[p]}
+                />
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground">
+            The Präsens is filled in with the regular forms. Correct any that are irregular, like "fährst".
+          </p>
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="space-y-1.5">
-              <Label htmlFor="ich">ich</Label>
-              <Input id="ich" value={ich} onChange={(e) => setIch(e.target.value)} placeholder="mache" />
-            </div>
-            <div className="space-y-1.5">
-              <Label htmlFor="er">er/sie/es</Label>
-              <Input id="er" value={er} onChange={(e) => setEr(e.target.value)} placeholder="macht" />
-            </div>
             <div className="space-y-1.5">
               <Label htmlFor="preterite">Präteritum</Label>
               <Input
@@ -118,8 +135,6 @@ export function WordForm({ onSubmit }: { onSubmit: (word: Word) => void }) {
                 placeholder="machte"
               />
             </div>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
             <div className="space-y-1.5">
               <Label>Perfekt auxiliary</Label>
               <Select value={auxiliary} onValueChange={(v) => setAuxiliary(v as Auxiliary)}>

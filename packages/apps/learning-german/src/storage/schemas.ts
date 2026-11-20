@@ -9,11 +9,23 @@ export const exampleSchema = z.object({ de: z.string().min(1), en: z.string().mi
 /** The Perfekt of a verb: its auxiliary and Partizip II, e.g. haben + "gemacht". */
 export const perfectSchema = z.object({ auxiliary: auxiliarySchema, participle: z.string().min(1) });
 
-/** The forms of a verb besides its infinitive, without pronouns: "mache", "macht", "machte". */
-export const conjugationSchema = z.object({
+/** The six persons of a conjugation table. `er` is er/sie/es, `sie` is sie/Sie (they always share a form). */
+export const persons = ["ich", "du", "er", "wir", "ihr", "sie"] as const;
+export type Person = (typeof persons)[number];
+
+/** The full Präsens table without pronouns, e.g. { ich: "fahre", du: "fährst", er: "fährt", … }. */
+export const presentSchema = z.object({
   ich: z.string().min(1),
-  /** er/sie/es. */
+  du: z.string().min(1),
   er: z.string().min(1),
+  wir: z.string().min(1),
+  ihr: z.string().min(1),
+  sie: z.string().min(1),
+});
+
+/** The forms of a verb besides its infinitive, without pronouns. Every form is spelled out, even regular ones. */
+export const conjugationSchema = z.object({
+  present: presentSchema,
   /** Präteritum, ich and er/sie/es (they're the same). */
   preterite: z.string().min(1),
   perfect: perfectSchema,

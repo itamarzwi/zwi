@@ -47,13 +47,13 @@ export const displayPerfect = ({ auxiliary, participle }: Perfect) =>
 export const formsPreview = (word: Word) => {
   if (word.plural) return `die ${word.plural}`;
   const c = word.conjugation;
-  return c && [c.ich, c.er, displayPerfect(c.perfect)].join(" · ");
+  return c && [c.present.ich, c.present.er, displayPerfect(c.perfect)].join(" · ");
 };
 
 export const matchesQuery = (word: Word, query: string) => {
   const q = query.trim().toLowerCase();
   if (!q) return true;
   const c = word.conjugation;
-  const forms = c ? [c.ich, c.er, c.preterite, c.perfect.participle] : [];
+  const forms = c ? [...Object.values(c.present), c.preterite, c.perfect.participle] : [];
   return [word.german, word.plural ?? "", ...forms, ...word.english].some((t) => t.toLowerCase().includes(q));
 };

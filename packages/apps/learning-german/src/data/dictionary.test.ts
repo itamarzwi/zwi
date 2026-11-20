@@ -14,7 +14,7 @@ describe("built-in dictionary", () => {
       expect(word.id, word.id).toBe(word.id.normalize("NFC"));
       expect(word.german, word.id).toBe(word.german.normalize("NFC"));
       const c = word.conjugation;
-      for (const form of c ? [c.ich, c.er, c.preterite, c.perfect.participle] : [])
+      for (const form of c ? [...Object.values(c.present), c.preterite, c.perfect.participle] : [])
         expect(form, word.id).toBe(form.normalize("NFC"));
     }
   });
@@ -33,6 +33,13 @@ describe("built-in dictionary", () => {
 
   it("conjugates every verb and nothing else", () => {
     for (const word of builtinWords) expect(Boolean(word.conjugation), word.id).toBe(word.type === "verb");
+  });
+
+  it("uses the same form for wir and sie/Sie (true of every German verb)", () => {
+    for (const word of builtinWords) {
+      const p = word.conjugation?.present;
+      if (p) expect(p.sie, word.id).toBe(p.wir);
+    }
   });
 
   it("has examples for every word except numbers", () => {
