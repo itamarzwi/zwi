@@ -6,7 +6,12 @@ export const auxiliarySchema = z.enum(["haben", "sein"]);
 export const levelSchema = z.enum(["A1", "A2", "B1", "B2", "C1"]);
 export const wordTypeSchema = z.enum(["noun", "verb", "adjective", "adverb", "phrase", "number", "other"]);
 
-export const exampleSchema = z.object({ de: z.string().min(1), en: z.string().min(1) });
+/** `aiGenerated` marks example sentences written by an AI rather than a person; the UI labels them. */
+export const exampleSchema = z.object({
+  de: z.string().min(1),
+  en: z.string().min(1),
+  aiGenerated: z.boolean().optional(),
+});
 
 /** The Perfekt of a verb: its auxiliary and Partizip II, e.g. haben + "gemacht". */
 export const perfectSchema = z.object({ auxiliary: auxiliarySchema, participle: z.string().min(1) });

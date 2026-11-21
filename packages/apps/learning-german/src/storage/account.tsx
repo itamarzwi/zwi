@@ -1,6 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
 import {
-  browserPopupRedirectResolver,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
@@ -76,9 +75,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       enabled: firebase !== null,
       user: user ?? null,
       signInWithGoogle: async () =>
-        importLocalData(
-          await signInWithPopup(requireFirebase().auth, new GoogleAuthProvider(), browserPopupRedirectResolver),
-        ),
+        importLocalData(await signInWithPopup(requireFirebase().auth, new GoogleAuthProvider())),
       signInWithEmail: async (email, password) =>
         importLocalData(await signInWithEmailAndPassword(requireFirebase().auth, email, password)),
       signUpWithEmail: async (email, password) =>

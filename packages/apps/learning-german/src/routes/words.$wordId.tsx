@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { X } from "lucide-react";
+import { AiGeneratedMark } from "#/components/ai-generated-mark.tsx";
 import { PageHeader } from "#/components/page-header.tsx";
 import { Badge } from "#/components/ui/badge.tsx";
 import { Button } from "#/components/ui/button.tsx";
@@ -55,7 +56,10 @@ function WordPage() {
         <ul className="space-y-2">
           {word.examples.map((example) => (
             <li key={example.de} className="rounded-xl border bg-card px-4 py-3">
-              <p className="font-medium">{example.de}</p>
+              <p className="font-medium">
+                {example.de}
+                {example.aiGenerated && <AiGeneratedMark />}
+              </p>
               <p className="text-sm text-muted-foreground">{example.en}</p>
             </li>
           ))}

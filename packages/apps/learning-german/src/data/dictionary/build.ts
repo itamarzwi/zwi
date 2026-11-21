@@ -10,7 +10,10 @@ type PerfectForm = `${"hat" | "ist"} ${string}`;
 
 const meanings = (english: string | string[]) => (Array.isArray(english) ? english : [english]);
 
+/** An example sentence written by a person. */
 export const ex = (de: string, en: string): Example => ({ de, en });
+/** An example sentence written by an AI. It's shown with an "AI-generated" mark. */
+export const aiEx = (de: string, en: string): Example => ({ de, en, aiGenerated: true });
 
 /** `plural` is the plural without article ("Äpfel"), or null for nouns without one. */
 export const noun = (

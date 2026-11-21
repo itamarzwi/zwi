@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Check, X } from "lucide-react";
 import { useState } from "react";
+import { AiGeneratedMark } from "#/components/ai-generated-mark.tsx";
 import { PageHeader } from "#/components/page-header.tsx";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "#/components/ui/accordion.tsx";
 import { Button } from "#/components/ui/button.tsx";
@@ -108,7 +109,10 @@ function ListPage() {
                         <ul className="space-y-2">
                           {word.examples.map((example) => (
                             <li key={example.de}>
-                              <p className="font-medium">{example.de}</p>
+                              <p className="font-medium">
+                                {example.de}
+                                {example.aiGenerated && <AiGeneratedMark />}
+                              </p>
                               <p className="text-muted-foreground">{example.en}</p>
                             </li>
                           ))}
